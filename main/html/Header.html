@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../styles/main_styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="navbar">
+    <ul class="selector">
+        <li><a class="myLink active" divId="div1" href="#Home">.home()</a></li>
+        <li><a class="myLink " divId="div2" href="#Trace">.trace()</a></li>
+        <li><a class="myLink " divId="div3" href="#Saved">.saved()</a></li>
+        <li><a class="myLink " divId="div4" href="#Contact">.contact()</a></li>
+    </ul>
+</div>
+
+<div class="clearLeft"></div>
+
+<div class="myDiv" id="div1" title="home">
+    <h1 class="title">
+        <span>aria</span>
+        <span>.api()</span>
+    </h1>
+</div>
+
+<div class="myDiv" id="div2" title="trace">
+    <h1 class="title">
+        <span>aria</span>
+        <span>.trace()</span>
+    </h1>
+</div>
+
+<div class="myDiv" id="div3" title="saved">
+    <h1 class="title">
+        <span>aria</span>
+        <span>.saved()</span>
+    </h1>
+</div>
+
+<div class="myDiv" id="div4" title="contact">
+    <h1 class="title">
+        <span>aria</span>
+        <span>.contact()</span>
+    </h1>
+</div>
+
+</body>
+
+<script>
+    $(function() {
+        $("a").click(function() {
+            // remove classes from all
+            $("a").removeClass("active");
+            // add class to the one we clicked
+            $(this).addClass(" active");
+        });
+    });
+
+    $(".myLink").bind("click", function() {
+        $(".myDiv").hide();
+        var divId= $(this).attr("divId");
+        $("#" + divId).show();
+    });
+</script>
+</html>
