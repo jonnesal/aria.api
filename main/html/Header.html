@@ -9,60 +9,97 @@
 <body>
 
 <div class="navbar">
-    <ul class="selector">
-        <li><a class="myLink active" divId="div1" href="#Home">.home()</a></li>
-        <li><a class="myLink " divId="div2" href="#Trace">.trace()</a></li>
-        <li><a class="myLink " divId="div3" href="#Saved">.saved()</a></li>
-        <li><a class="myLink " divId="div4" href="#Contact">.contact()</a></li>
-    </ul>
+    <div class="selector-wrapper">
+        <p id="selected"></p>
+        <ul class="selector">
+            <li><a class="myLink active" divId="div1" href="#Home">.api()</a></li>
+            <li><a class="myLink " divId="div2" href="#Trace">.trace()</a></li>
+            <li><a class="myLink " divId="div3" href="#Saved">.saved()</a></li>
+            <li><a class="myLink " divId="div4" href="#Contact">.contact()</a></li>
+        </ul>
+    </div>
 </div>
 
 <div class="clearLeft"></div>
 
 <div class="myDiv" id="div1" title="home">
+    <div class="clearTop"></div>
     <h1 class="title">
-        <span>aria</span>
-        <span>.api()</span>
+        <span class="first">aria</span>
+        <span class="second">.api()</span>
     </h1>
 </div>
 
 <div class="myDiv" id="div2" title="trace">
+    <div class="clearTop"></div>
     <h1 class="title">
-        <span>aria</span>
-        <span>.trace()</span>
+        <span class="first">aria</span>
+        <span class="second">.trace()</span>
     </h1>
 </div>
 
 <div class="myDiv" id="div3" title="saved">
+    <div class="clearTop"></div>
     <h1 class="title">
-        <span>aria</span>
-        <span>.saved()</span>
+        <span class="first">aria</span>
+        <span class="second">.saved()</span>
     </h1>
 </div>
 
 <div class="myDiv" id="div4" title="contact">
+    <div class="clearTop"></div>
     <h1 class="title">
-        <span>aria</span>
-        <span>.contact()</span>
+        <span class="first">aria</span>
+        <span class="second">.contact()</span>
     </h1>
+    <div class="description">
+        <p>Our contact information</p>
+    </div>
+
+    <div class="contact-container">
+        <div class="contact1">
+            <pre>student1 = {
+    fname: 'Svyatoslav'
+    lname: 'Beletskiy'
+    email: 'svyatosb@metropolia.fi'
+}</pre>
+        </div>
+        <div class="contact2">
+<pre>student2 = {
+    fname: 'Jonne'
+    lname: 'Salli'
+    email: 'js@metropolia.fi'
+}</pre>
+        </div>
+    </div>
 </div>
 
 </body>
 
 <script>
-    $(function() {
-        $("a").click(function() {
-            // remove classes from all
-            $("a").removeClass("active");
-            // add class to the one we clicked
-            $(this).addClass(" active");
-        });
+    const updateSelected = () => {
+        $("#selected").text($("a[class*='active']").text());
+    }
+
+    $(function () {
+        $("#div2, #div3, #div4").hide();
+
+        updateSelected();
     });
 
-    $(".myLink").bind("click", function() {
+
+    $("a").click(function () {
+        $("a").removeClass("active");
+        $(this).addClass(" active");
+
+        updateSelected();
+    });
+
+    $(".myLink").click(function () {
         $(".myDiv").hide();
-        var divId= $(this).attr("divId");
+        var divId = $(this).attr("divId");
         $("#" + divId).show();
     });
+
 </script>
 </html>
