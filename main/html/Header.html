@@ -10,7 +10,8 @@
 
 <div class="navbar">
     <div class="selector-wrapper">
-        <p id="selected"></p>
+        <p id="selected">.api()</p>
+        <button class="infoBtn">i.</button>
         <ul class="selector">
             <li><a class="myLink active" divId="div1" href="#Home">.api()</a></li>
             <li><a class="myLink " divId="div2" href="#Trace">.trace()</a></li>
@@ -22,57 +23,97 @@
 
 <div class="clearLeft"></div>
 
-<div class="myDiv" id="div1" title="home">
+<h1 class="constantTitle">
+    <span>aria</span>
+</h1>
+
+<div class="myDiv" id="div1">
     <div class="clearTop"></div>
     <h1 class="title">
         <span class="first">aria</span>
         <span class="second">.api()</span>
     </h1>
-</div>
+    <div class="description">
+        <p>/ˈɑːrɪə/</p>
+    </div>
+    <div class="description2">
+        <span id="span2">In music, an aria is a self-<br>
+        contained piece for one voice.</span>
+    </div>
+    <div class="home-container">
+        <p class="span3">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Egestas sed sed risus pretium quam vulputate. Aliquet sagittis id
+            consectetur purus ut faucibus pulvinar elementum. Enim praesent
+            elementum facilisis leo vel fringilla est ullamcorper eget.
+            Quis auctor elit sed vulputate mi sit amet mauris. Sollicitudin
+            nibh sit amet commodo nulla. Cras tincidunt lobortis feugiat vivamus at.
+            Sed turpis tincidunt id aliquet. Quisque sagittis purus sit amet
+            volutpat consequat mauris nunc. Malesuada pellentesque elit eget
+            gravida cum sociis natoque penatibus. Viverra nam libero justo
+            laoreet sit amet cursus sit amet. Amet consectetur adipiscing
+            elit ut aliquam. Lorem ipsum dolor sit amet.</p>
+        <p class="span3">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Egestas sed sed risus pretium quam vulputate. Aliquet sagittis id
+            consectetur purus ut faucibus pulvinar elementum. Enim praesent
+            elementum facilisis leo vel fringilla est ullamcorper eget.
+            Quis auctor elit sed vulputate mi sit amet mauris. Sollicitudin
+            nibh sit amet commodo nulla. Cras tincidunt lobortis feugiat vivamus at.
+            Sed turpis tincidunt id aliquet. Quisque sagittis purus sit amet
+            volutpat consequat mauris nunc. Malesuada pellentesque elit eget
+            gravida cum sociis natoque penatibus. Viverra nam libero justo
+            laoreet sit amet cursus sit amet. Amet consectetur adipiscing
+            elit ut aliquam. Lorem ipsum dolor sit amet.</p>
+    </div>
 
-<div class="myDiv" id="div2" title="trace">
+</div> <!-- HOME -->
+
+<div class="myDiv" id="div2">
     <div class="clearTop"></div>
     <h1 class="title">
         <span class="first">aria</span>
         <span class="second">.trace()</span>
     </h1>
-</div>
+</div> <!-- TRACE -->
 
-<div class="myDiv" id="div3" title="saved">
+<div class="myDiv" id="div3">
     <div class="clearTop"></div>
     <h1 class="title">
         <span class="first">aria</span>
         <span class="second">.saved()</span>
     </h1>
-</div>
+</div> <!-- SAVED -->
 
-<div class="myDiv" id="div4" title="contact">
+<div class="myDiv" id="div4" style="overflow: hidden">
     <div class="clearTop"></div>
     <h1 class="title">
-        <span class="first">aria</span>
+        <span class="first" id="first">aria</span>
         <span class="second">.contact()</span>
     </h1>
     <div class="description">
-        <p>Our contact information</p>
+        <p>&#60;contact+information&#62;</p>
     </div>
 
     <div class="contact-container">
         <div class="contact1">
-            <pre>student1 = {
-    fname: 'Svyatoslav'
-    lname: 'Beletskiy'
-    email: 'svyatosb@metropolia.fi'
-}</pre>
+<pre>student1 = {
+    <a>fname:</a> 'Svyatoslav',
+    <a>lname:</a> 'Beletskiy',
+    <a class="email tooltip" data-clipboard-text="svyatosb@metropolia.fi" href="mailto:svyatosb@metropolia.fi" data-title="Copy to clipboard">email:</a> 'svyatosb@metropolia.fi'
+};</pre>
         </div>
         <div class="contact2">
 <pre>student2 = {
-    fname: 'Jonne'
-    lname: 'Salli'
-    email: 'js@metropolia.fi'
-}</pre>
+    <a>fname:</a> 'Jonne',
+    <a>lname:</a> 'Salli',
+    <a class="email tooltip" data-clipboard-text="js@metropolia.fi" href="mailto:js@metropolia.fi" data-title="Copy to clipboard" >email:</a> 'js@metropolia.fi'
+};</pre>
         </div>
     </div>
-</div>
+</div> <!-- CONTACT -->
+
+<div id="bottom_fade"></div>
 
 </body>
 
@@ -81,25 +122,59 @@
         $("#selected").text($("a[class*='active']").text());
     }
 
+    const hideOverflow = () => {
+        if ($("#selected").text() === '.contact()')
+            $('html, body').css({overflow: 'hidden'});
+        else
+            $('html, body').css({overflow: ''});
+    }
+
+    const scrollToTop = () => {
+        $(window).scrollTop(0)
+    }
+
+    function typeWriter(divId) {
+        if (divId === 'div1') {
+            $('.second').css({width: '6ch', animation: 'typing 0.5s steps(6), blink .7s step-end infinite alternate'});
+        } else if (divId === 'div2') {
+            $('.second').css({width: '8ch', animation: 'typing 0.5s steps(8), blink .7s step-end infinite alternate'});
+        } else if (divId === 'div3') {
+            $('.second').css({width: '8ch', animation: 'typing 0.5s steps(8), blink .7s step-end infinite alternate'});
+        } else {
+            $('.second').css({width: '10ch', animation: 'typing 0.5s steps(10), blink .7s step-end infinite alternate'});
+        }
+    }
+
     $(function () {
         $("#div2, #div3, #div4").hide();
-
-        updateSelected();
     });
 
+    $('.email').on("click", function(){
+        let value = $(this).data('clipboard-text');
+        let $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val(value).select();
+        document.execCommand("copy");
+        $temp.remove();
+    })
 
-    $("a").click(function () {
+    $(".selector a").click(function () {
         $("a").removeClass("active");
         $(this).addClass(" active");
-
         updateSelected();
     });
 
     $(".myLink").click(function () {
-        $(".myDiv").hide();
-        var divId = $(this).attr("divId");
-        $("#" + divId).show();
+        $(".myDiv").fadeOut(80);
+        let divId = $(this).attr("divId");
+        $("#" + divId).delay(800).fadeIn(500);
+
+        setTimeout(scrollToTop, 400);
+        typeWriter(divId);
+
+        hideOverflow();
     });
+
 
 </script>
 </html>
