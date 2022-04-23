@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Title</title>
     <link rel="stylesheet" href="../styles/main_styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"/>
 </head>
 <body>
 
 <div class="loader">
     <div class="loader__element"></div>
-</div> <!-- loader line at the top of the window -->
+</div>
 
 <div class="navbar">
     <div class="selector-wrapper">
@@ -25,19 +25,17 @@
             <li><a class="myLink " divId="div4" href="#Contact">.contact()</a></li>
         </ul>
     </div>
-</div> <!-- navbar -->
+</div>
 
 <div class="clearLeft1">
-    <div class="holder">
-        <figure class="circle"></figure>
-    </div>
-</div> <!-- invisible div to add space to the left side of the window -->
+    <figure class="circle"></figure>
+</div>
 
 <div class="clearLeft2"></div>
 
 <h1 class="constantTitle">
     <span>aria</span>
-</h1> <!-- don't mind this -->
+</h1>
 
 <div class="myDiv" id="div1">
     <div class="clearTop"></div>
@@ -79,7 +77,7 @@
             elit ut aliquam. Lorem ipsum dolor sit amet.</p>
     </div>
 
-</div> <!-- HOME -->
+</div>
 
 <div class="myDiv" id="div2">
     <div class="clearTop"></div>
@@ -87,7 +85,7 @@
         <span class="first">aria</span>
         <span class="second">.trace()</span>
     </h1>
-</div> <!-- TRACE -->
+</div>
 
 <div class="myDiv" id="div3">
     <div class="clearTop"></div>
@@ -95,9 +93,9 @@
         <span class="first">aria</span>
         <span class="second">.saved()</span>
     </h1>
-</div> <!-- SAVED -->
+</div>
 
-<div class="myDiv" id="div4" style="overflow: hidden">
+<div class="myDiv" id="div4">
     <div class="clearTop"></div>
     <h1 class="title">
         <span class="first" id="first">aria</span>
@@ -112,18 +110,20 @@
 <pre>student1 = {
     <a>fname:</a> 'Svyatoslav',
     <a>lname:</a> 'Beletskiy',
-    <a class="email tooltip" data-clipboard-text="svyatosb@metropolia.fi" href="mailto:svyatosb@metropolia.fi" data-title="Copy to clipboard">email:</a> 'svyatosb@metropolia.fi'
+    <a class="email tooltip" data-clipboard-text="svyatosb@metropolia.fi" href="mailto:svyatosb@metropolia.fi"
+       data-title="Copy to clipboard">email:</a> 'svyatosb@metropolia.fi'
 };</pre>
         </div>
         <div class="contact2">
 <pre>student2 = {
     <a>fname:</a> 'Jonne',
     <a>lname:</a> 'Salli',
-    <a class="email tooltip" data-clipboard-text="js@metropolia.fi" href="mailto:js@metropolia.fi" data-title="Copy to clipboard" >email:</a> 'js@metropolia.fi'
+    <a class="email tooltip" data-clipboard-text="js@metropolia.fi" href="mailto:js@metropolia.fi"
+       data-title="Copy to clipboard">email:</a> 'js@metropolia.fi'
 };</pre>
         </div>
     </div>
-</div> <!-- CONTACT -->
+</div>
 
 <div id="ex1" class="modal" style="background-color: #0c0c0c">
     <h1 class="modalTitle">
@@ -138,11 +138,14 @@
     </div>
     <div class="modalInstructions">
         <p>
-            &#160;&#160;&#160;&#160;<span class="p1">step1</span>: '<span class="green">Lorem ipsum dolor sit amet, consectetur adipiscing</span>' +
+            &#160;&#160;&#160;&#160;<span class="p1">step1</span>: '<span class="green">Lorem ipsum dolor sit amet, consectetur adipiscing</span>'
+            +
             &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'<span class="green">elit. Lorem ipsum dolor sit amet.</span>',<br><br>
             &#160;&#160;&#160;&#160;<span class="p1">step2</span>: '<span class="green">Lorem ipsum dolor sit amet, consectetur adipiscing.</span>',<br><br>
-            &#160;&#160;&#160;&#160;<span class="p1">step3</span>: '<span class="green">Lorem ipsum dolor sit amet, consectetur adipiscing</span>' +
-            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'<span class="green">elit. Lorem ipsum dolor sit amet. Lorem ipsum</span>' +
+            &#160;&#160;&#160;&#160;<span class="p1">step3</span>: '<span class="green">Lorem ipsum dolor sit amet, consectetur adipiscing</span>'
+            +
+            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'<span class="green">elit. Lorem ipsum dolor sit amet. Lorem ipsum</span>'
+            +
             &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'<span class="green">dolor sit amet, consectetur adipiscing.</span>',<br><br>
             &#160;&#160;&#160;&#160;<span class="p1">step4</span>: '<span class="green">Lorem ipsum dolor sit amet, consectetur adipiscing.</span>'
         </p>
@@ -150,9 +153,9 @@
     <div class="modalDescription3">
         <span>}</span>
     </div>
-</div> <!-- pop-up instructions -->
+</div>
 
-<div id="bottom_fade"></div> <!-- content fade effect at the bottom of the window -->
+<div id="bottom_fade"></div>
 
 </body>
 
@@ -175,7 +178,10 @@
         } else if (divId === 'div3') {
             $('.second').css({width: '8ch', animation: 'typing 0.5s steps(8), blink .7s step-end infinite alternate'});
         } else {
-            $('.second').css({width: '10ch', animation: 'typing 0.5s steps(10), blink .7s step-end infinite alternate'});
+            $('.second').css({
+                width: '10ch',
+                animation: 'typing 0.5s steps(10), blink .7s step-end infinite alternate'
+            });
         }
     }
 
@@ -187,12 +193,12 @@
     $(function () {
         showLoader();
 
-        ("#div2, #div3, #div4, #div1, .constantTitle, .navbar").hide();
+        $("#div2, #div3, #div4, #div1, .constantTitle, .navbar, .clearLeft2, .clearLeft1").hide();
 
-        ('#div1, .constantTitle, .navbar').delay(1000).fadeIn(2000);
+        $('#div1, .constantTitle, .navbar, .clearLeft1').delay(1000).fadeIn(2000);
     });
 
-    $('.email').on("click", function(){
+    $('.email').on("click", function () {
         let value = $(this).data('clipboard-text');
         let $temp = $("<input>");
         $("body").append($temp);
@@ -226,11 +232,11 @@
     });
 
     $('body').addClass('stop-scrolling')
-    $(document).on("click",function() {
+    $(document).on("click", function () {
         $('body').addClass('stop-scrolling')
     });
 
-    $(".infoBtn").on("click",function() {
+    $(".infoBtn").on("click", function () {
         $("#ex1").fadeIn(400);
         $('body').removeClass('stop-scrolling')
     });
