@@ -5,6 +5,7 @@
     "cookie-parser": "^1.4.6",
     "express": "^4.17.3",
     "gsap": "^3.10.4",
+    "js-cookie": "^3.0.1",
     "multer": "^1.4.4",
     "scrollmagic": "^2.0.8",
     "vue": "^3.2.33"

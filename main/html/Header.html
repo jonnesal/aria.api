@@ -5,13 +5,19 @@
     <title>Title</title>
     <link rel="stylesheet" href="../styles/main_styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 </head>
 <body>
+
+<div class="loader">
+    <div class="loader__element"></div>
+</div>
 
 <div class="navbar">
     <div class="selector-wrapper">
         <p id="selected">.api()</p>
-        <button class="infoBtn">i.</button>
+        <p><a class="infoBtn" href="#ex1" rel="modal:open">i.</a></p>
         <ul class="selector">
             <li><a class="myLink active" divId="div1" href="#Home">.api()</a></li>
             <li><a class="myLink " divId="div2" href="#Trace">.trace()</a></li>
@@ -113,20 +119,42 @@
     </div>
 </div> <!-- CONTACT -->
 
+<div id="ex1" class="modal" style="background-color: #0c0c0c">
+    <h1 class="modalTitle">
+        <span class="modalFirst">aria</span>
+        <span class="modalSecond">.usage('<span class="p1">i</span>nfo')</span>
+    </h1>
+    <div class="modalDescription">
+        <p>How to use the .trace() function</p>
+    </div>
+    <div class="modalDescription2">
+        <span>.trace().instructions = {</span>
+    </div>
+    <div class="modalInstructions">
+        <p>
+            &#160;&#160;&#160;&#160;<span class="p1">step1</span>: '<span id="green">Lorem ipsum dolor sit amet, consectetur adipiscing</span>' +
+            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'<span id="green">elit. Lorem ipsum dolor sit amet.</span>',<br><br>
+            &#160;&#160;&#160;&#160;<span class="p1">step2</span>: '<span id="green">Lorem ipsum dolor sit amet, consectetur adipiscing.</span>',<br><br>
+            &#160;&#160;&#160;&#160;<span class="p1">step3</span>: '<span id="green">Lorem ipsum dolor sit amet, consectetur adipiscing</span>' +
+            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'<span id="green">elit. Lorem ipsum dolor sit amet. Lorem ipsum</span>' +
+            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'<span id="green">dolor sit amet, consectetur adipiscing.</span>',<br><br>
+            &#160;&#160;&#160;&#160;<span class="p1">step4</span>: '<span id="green">Lorem ipsum dolor sit amet, consectetur adipiscing.</span>'
+        </p>
+    </div>
+    <div class="modalDescription3">
+        <span>}</span>
+    </div>
+</div>
+
 <div id="bottom_fade"></div>
 
 </body>
 
 <script>
-    const updateSelected = () => {
-        $("#selected").text($("a[class*='active']").text());
-    }
+    $("#div2, #div3, #div4, .loader").hide();
 
-    const hideOverflow = () => {
-        if ($("#selected").text() === '.contact()')
-            $('html, body').css({overflow: 'hidden'});
-        else
-            $('html, body').css({overflow: ''});
+    const updateSelected = () => {
+        $("#selected").text($("a[class*='active']").text()).fadeIn(700);
     }
 
     const scrollToTop = () => {
@@ -145,8 +173,17 @@
         }
     }
 
+    function showLoader() {
+        $(".loader").show();
+        $('.loader').delay(1300).fadeOut(200);
+    }
+
     $(function () {
-        $("#div2, #div3, #div4").hide();
+        showLoader();
+
+        $("#div2, #div3, #div4, #div1, .constantTitle, .navbar").hide();
+
+        $('#div1, .constantTitle, .navbar').delay(1000).fadeIn(2000);
     });
 
     $('.email').on("click", function(){
@@ -161,20 +198,30 @@
     $(".selector a").click(function () {
         $("a").removeClass("active");
         $(this).addClass(" active");
-        updateSelected();
+        $("#selected").fadeOut(300);
+        setTimeout(updateSelected, 500);
     });
 
     $(".myLink").click(function () {
+        showLoader();
+
         $(".myDiv").fadeOut(80);
         let divId = $(this).attr("divId");
+
+        if (divId === 'div4')
+            $('html, body').css({overflow: 'hidden'});
+        else
+            $('html, body').css({overflow: ''});
+
         $("#" + divId).delay(800).fadeIn(500);
 
         setTimeout(scrollToTop, 400);
         typeWriter(divId);
-
-        hideOverflow();
     });
 
+    $(".infoBtn").click(function () {
+        $("#ex1").fadeIn(400);
+    });
 
 </script>
 </html>

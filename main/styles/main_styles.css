@@ -34,12 +34,13 @@ body::-webkit-scrollbar {
 }
 
 .navbar {
-    z-index: 1;
+    z-index: 10;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     height: 50px;
+    margin-top: 0;
 }
 
 .selector-wrapper {
@@ -58,9 +59,6 @@ body::-webkit-scrollbar {
 
 .infoBtn {
     position: relative;
-    background-color: Transparent;
-    background-repeat:no-repeat;
-    border: none;
     cursor:pointer;
     overflow: hidden;
 
@@ -70,9 +68,8 @@ body::-webkit-scrollbar {
     color: #FFC300;
 
     float: right;
-    margin-right: 0;
     margin-left: 16px;
-    top: 0.35em;
+    top: -5px;
 }
 
 .infoBtn:hover {
@@ -82,12 +79,13 @@ body::-webkit-scrollbar {
 .selector {
     float: right;
     padding-right: 0;
+    text-align: center;
     font-weight: 500;
 }
 
 ul {
     list-style-type: none;
-    margin: 0;
+    margin-top: 0;
     display: flex;
 }
 
@@ -95,7 +93,7 @@ li a {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 0 14px 16px;
+    padding: 0 0 0 16px;
     text-decoration: none;
 }
 
@@ -145,7 +143,7 @@ li a:hover {
     width: 100%;
     bottom: 0;
     background: linear-gradient(0deg, rgba(12,12,12,1) 0%, rgba(12,12,12,0)100%);
-    z-index: 98;
+    z-index: 90;
 }
 
 .title, .constantTitle {
@@ -206,11 +204,11 @@ li a:hover {
     margin-top: 10px;
 }
 
-.first {
+.first, .modalFirst {
     color: white;
 }
 
-.second {
+.second, .modalSecond {
     color: #682AE9FF;
     font-weight: 600;
 }
@@ -265,7 +263,71 @@ li a:hover {
     color: #757474;
 }
 
+.modal {
+    font: inherit;
+    font-weight: 500;
+    font-size: 1em;
 
+    height: auto;
+    min-width: 700px;
+
+    z-index: 99;
+
+    text-align: center;
+}
+
+.modalTitle {
+    font-size: 2em;
+    font-weight: 700;
+    word-spacing: -1em;
+    height: 1.5em;
+    width: 100%;
+    margin: 0;
+}
+
+.modalDescription {
+    font-size: 1em;
+    color: #757474;
+    height: 2em;
+    width: 100%;
+    margin-top: -20px;
+}
+
+.p1 {
+    font-size: 1em;
+    color: #FFC300;
+}
+
+.modalDescription2 {
+    font-size: 1em;
+    color: white;
+    height: 3em;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.modalInstructions {
+    position: relative;
+    font-size: 1em;
+    color: #757474;
+    margin-top: -20px;
+}
+
+.modalInstructions p {
+    margin-top: 0;
+}
+
+.modalDescription3 {
+    font-size: 1em;
+    color: white;
+    height: 3em;
+    width: 100%;
+    margin-top: -10px;
+}
+
+#green {
+    color: #e0f6bf;
+}
 
 /* setup tooltips */
 .tooltip {
@@ -311,6 +373,47 @@ li a:hover {
 .tooltip:hover:after, .tooltip:hover:before {
     opacity: 1;
     transform: translate3d(0, 0, 0);
+}
+
+
+:root {
+    --main-color    : #111;
+    --loader-color: #682AE9FF;
+    --back-color: #0c0c0c;
+    --time: 1.5s;
+    --size: 3px;
+}
+
+.loader {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0; left: 0;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-start;
+    margin-bottom: 0;
+}
+
+.loader__element {
+    height: var(--size);
+    width: 100%;
+    background: var(--back-color);
+    margin-bottom: 0;
+}
+
+.loader__element:before {
+    content: '';
+    display: block;
+    background-color: var(--loader-color);
+    height: var(--size);
+    width: 0;
+    animation: getWidth var(--time) ease-in infinite;
+}
+
+@keyframes getWidth {
+    100% { width: 100%; }
 }
 
 
