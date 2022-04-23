@@ -12,7 +12,7 @@
 
 <div class="loader">
     <div class="loader__element"></div>
-</div>
+</div> <!-- loader line at the top of the window -->
 
 <div class="navbar">
     <div class="selector-wrapper">
@@ -25,13 +25,19 @@
             <li><a class="myLink " divId="div4" href="#Contact">.contact()</a></li>
         </ul>
     </div>
-</div>
+</div> <!-- navbar -->
 
-<div class="clearLeft"></div>
+<div class="clearLeft1">
+    <div class="holder">
+        <figure class="circle"></figure>
+    </div>
+</div> <!-- invisible div to add space to the left side of the window -->
+
+<div class="clearLeft2"></div>
 
 <h1 class="constantTitle">
     <span>aria</span>
-</h1>
+</h1> <!-- don't mind this -->
 
 <div class="myDiv" id="div1">
     <div class="clearTop"></div>
@@ -144,14 +150,14 @@
     <div class="modalDescription3">
         <span>}</span>
     </div>
-</div>
+</div> <!-- pop-up instructions -->
 
-<div id="bottom_fade"></div>
+<div id="bottom_fade"></div> <!-- content fade effect at the bottom of the window -->
 
 </body>
 
 <script>
-    $("#div2, #div3, #div4, .loader").hide();
+    $("#div2, #div3, #div4, .loader, .clearLeft2").hide();
 
     const updateSelected = () => {
         $("#selected").text($("a[class*='active']").text()).fadeIn(700);
@@ -175,15 +181,15 @@
 
     function showLoader() {
         $(".loader").show();
-        $('.loader').delay(1300).fadeOut(200);
+        $('.loader').delay(1350).fadeOut(300);
     }
 
     $(function () {
         showLoader();
 
-        $("#div2, #div3, #div4, #div1, .constantTitle, .navbar").hide();
+        ("#div2, #div3, #div4, #div1, .constantTitle, .navbar").hide();
 
-        $('#div1, .constantTitle, .navbar').delay(1000).fadeIn(2000);
+        ('#div1, .constantTitle, .navbar').delay(1000).fadeIn(2000);
     });
 
     $('.email').on("click", function(){
@@ -219,9 +225,25 @@
         typeWriter(divId);
     });
 
-    $(".infoBtn").click(function () {
-        $("#ex1").fadeIn(400);
+    $('body').addClass('stop-scrolling')
+    $(document).on("click",function() {
+        $('body').addClass('stop-scrolling')
     });
+
+    $(".infoBtn").on("click",function() {
+        $("#ex1").fadeIn(400);
+        $('body').removeClass('stop-scrolling')
+    });
+
+    window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll > 0) {
+            $(".clearLeft2").show();
+        } else
+            $(".clearLeft2").fadeOut(300);
+    });
+
 
 </script>
 </html>

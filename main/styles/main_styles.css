@@ -1,6 +1,8 @@
 html {
     font-size: 1em;
     scroll-behavior: smooth;
+    max-width: 100%;
+
 }
 
 @media screen and (min-width: 601px) {
@@ -105,18 +107,80 @@ li a:hover {
     color: #757474;
 }
 
-.clearLeft {
+.clearLeft1 {
     display: block;
-    position: relative;
+    position: fixed;
     width: 25%;
-    height: 100vh;
+    height: 1600px;
     float: left;
+}
+
+.clearLeft1:after {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    border-right: solid 1px #682AE9FF;
+    top: 40%;
+    bottom: -15px;
+    right: 1em;
+    height: 100%;
+    opacity: 0.8;
+}
+
+.clearLeft2 {
+    display: block;
+    position: fixed;
+    width: 25%;
+    height: 1600px;
+    float: left;
+}
+
+.clearLeft2:after {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    border-right: solid 1px #682AE9FF;
+    top: 0;
+    bottom: -15px;
+    right: 1em;
+    height: 40%;
+    opacity: 0;
+    animation: fadeIn 0.3s ease-in both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+    to {
+        opacity: 0.4;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.holder {
+    margin: 0;
+    position: relative;
+    top: 36.45%;
+    height: 6em;
+}
+
+.circle {
+    position: relative;
+    float: right;
+    background: #682AE9FF;
+    border-radius: 100%;
+    height: 12px;
+    width: 12px;
+    margin-right: 0.6em;
+    top: 30%;
 }
 
 .constantTitle {
     position: relative;
-    top: 45.1vh;
-    left: 0.02vh;
+    top: 45vh;
+    left: 25%;
     color: white;
     font-weight: 700;
 }
@@ -414,6 +478,10 @@ li a:hover {
 
 @keyframes getWidth {
     100% { width: 100%; }
+}
+
+.stop-scrolling {
+    overflow-x: hidden;
 }
 
 
