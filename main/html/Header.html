@@ -28,21 +28,27 @@
 </div>
 
 <div class="clearLeft1">
-    <figure class="circle"></figure>
+    <div class="align">
+        <div class="circle"></div>
+        <div class="circle_pulse" id="pulsating"></div>
+    </div>
 </div>
 
 <div class="clearLeft2"></div>
 
-<h1 class="constantTitle">
-    <span>aria</span>
-</h1>
+<div class="constantTitleDiv">
+    <div class="clearTop"></div>
+    <div class="title">
+        <span class="first">aria</span>
+    </div>
+</div>
 
 <div class="myDiv" id="div1">
     <div class="clearTop"></div>
-    <h1 class="title">
+    <div class="title">
         <span class="first">aria</span>
         <span class="second">.api()</span>
-    </h1>
+    </div>
     <div class="description">
         <p>/ˈɑːrɪə/</p>
     </div>
@@ -51,7 +57,7 @@
         contained piece for one voice.</span>
     </div>
     <div class="home-container">
-        <p class="span3">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        <span class="span3">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Egestas sed sed risus pretium quam vulputate. Aliquet sagittis id
             consectetur purus ut faucibus pulvinar elementum. Enim praesent
@@ -62,8 +68,8 @@
             volutpat consequat mauris nunc. Malesuada pellentesque elit eget
             gravida cum sociis natoque penatibus. Viverra nam libero justo
             laoreet sit amet cursus sit amet. Amet consectetur adipiscing
-            elit ut aliquam. Lorem ipsum dolor sit amet.</p>
-        <p class="span3">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            elit ut aliquam. Lorem ipsum dolor sit amet.</span>
+        <span class="span3">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Egestas sed sed risus pretium quam vulputate. Aliquet sagittis id
             consectetur purus ut faucibus pulvinar elementum. Enim praesent
@@ -74,7 +80,7 @@
             volutpat consequat mauris nunc. Malesuada pellentesque elit eget
             gravida cum sociis natoque penatibus. Viverra nam libero justo
             laoreet sit amet cursus sit amet. Amet consectetur adipiscing
-            elit ut aliquam. Lorem ipsum dolor sit amet.</p>
+            elit ut aliquam. Lorem ipsum dolor sit amet.</span>
     </div>
 
 </div>
@@ -160,7 +166,7 @@
 </body>
 
 <script>
-    $("#div2, #div3, #div4, .loader, .clearLeft2").hide();
+    $("#div2, #div3, #div4, .loader, .clearLeft2, .clearLeft1").hide();
 
     const updateSelected = () => {
         $("#selected").text($("a[class*='active']").text()).fadeIn(700);
@@ -185,17 +191,29 @@
         }
     }
 
+    function pulse() {
+        $("#pulsating").show();
+        $('#pulsating').delay(2000).fadeOut(300);
+    }
+
     function showLoader() {
         $(".loader").show();
         $('.loader').delay(1350).fadeOut(300);
     }
 
+    function enableScrolling() {
+        $('body').removeClass('stop-scrolling2');
+    }
+
     $(function () {
         showLoader();
+        setTimeout(pulse, 1000);
 
-        $("#div2, #div3, #div4, #div1, .constantTitle, .navbar, .clearLeft2, .clearLeft1").hide();
+        $('body').addClass('stop-scrolling2')
+        $("#div2, #div3, #div4, #div1, .constantTitle, .navbar, .clearLeft1").hide();
 
         $('#div1, .constantTitle, .navbar, .clearLeft1').delay(1000).fadeIn(2000);
+        setTimeout(enableScrolling, 2000);
     });
 
     $('.email').on("click", function () {
@@ -216,6 +234,7 @@
 
     $(".myLink").click(function () {
         showLoader();
+        pulse();
 
         $(".myDiv").fadeOut(80);
         let divId = $(this).attr("divId");
@@ -231,14 +250,14 @@
         typeWriter(divId);
     });
 
-    $('body').addClass('stop-scrolling')
+    $('body').addClass('stop-scrolling1')
     $(document).on("click", function () {
-        $('body').addClass('stop-scrolling')
+        $('body').addClass('stop-scrolling1')
     });
 
     $(".infoBtn").on("click", function () {
         $("#ex1").fadeIn(400);
-        $('body').removeClass('stop-scrolling')
+        $('body').removeClass('stop-scrolling1')
     });
 
     window.addEventListener("scroll", () => {

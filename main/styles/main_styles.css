@@ -51,6 +51,10 @@ html, body {
         margin-top: -0.5rem;
     }
 
+    .tooltip {
+        font-size: 1rem;
+    }
+
     /*SIZE ATTRIBUTES*/
     body, html {
         width: 1920px;
@@ -91,6 +95,15 @@ html, body {
         height: 100%;
     }
 
+    .constantTitleDiv {
+        position: absolute;
+        top: 0;
+        left: 25%;
+        width: 50vw;
+        height: 100%;
+        margin: 0;
+    }
+
     .myDiv {
         position: absolute;
         z-index: 1;
@@ -101,53 +114,143 @@ html, body {
         margin: 0;
     }
 
-    .modal {
-        font: inherit;
-
-        height: auto;
-        min-width: 700px;
-
-        z-index: 99;
-
-        text-align: center;
+    .clearTop {
+        position: relative;
+        height: 47.5vh;
+        display: block;
+        width: 100%;
+        top: 0;
     }
 
+    .title {
+        height: auto;
+        width: 100%;
+        margin: 0;
+    }
+
+    .description {
+        color: #757474;
+        height: auto;
+        width: 100%;
+        margin: 0;
+    }
+
+    .description2 {
+        color: white;
+        height: auto;
+        width: 100%;
+        margin: 0;
+    }
+
+    .home-container {
+        margin: 0;
+        color: #757474;
+        width: 50%;
+    }
+
+    .span3 {
+        min-width: 100%;
+        height: auto;
+        margin-top: 1rem;
+        display: inline-block;
+        text-align: justify;
+        text-align-last: justify;
+    }
+
+    .modal {
+        font: inherit;
+        height: auto;
+        min-width: 900px;
+        z-index: 99;
+        text-align: center;
+    }
 
     /*EFFECTS*/
     .clearLeft1:after {
         position: absolute;
         display: inline-block;
-        height: 56vh;
-        right: 2rem;
-        bottom: -5vh;
-
+        height: 49.5vh;
+        right: 1.7325rem;
+        bottom: -0.5vh;
         content: '';
-        border-right: solid 0.1rem #682AE9FF;
+        border-right: solid 0.12rem #682AE9FF;
         opacity: 0.8;
     }
 
     .clearLeft2:after {
         position: absolute;
         display: inline-block;
-        height: 55vh;
-        right: 2rem;
-        top: -5vh;
-
+        height: 51vh;
+        right: 1.7325rem;
         content: '';
-        border-right: solid 0.1rem #682AE9FF;
+        border-right: solid 0.12rem #682AE9FF;
         opacity: 0;
         animation: fadeIn 0.3s ease-in both;
     }
 
-    .circle {
+    .align {
         position: relative;
         float: right;
-        width: 0.6rem;
-        height: 0.6rem;
+        top: 48.3vh;
+        width: 3.465rem;
+        height: 3.465rem;
+        display: block;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .circle {
+        position:absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 0.46rem;
+        height: 0.46rem;
         background: #682AE9FF;
         border-radius: 100%;
-        right: -0.77rem;
-        top: 46.7vh;
+    }
+
+    .circle_pulse {
+        position:absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: transparent;
+        opacity: 0.1;
+        width: 2.6rem;
+        height: 2.6rem;
+        border: 2px solid #682AE9FF;
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        -o-border-radius: 100px;
+        -ms-border-radius: 100px;
+        /* Giving Animation Function */
+        -webkit-animation: pulse 2s linear infinite;
+        -moz-animation: pulse 2s linear infinite;
+        border-image: initial;
+    }
+
+    @-webkit-keyframes pulse
+    {
+        0% {-webkit-transform: scale(0); opacity: 0;}
+        8% {-webkit-transform: scale(0); opacity: 0;}
+        15% {-webkit-transform: scale(0.1); opacity: 1;}
+        30% {-webkit-transform: scale(0.5); opacity: 1;}
+        100% {opacity: 0; -webkit-transform: scale(1);}
+    }
+
+    @-moz-keyframes pulse
+    {
+        0% {-moz-transform: scale(0); opacity: 0;}
+        8% {-moz-transform: scale(0); opacity: 0;}
+        15% {-moz-transform: scale(0.1); opacity: 1;}
+        30% {-moz-transform: scale(0.5); opacity: 1;}
+        100% {opacity: 0; -moz-transform: scale(1);}
     }
 }
 
@@ -183,6 +286,10 @@ html, body {
         cursor:pointer;
         margin-left: 1rem;
         margin-top: -1rem;
+    }
+
+    .tooltip {
+        font-size: 1.3rem;
     }
 
     /*SIZE ATTRIBUTES*/
@@ -225,6 +332,15 @@ html, body {
         height: 100%;
     }
 
+    .constantTitleDiv {
+        position: absolute;
+        top: 0;
+        left: 25%;
+        width: 50vw;
+        height: 100%;
+        margin: 0;
+    }
+
     .myDiv {
         position: absolute;
         z-index: 1;
@@ -235,26 +351,64 @@ html, body {
         margin: 0;
     }
 
-    .modal {
-        font: inherit;
-
-        height: auto;
-        min-width: 900px;
-
-        z-index: 99;
-
-        text-align: center;
+    .clearTop {
+        position: relative;
+        height: 47.5vh;
+        display: block;
+        width: 100%;
+        top: 0;
     }
 
+    .title {
+        height: auto;
+        width: 100%;
+        margin: 0;
+    }
+
+    .description {
+        color: #757474;
+        height: auto;
+        width: 100%;
+        margin: 0;
+    }
+
+    .description2 {
+        color: white;
+        height: auto;
+        width: 100%;
+        margin: 0;
+    }
+
+    .home-container {
+        margin: 0;
+        color: #757474;
+        width: 50%;
+    }
+
+    .span3 {
+        min-width: 100%;
+        height: auto;
+        margin-top: 1rem;
+        display: inline-block;
+        text-align: justify;
+        text-align-last: justify;
+    }
+
+    .modal {
+        font: inherit;
+        height: auto;
+        min-width: 900px;
+        z-index: 99;
+        text-align: center;
+    }
 
     /*EFFECTS*/
     .clearLeft1:after {
         position: absolute;
         display: inline-block;
-        height: 57vh;
-        right: 2.5rem;
-        bottom: -5vh;
-
+        height: 50vh;
+        right: 2.45rem;
+        bottom: -0.5vh;
         content: '';
         border-right: solid 0.12rem #682AE9FF;
         opacity: 0.8;
@@ -263,25 +417,77 @@ html, body {
     .clearLeft2:after {
         position: absolute;
         display: inline-block;
-        height: 55vh;
-        right: 2.5rem;
-        top: -5vh;
-
+        height: 50.5vh;
+        right: 2.45rem;
         content: '';
         border-right: solid 0.12rem #682AE9FF;
         opacity: 0;
         animation: fadeIn 0.3s ease-in both;
     }
 
-    .circle {
+    .align {
         position: relative;
         float: right;
+        top: 47.5vh;
+        width: 4.95rem;
+        height: 4.95rem;
+        display: block;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .circle {
+        position:absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
         width: 0.6rem;
         height: 0.6rem;
         background: #682AE9FF;
         border-radius: 100%;
-        right: -0.29rem;
-        top: 46.7vh;
+    }
+
+    .circle_pulse {
+        position:absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: transparent;
+        opacity: 0.1;
+        width: 3.6rem;
+        height: 3.6rem;
+        border: 2px solid #682AE9FF;
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        -o-border-radius: 100px;
+        -ms-border-radius: 100px;
+        /* Giving Animation Function */
+        -webkit-animation: pulse 2s linear infinite;
+        -moz-animation: pulse 2s linear infinite;
+        border-image: initial;
+    }
+
+    @-webkit-keyframes pulse
+    {
+        0% {-webkit-transform: scale(0); opacity: 0;}
+        8% {-webkit-transform: scale(0); opacity: 0;}
+        15% {-webkit-transform: scale(0.1); opacity: 1;}
+        30% {-webkit-transform: scale(0.5); opacity: 1;}
+        100% {opacity: 0; -webkit-transform: scale(1);}
+    }
+
+    @-moz-keyframes pulse
+    {
+        0% {-moz-transform: scale(0); opacity: 0;}
+        8% {-moz-transform: scale(0); opacity: 0;}
+        15% {-moz-transform: scale(0.1); opacity: 1;}
+        30% {-moz-transform: scale(0.5); opacity: 1;}
+        100% {opacity: 0; -moz-transform: scale(1);}
     }
 }
 
@@ -348,21 +554,6 @@ li a:hover {
     }
 }
 
-.constantTitle {
-    position: relative;
-    top: 45vh;
-    left: 25%;
-    color: white;
-}
-
-
-.clearTop {
-    display: block;
-    width: 100%;
-    height: 45vh;
-    top: 0;
-}
-
 #bottom_fade {
     position: fixed;
     height: 100px;
@@ -374,50 +565,12 @@ li a:hover {
 
 .title, .constantTitle {
     word-spacing: -1em;
-    height: 1.5em;
-    width: 100%;
-    margin: 0;
 }
 
 .title {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-}
-
-.description {
-    color: #757474;
-    height: 2em;
-    width: 100%;
-    margin: 0;
-}
-
-.description2 {
-    color: white;
-    height: 3em;
-    width: 100%;
-    margin: 0;
-}
-
-.home-container {
-    position: relative;
-    margin-top: 20px;
-    color: #757474;
-    width: 50%;
-    max-height: 100%;
-}
-
-.home-container p {
-    display: inline-block;
-    text-align: justify;
-    text-align-last: justify;
-}
-
-.span3 {
-    margin-top: 20px;
-    margin-bottom: 0;
-    min-width: 100%;
-    height: 12em;
 }
 
 .description p {
@@ -613,8 +766,13 @@ li a:hover {
     100% { width: 100%; }
 }
 
-.stop-scrolling {
+.stop-scrolling1 {
     overflow-x: hidden;
+}
+
+.stop-scrolling2 {
+    height: 100%;
+    overflow: hidden;
 }
 
 
