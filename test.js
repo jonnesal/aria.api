@@ -1,9 +1,16 @@
 const express = require('express');
+const pool = require('../aria.api/main/MariaConnect/database');
 const app = express();
+
+//Import routes
+const postRoute = require('../aria.api/main/routes/posts');
+
+app.use('/favorite', postRoute);
 
 app.get('/', function (req, res) {
     res.send('Hello World');
-})
+});
+
 
 let server = app.listen(8081, function () {
     let host = server.address().address
@@ -11,3 +18,7 @@ let server = app.listen(8081, function () {
 
     console.log("Example app listening at http://%s:%s", host, port)
 })
+
+//liitytään databaseen
+pool.getConnection().then(r => {console.log("Connected")});
+
