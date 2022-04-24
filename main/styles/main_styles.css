@@ -5,6 +5,14 @@ html, body {
     overflow-x: hidden;
 }
 
+@font-face {
+    font-family: "Roboto Mono";
+    src: url("main/assets/fonts/RobotoMono-Regular.ttf") format('truetype'),
+         url("main/assets/fonts/RobotoMono-Bold.ttf") format('truetype'),
+         url("main/assets/fonts/RobotoMono-Medium.ttf") format('truetype'),
+         url("main/assets/fonts/RobotoMono-Light.ttf") format('truetype');
+}
+
 @media only screen and (min-width: 900px) {
     .navbar{
         font-size: 1rem;
@@ -41,52 +49,71 @@ html, body {
         font-size: 1rem;
         font-weight: 500;
     }
+
     .infoBtn {
         position: relative;
         float: right;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
         font-weight: bold;
         color: #FFC300;
         cursor:pointer;
-        margin-left: 1rem;
-        margin-top: -0.5rem;
     }
 
     .tooltip {
         font-size: 1rem;
     }
 
-    /*SIZE ATTRIBUTES*/
-    body, html {
+    body {
         width: 1920px;
         height: 100vh;
     }
 
     .navbar {
         position: fixed;
-        z-index: 2;
+        z-index: 1000;
         width: 100vw;
         height: 2rem;
     }
 
     .selector-wrapper {
-        position: absolute;
+        position: relative;
+        display: block;
         left: 25%;
-        top: 0;
         width: 50vw;
         height: 2rem;
-        margin-top: 0;
+        padding-top: 0.6rem;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
     }
 
-    #selected {
+    .selected {
+        position: relative;
+        margin: auto;
         float: left;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
         color: #7b44ee;
-        margin-top: 0.5rem;
     }
 
     .selector {
+        position: relative;
         float: right;
-        padding-right: 0;
-        margin-top: -0.5rem;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    li a {
+        padding: 0 1.5rem 0 0;
     }
 
     .clearLeft1, .clearLeft2 {
@@ -159,10 +186,38 @@ html, body {
 
     .modal {
         font: inherit;
+        min-width: 40%;
         height: auto;
-        min-width: 900px;
         z-index: 99;
         text-align: center;
+    }
+
+    .modalTitle {
+        height: auto;
+        width: 100%;
+        margin: auto;
+    }
+
+    .modalInstructions {
+        position: relative;
+        color: #757474;
+        margin: auto;
+    }
+
+    .modalDescription3 {
+        color: white;
+        height: auto;
+        width: 100%;
+        margin: auto;
+    }
+
+    #bottom_fade {
+        position: fixed;
+        height: 7rem;
+        width: 100%;
+        bottom: 0;
+        background: linear-gradient(0deg, rgba(12,12,12,1) 0%, rgba(12,12,12,0)100%);
+        z-index: 90;
     }
 
     /*EFFECTS*/
@@ -192,8 +247,8 @@ html, body {
         position: relative;
         float: right;
         top: 48.3vh;
-        width: 3.465rem;
-        height: 3.465rem;
+        width: 3.5rem;
+        height: 3.5rem;
         display: block;
         text-align: center;
         align-items: center;
@@ -261,7 +316,7 @@ html, body {
         font-weight: 500;
     }
     .title, .constantTitle, .modalTitle {
-        font-size: 3.3rem;
+        font-size: 3.9rem;
         font-weight: 400;
     }
     .first {
@@ -278,14 +333,17 @@ html, body {
         font-size: 1.3rem;
         font-weight: 500;
     }
+
     .infoBtn {
         position: relative;
-        float: right;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
         font-weight: bold;
         color: #FFC300;
-        cursor:pointer;
-        margin-left: 1rem;
-        margin-top: -1rem;
+        cursor: pointer;
     }
 
     .tooltip {
@@ -293,37 +351,52 @@ html, body {
     }
 
     /*SIZE ATTRIBUTES*/
-    body, html {
+    body {
         width: 2560px;
         height: 100vh;
     }
 
     .navbar {
         position: fixed;
-        z-index: 2;
+        z-index: 1000;
         width: 100vw;
-        height: 2rem;
+        height: 3rem;
     }
 
     .selector-wrapper {
-        position: absolute;
-        left: 25%;
-        top: 0;
+        position: relative;
+        display: block;
         width: 50vw;
         height: 3rem;
-        margin-top: 0;
+        padding-top: 0.9rem;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
     }
 
-    #selected {
+    .selected {
+        position: relative;
+        margin: auto;
         float: left;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
         color: #7b44ee;
-        margin-top: 0.3rem;
     }
 
     .selector {
+        position: relative;
         float: right;
-        padding-right: 0;
-        margin-top: -1rem;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    li a {
+        padding: 0 1.5rem 0 0;
     }
 
     .clearLeft1, .clearLeft2 {
@@ -360,6 +433,7 @@ html, body {
     }
 
     .title {
+        position: relative;
         height: auto;
         width: 100%;
         margin: 0;
@@ -379,7 +453,7 @@ html, body {
         margin: 0;
     }
 
-    .home-container {
+    .home-container, .contact-container {
         margin: 0;
         color: #757474;
         width: 50%;
@@ -396,17 +470,60 @@ html, body {
 
     .modal {
         font: inherit;
+        min-width: 35%;
         height: auto;
-        min-width: 900px;
         z-index: 99;
         text-align: center;
     }
+
+    .modalTitle {
+        height: auto;
+        width: 100%;
+        margin: auto;
+    }
+
+    .modalDescription {
+        color: #757474;
+        height: auto;
+        width: 100%;
+        margin: auto;
+    }
+
+    .modalDescription2 {
+        color: white;
+        height: auto;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .modalInstructions {
+        position: relative;
+        color: #757474;
+        margin: auto;
+    }
+
+    .modalDescription3 {
+        color: white;
+        height: auto;
+        width: 100%;
+        margin: auto;
+    }
+
+    #bottom_fade {
+        position: fixed;
+        height: 8rem;
+        width: 100%;
+        bottom: 0;
+        background: linear-gradient(0deg, rgba(12,12,12,1) 0%, rgba(12,12,12,0)100%);
+        z-index: 90;
+    }
+
 
     /*EFFECTS*/
     .clearLeft1:after {
         position: absolute;
         display: inline-block;
-        height: 50vh;
+        height: 49.5vh;
         right: 2.45rem;
         bottom: -0.5vh;
         content: '';
@@ -417,7 +534,7 @@ html, body {
     .clearLeft2:after {
         position: absolute;
         display: inline-block;
-        height: 50.5vh;
+        height: 51vh;
         right: 2.45rem;
         content: '';
         border-right: solid 0.12rem #682AE9FF;
@@ -428,9 +545,9 @@ html, body {
     .align {
         position: relative;
         float: right;
-        top: 47.5vh;
-        width: 4.95rem;
-        height: 4.95rem;
+        top: 48.2vh;
+        width: 4.9rem;
+        height: 4.9rem;
         display: block;
         text-align: center;
         align-items: center;
@@ -505,7 +622,7 @@ body {
     height: 2000px;
     width: 100%;
     margin: 0;
-    font-family: 'Roboto Mono', serif;
+    font-family: 'Roboto Mono', monospace;
     background-color: #0c0c0c;
     background-image: url("https://griptapejs.com/background-hero.jpg");
     background-blend-mode: color-dodge;
@@ -531,7 +648,6 @@ li a {
     display: block;
     color: white;
     text-align: center;
-    padding: 0 0 0 16px;
     text-decoration: none;
 }
 
@@ -554,15 +670,6 @@ li a:hover {
     }
 }
 
-#bottom_fade {
-    position: fixed;
-    height: 100px;
-    width: 100%;
-    bottom: 0;
-    background: linear-gradient(0deg, rgba(12,12,12,1) 0%, rgba(12,12,12,0)100%);
-    z-index: 90;
-}
-
 .title, .constantTitle {
     word-spacing: -1em;
 }
@@ -571,11 +678,6 @@ li a:hover {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-}
-
-.description p {
-    line-height: 0;
-    margin-top: 10px;
 }
 
 .first, .modalFirst {
@@ -609,20 +711,16 @@ li a:hover {
 
 .contact-container, .home-container {
     width: 100%;
-    margin: 0;
+    margin: auto;
 }
 
 .contact1, .contact2 {
-    display: block;
+    margin: auto;
     float: left;
     width: 50%;
     height: 50%;
     color: white;
-    letter-spacing: 2px;
-}
-
-.contact1 pre, .contact2 pre {
-    margin-top: 0;
+    letter-spacing: 0.1rem;
 }
 
 .email, .email:hover, .email:focus {
@@ -635,46 +733,12 @@ li a:hover {
     color: #757474;
 }
 
-.modalTitle {
-    word-spacing: -1em;
-    height: 1.5em;
-    width: 100%;
-    margin: 0;
-}
-
-.modalDescription {
-    color: #757474;
-    height: 2em;
-    width: 100%;
-    margin-top: -20px;
-}
-
 .p1 {
     color: #FFC300;
 }
 
-.modalDescription2 {
-    color: white;
-    height: 3em;
-    width: 100%;
-    margin-top: 10px;
-}
-
-.modalInstructions {
-    position: relative;
-    color: #757474;
-    margin-top: -20px;
-}
-
 .modalInstructions p {
-    margin-top: 0;
-}
-
-.modalDescription3 {
-    color: white;
-    height: 3em;
-    width: 100%;
-    margin-top: -10px;
+    margin: auto;
 }
 
 .green {
@@ -709,7 +773,6 @@ li a:hover {
     border-radius: 2px;
     color: #fff;
     font: inherit;
-
     content: attr(data-title);
     padding: 6px 10px;
     bottom: 26px;
@@ -771,7 +834,6 @@ li a:hover {
 }
 
 .stop-scrolling2 {
-    height: 100%;
     overflow: hidden;
 }
 

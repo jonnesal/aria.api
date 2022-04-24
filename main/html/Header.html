@@ -7,6 +7,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -16,8 +19,8 @@
 
 <div class="navbar">
     <div class="selector-wrapper">
-        <p id="selected">.api()</p>
-        <p><a class="infoBtn" href="#ex1" rel="modal:open">i.</a></p>
+        <span class="selected">.api()</span>
+        <span><a class="infoBtn" href="#ex1" rel="modal:open">i.</a></span>
         <ul class="selector">
             <li><a class="myLink active" divId="div1" href="#Home">.api()</a></li>
             <li><a class="myLink " divId="div2" href="#Trace">.trace()</a></li>
@@ -103,10 +106,10 @@
 
 <div class="myDiv" id="div4">
     <div class="clearTop"></div>
-    <h1 class="title">
+    <div class="title">
         <span class="first" id="first">aria</span>
         <span class="second">.contact()</span>
-    </h1>
+    </div>
     <div class="description">
         <p>&#60;contact+information&#62;</p>
     </div>
@@ -114,16 +117,16 @@
     <div class="contact-container">
         <div class="contact1">
 <pre>student1 = {
-    <a>fname:</a> 'Svyatoslav',
-    <a>lname:</a> 'Beletskiy',
+    <span>fname:</span> 'Svyatoslav',
+    <span>lname:</span> 'Beletskiy',
     <a class="email tooltip" data-clipboard-text="svyatosb@metropolia.fi" href="mailto:svyatosb@metropolia.fi"
        data-title="Copy to clipboard">email:</a> 'svyatosb@metropolia.fi'
 };</pre>
         </div>
         <div class="contact2">
 <pre>student2 = {
-    <a>fname:</a> 'Jonne',
-    <a>lname:</a> 'Salli',
+    <span>fname:</span> 'Jonne',
+    <span>lname:</span> 'Salli',
     <a class="email tooltip" data-clipboard-text="js@metropolia.fi" href="mailto:js@metropolia.fi"
        data-title="Copy to clipboard">email:</a> 'js@metropolia.fi'
 };</pre>
@@ -132,14 +135,14 @@
 </div>
 
 <div id="ex1" class="modal" style="background-color: #0c0c0c">
-    <h1 class="modalTitle">
+    <div class="modalTitle">
         <span class="modalFirst">aria</span>
         <span class="modalSecond">.usage('<span class="p1">i</span>nfo')</span>
-    </h1>
-    <div class="modalDescription">
+    </div>
+    <div class="description">
         <p>How to use the .trace() function</p>
     </div>
-    <div class="modalDescription2">
+    <div class="description2">
         <span>.trace().instructions = {</span>
     </div>
     <div class="modalInstructions">
@@ -166,7 +169,7 @@
 </body>
 
 <script>
-    $("#div2, #div3, #div4, .loader, .clearLeft2, .clearLeft1").hide();
+    $("#div2, #div3, #div4, #div1, .constantTitleDiv, .navbar, .clearLeft1, .clearLeft2").hide();
 
     const updateSelected = () => {
         $("#selected").text($("a[class*='active']").text()).fadeIn(700);
@@ -202,17 +205,17 @@
     }
 
     function enableScrolling() {
-        $('body').removeClass('stop-scrolling2');
+        $('body, html').removeClass('stop-scrolling2');
     }
 
     $(function () {
         showLoader();
         setTimeout(pulse, 1000);
 
-        $('body').addClass('stop-scrolling2')
-        $("#div2, #div3, #div4, #div1, .constantTitle, .navbar, .clearLeft1").hide();
+        $('body, html').addClass('stop-scrolling2')
+        $("#div2, #div3, #div4, #div1, .constantTitleDiv, .navbar, .clearLeft1, .clearLeft2").hide();
 
-        $('#div1, .constantTitle, .navbar, .clearLeft1').delay(1000).fadeIn(2000);
+        $('#div1, .constantTitleDiv, .navbar, .clearLeft1').delay(1000).fadeIn(2000);
         setTimeout(enableScrolling, 2000);
     });
 
@@ -234,7 +237,7 @@
 
     $(".myLink").click(function () {
         showLoader();
-        pulse();
+        setTimeout(pulse, 500);
 
         $(".myDiv").fadeOut(80);
         let divId = $(this).attr("divId");
