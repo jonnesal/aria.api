@@ -25,6 +25,291 @@ html, body {
     }
 }
 
+@media only screen and (min-width: 800px) and (max-width: 1281px) {
+    /*FONTS*/
+    .navbar, .description, .description2, .home-container, .contact-container, #selected {
+        font-size: 0.5rem;
+        font-weight: 500;
+    }
+    .title, .constantTitle, .modalTitle {
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+    .first {
+        font-weight: 400;
+    }
+    .second {
+        font-weight: 500;
+    }
+    .modalTitle {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+    .modalDescription, .modalDescription2, .modalInstructions, .modalDescription3 {
+        font-size: 0.5rem;
+        font-weight: 500;
+    }
+
+    .infoBtn {
+        position: relative;
+        float: right;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        font-weight: bold;
+        color: #FFC300;
+        cursor:pointer;
+    }
+
+    .tooltip {
+        font-size: 0.5rem;
+    }
+
+    body {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .navbar {
+        position: fixed;
+        z-index: 1000;
+        width: 100vw;
+        height: 1rem;
+    }
+
+    .selector-wrapper {
+        position: relative;
+        display: block;
+        left: 25%;
+        width: 50vw;
+        height: 1rem;
+        padding-top: 0.3rem;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .selected {
+        position: relative;
+        margin: auto;
+        float: left;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        color: #7b44ee;
+    }
+
+    .selector {
+        position: relative;
+        float: right;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    li a {
+        padding: 0 0.75rem 0 0;
+    }
+
+    .clearLeft1, .clearLeft2 {
+        position: fixed;
+        width: 25vw;
+        height: 100%;
+    }
+
+    .constantTitleDiv {
+        position: absolute;
+        top: 0;
+        left: 25%;
+        width: 50vw;
+        height: 100%;
+        margin: 0;
+    }
+
+    .myDiv {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 25%;
+        width: 50vw;
+        height: 100%;
+        margin: 0;
+    }
+
+    .clearTop {
+        position: relative;
+        height: 47.5vh;
+        display: block;
+        width: 100%;
+        top: 0;
+    }
+
+    .title {
+        height: auto;
+        width: 100%;
+        margin: 0;
+    }
+
+    .description {
+        color: #757474;
+        height: auto;
+        width: 100%;
+        margin: 0;
+    }
+
+    .description2 {
+        color: white;
+        height: auto;
+        width: 100%;
+        margin: 0;
+    }
+
+    .home-container {
+        margin: 0;
+        color: #757474;
+        width: 50%;
+    }
+
+    .span3 {
+        min-width: 100%;
+        height: auto;
+        margin-top: 0.5rem;
+        display: inline-block;
+        text-align: justify;
+        text-align-last: justify;
+    }
+
+    .modal {
+        font: inherit;
+        min-width: 40%;
+        height: auto;
+        z-index: 99;
+        text-align: center;
+    }
+
+    .modalTitle {
+        height: auto;
+        width: 100%;
+        margin: auto;
+    }
+
+    .modalInstructions {
+        position: relative;
+        color: #757474;
+        margin: auto;
+    }
+
+    .modalDescription3 {
+        color: white;
+        height: auto;
+        width: 100%;
+        margin: auto;
+    }
+
+    #bottom_fade {
+        position: fixed;
+        height: 5rem;
+        width: 100%;
+        bottom: 0;
+        background: linear-gradient(0deg, rgba(12,12,12,1) 0%, rgba(12,12,12,0)100%);
+        z-index: 90;
+    }
+
+    /*EFFECTS*/
+    .clearLeft1:after {
+        position: absolute;
+        display: inline-block;
+        height: 50vh;
+        right: 0.863rem;
+        bottom: -0.5vh;
+        content: '';
+        border-right: solid 0.12rem #682AE9FF;
+        opacity: 0.8;
+    }
+
+    .clearLeft2:after {
+        position: absolute;
+        display: inline-block;
+        height: 50vh;
+        right: 0.863rem;
+        content: '';
+        border-right: solid 0.12rem #682AE9FF;
+        opacity: 0;
+        animation: fadeIn 0.3s ease-in both;
+    }
+
+    .align {
+        position: relative;
+        float: right;
+        top: 48.3vh;
+        width: 1.70rem;
+        height: 1.70rem;
+        display: block;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        border: 1px red solid;
+    }
+
+    .circle {
+        position:absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 0.25rem;
+        height: 0.25rem;
+        background: #682AE9FF;
+        border-radius: 100%;
+    }
+
+    .circle_pulse {
+        position:absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: transparent;
+        opacity: 0.1;
+        width: 2.6rem;
+        height: 2.6rem;
+        border: 2px solid #682AE9FF;
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        -o-border-radius: 100px;
+        -ms-border-radius: 100px;
+        /* Giving Animation Function */
+        -webkit-animation: pulse 2s linear infinite;
+        -moz-animation: pulse 2s linear infinite;
+        border-image: initial;
+    }
+
+    @-webkit-keyframes pulse
+    {
+        0% {-webkit-transform: scale(0); opacity: 0;}
+        8% {-webkit-transform: scale(0); opacity: 0;}
+        15% {-webkit-transform: scale(0.1); opacity: 1;}
+        30% {-webkit-transform: scale(0.5); opacity: 1;}
+        100% {opacity: 0; -webkit-transform: scale(1);}
+    }
+
+    @-moz-keyframes pulse
+    {
+        0% {-moz-transform: scale(0); opacity: 0;}
+        8% {-moz-transform: scale(0); opacity: 0;}
+        15% {-moz-transform: scale(0.1); opacity: 1;}
+        30% {-moz-transform: scale(0.5); opacity: 1;}
+        100% {opacity: 0; -moz-transform: scale(1);}
+    }
+}
+
 @media only screen and (min-width: 1920px) {
     /*FONTS*/
     .navbar, .description, .description2, .home-container, .contact-container, #selected {
@@ -608,14 +893,8 @@ html, body {
     }
 }
 
-/*@media only screen and (min-width: 3840px) {
-    .navbar {
-        font-size: 1.9rem;
-    }
-    .title, .constantTitle {
-        font-size: 1.9rem;
-    }
-}*/
+@media only screen and (min-width: 3840px) {
+}
 
 body {
     position: relative;
