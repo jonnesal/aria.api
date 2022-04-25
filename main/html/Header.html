@@ -30,18 +30,18 @@
     </div>
 </div>
 
-<div class="clearLeft1">
+<div class="clearLeft">
     <div class="align">
         <div class="circle"></div>
         <div class="circle_pulse" id="pulsating"></div>
+        <div class="border1"></div>
+        <div class="border2"></div>
     </div>
 </div>
 
-<div class="clearLeft2"></div>
-
-<div class="constantTitleDiv">
+<div class="myDiv" id="div5">
     <div class="clearTop"></div>
-    <div class="title">
+    <div class="constantTitle">
         <span class="first">aria</span>
     </div>
 </div>
@@ -90,18 +90,18 @@
 
 <div class="myDiv" id="div2">
     <div class="clearTop"></div>
-    <h1 class="title">
+    <div class="title">
         <span class="first">aria</span>
         <span class="second">.trace()</span>
-    </h1>
+    </div>
 </div>
 
 <div class="myDiv" id="div3">
     <div class="clearTop"></div>
-    <h1 class="title">
+    <div class="title">
         <span class="first">aria</span>
         <span class="second">.saved()</span>
-    </h1>
+    </div>
 </div>
 
 <div class="myDiv" id="div4">
@@ -136,8 +136,7 @@
 
 <div id="ex1" class="modal" style="background-color: #0c0c0c">
     <div class="modalTitle">
-        <span class="modalFirst">aria</span>
-        <span class="modalSecond">.usage('<span class="p1">i</span>nfo')</span>
+        <span class="modalFirst">aria</span><span class="modalSecond">.usage('<span class="p1">i</span>nfo')</span>
     </div>
     <div class="description">
         <p>How to use the .trace() function</p>
@@ -169,10 +168,8 @@
 </body>
 
 <script>
-    $("#div2, #div3, #div4, #div1, .constantTitleDiv, .navbar, .clearLeft1, .clearLeft2").hide();
-
     const updateSelected = () => {
-        $("#selected").text($("a[class*='active']").text()).fadeIn(700);
+        $(".selected").text($("a[class*='active']").text()).fadeIn(700);
     }
 
     const scrollToTop = () => {
@@ -196,7 +193,7 @@
 
     function pulse() {
         $("#pulsating").show();
-        $('#pulsating').delay(2000).fadeOut(300);
+        $('#pulsating').delay(2000).fadeOut();
     }
 
     function showLoader() {
@@ -213,9 +210,10 @@
         setTimeout(pulse, 1000);
 
         $('body, html').addClass('stop-scrolling2')
-        $("#div2, #div3, #div4, #div1, .constantTitleDiv, .navbar, .clearLeft1, .clearLeft2").hide();
+        $("#div1, #div2, #div3, #div4, #div5, .constantTitleDiv, .navbar, .clearLeft, .border2").hide();
 
-        $('#div1, .constantTitleDiv, .navbar, .clearLeft1').delay(1000).fadeIn(2000);
+        $('#div5').fadeIn(2000);
+        $('#div1, .constantTitleDiv, .navbar, .clearLeft').delay(1000).fadeIn(2000);
         setTimeout(enableScrolling, 2000);
     });
 
@@ -231,7 +229,7 @@
     $(".selector a").click(function () {
         $("a").removeClass("active");
         $(this).addClass(" active");
-        $("#selected").fadeOut(300);
+        $(".selected").fadeOut(300);
         setTimeout(updateSelected, 500);
     });
 
@@ -239,9 +237,10 @@
         showLoader();
         setTimeout(pulse, 500);
 
-        $(".myDiv").fadeOut(80);
-        let divId = $(this).attr("divId");
+        //$(".myDiv").fadeOut(80);
+        $('.myDiv').not($('#div5')).fadeOut(80);
 
+        let divId = $(this).attr("divId");
         if (divId === 'div4')
             $('html, body').css({overflow: 'hidden'});
         else
@@ -267,9 +266,9 @@
         const currentScroll = window.pageYOffset;
 
         if (currentScroll > 0) {
-            $(".clearLeft2").show();
+            $(".border2").show();
         } else
-            $(".clearLeft2").fadeOut(300);
+            $(".border2").fadeOut(300);
     });
 
 

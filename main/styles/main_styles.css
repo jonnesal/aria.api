@@ -13,262 +13,43 @@ html, body {
          url("main/assets/fonts/RobotoMono-Light.ttf") format('truetype');
 }
 
-@media only screen and (min-width: 900px) {
-    .navbar{
-        font-size: 1rem;
-    }
-}
-
-@media only screen and (min-width: 1200px) {
-    .navbar{
-        font-size: 1rem;
-    }
-}
-
-@media only screen and (min-width: 800px) and (max-width: 1281px) {
+@media only screen and (min-width: 768px) {
     /*FONTS*/
-    .navbar, .description, .description2, .home-container, .contact-container, #selected {
+    .navbar, .description, .description2, .home-container, .contact-container, .selected {
         font-size: 0.5rem;
         font-weight: 500;
     }
+
+    .contact1, .contact2 {
+        font-size: 1.37rem;
+    }
+
     .title, .constantTitle, .modalTitle {
-        font-size: 1.5rem;
+        font-size: 4rem;
         font-weight: 400;
     }
-    .first {
-        font-weight: 400;
-    }
-    .second {
-        font-weight: 500;
-    }
+
     .modalTitle {
         font-size: 1rem;
         font-weight: 700;
     }
+
     .modalDescription, .modalDescription2, .modalInstructions, .modalDescription3 {
         font-size: 0.5rem;
         font-weight: 500;
     }
 
-    .infoBtn {
-        position: relative;
-        float: right;
-        margin: auto;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        font-weight: bold;
-        color: #FFC300;
-        cursor:pointer;
-    }
-
     .tooltip {
-        font-size: 0.5rem;
+        font-size: 1.3rem;
     }
 
+    /*SIZE ATTRIBUTES*/
     body {
-        width: 100%;
-        height: 100vh;
-    }
-
-    .navbar {
-        position: fixed;
-        z-index: 1000;
-        width: 100vw;
-        height: 1rem;
-    }
-
-    .selector-wrapper {
-        position: relative;
-        display: block;
-        left: 25%;
-        width: 50vw;
-        height: 1rem;
-        padding-top: 0.3rem;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .selected {
-        position: relative;
-        margin: auto;
-        float: left;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        color: #7b44ee;
-    }
-
-    .selector {
-        position: relative;
-        float: right;
-        margin: auto;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-    }
-
-    li a {
-        padding: 0 0.75rem 0 0;
-    }
-
-    .clearLeft1, .clearLeft2 {
-        position: fixed;
-        width: 25vw;
+        width: 2560px;
         height: 100%;
-    }
-
-    .constantTitleDiv {
-        position: absolute;
-        top: 0;
-        left: 25%;
-        width: 50vw;
-        height: 100%;
-        margin: 0;
-    }
-
-    .myDiv {
-        position: absolute;
-        z-index: 1;
-        top: 0;
-        left: 25%;
-        width: 50vw;
-        height: 100%;
-        margin: 0;
-    }
-
-    .clearTop {
-        position: relative;
-        height: 47.5vh;
-        display: block;
-        width: 100%;
-        top: 0;
-    }
-
-    .title {
-        height: auto;
-        width: 100%;
-        margin: 0;
-    }
-
-    .description {
-        color: #757474;
-        height: auto;
-        width: 100%;
-        margin: 0;
-    }
-
-    .description2 {
-        color: white;
-        height: auto;
-        width: 100%;
-        margin: 0;
-    }
-
-    .home-container {
-        margin: 0;
-        color: #757474;
-        width: 50%;
-    }
-
-    .span3 {
-        min-width: 100%;
-        height: auto;
-        margin-top: 0.5rem;
-        display: inline-block;
-        text-align: justify;
-        text-align-last: justify;
-    }
-
-    .modal {
-        font: inherit;
-        min-width: 40%;
-        height: auto;
-        z-index: 99;
-        text-align: center;
-    }
-
-    .modalTitle {
-        height: auto;
-        width: 100%;
-        margin: auto;
-    }
-
-    .modalInstructions {
-        position: relative;
-        color: #757474;
-        margin: auto;
-    }
-
-    .modalDescription3 {
-        color: white;
-        height: auto;
-        width: 100%;
-        margin: auto;
-    }
-
-    #bottom_fade {
-        position: fixed;
-        height: 5rem;
-        width: 100%;
-        bottom: 0;
-        background: linear-gradient(0deg, rgba(12,12,12,1) 0%, rgba(12,12,12,0)100%);
-        z-index: 90;
     }
 
     /*EFFECTS*/
-    .clearLeft1:after {
-        position: absolute;
-        display: inline-block;
-        height: 50vh;
-        right: 0.863rem;
-        bottom: -0.5vh;
-        content: '';
-        border-right: solid 0.12rem #682AE9FF;
-        opacity: 0.8;
-    }
-
-    .clearLeft2:after {
-        position: absolute;
-        display: inline-block;
-        height: 50vh;
-        right: 0.863rem;
-        content: '';
-        border-right: solid 0.12rem #682AE9FF;
-        opacity: 0;
-        animation: fadeIn 0.3s ease-in both;
-    }
-
-    .align {
-        position: relative;
-        float: right;
-        top: 48.3vh;
-        width: 1.70rem;
-        height: 1.70rem;
-        display: block;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-        border: 1px red solid;
-    }
-
-    .circle {
-        position:absolute;
-        margin: auto;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        width: 0.25rem;
-        height: 0.25rem;
-        background: #682AE9FF;
-        border-radius: 100%;
-    }
-
     .circle_pulse {
         position:absolute;
         margin: auto;
@@ -278,8 +59,8 @@ html, body {
         right: 0;
         background-color: transparent;
         opacity: 0.1;
-        width: 2.6rem;
-        height: 2.6rem;
+        width: 3.6rem;
+        height: 3.6rem;
         border: 2px solid #682AE9FF;
         -webkit-border-radius: 100px;
         -moz-border-radius: 100px;
@@ -307,6 +88,228 @@ html, body {
         15% {-moz-transform: scale(0.1); opacity: 1;}
         30% {-moz-transform: scale(0.5); opacity: 1;}
         100% {opacity: 0; -moz-transform: scale(1);}
+    }
+
+    .tooltip:after {
+        border-right: 6px solid transparent;
+        border-top: 6px solid rgba(0, 0, 0, .75);
+        border-left: 6px solid transparent;
+        content: '';
+        height: 0;
+        bottom: 20px;
+        left: 1.3rem;
+        width: 0;
+    }
+
+    .tooltip:before {
+        background: rgba(0, 0, 0, .90);
+        border-radius: 0.2rem;
+        color: #fff;
+        font: inherit;
+        content: attr(data-title);
+        padding: 0.4rem 0.5rem;
+        bottom: 26px;
+        white-space: nowrap;
+    }
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1281px) {
+    /*FONTS*/
+    .navbar, .description, .description2, .home-container, .contact-container, .selected {
+        font-size: 0.5rem;
+        font-weight: 500;
+    }
+
+    .contact1, .contact2 {
+        font-size: 1.37rem;
+    }
+
+    .title, .constantTitle, .modalTitle {
+        font-size: 4rem;
+        font-weight: 400;
+    }
+
+    .modalTitle {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    .modalDescription, .modalDescription2, .modalInstructions, .modalDescription3 {
+        font-size: 0.5rem;
+        font-weight: 500;
+    }
+
+    .tooltip {
+        font-size: 1.3rem;
+    }
+
+    /*SIZE ATTRIBUTES*/
+    body {
+        width: 2560px;
+        height: 100%;
+    }
+
+    /*EFFECTS*/
+    .circle_pulse {
+        position:absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: transparent;
+        opacity: 0.1;
+        width: 3.6rem;
+        height: 3.6rem;
+        border: 2px solid #682AE9FF;
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        -o-border-radius: 100px;
+        -ms-border-radius: 100px;
+        /* Giving Animation Function */
+        -webkit-animation: pulse 2s linear infinite;
+        -moz-animation: pulse 2s linear infinite;
+        border-image: initial;
+    }
+
+    @-webkit-keyframes pulse
+    {
+        0% {-webkit-transform: scale(0); opacity: 0;}
+        8% {-webkit-transform: scale(0); opacity: 0;}
+        15% {-webkit-transform: scale(0.1); opacity: 1;}
+        30% {-webkit-transform: scale(0.5); opacity: 1;}
+        100% {opacity: 0; -webkit-transform: scale(1);}
+    }
+
+    @-moz-keyframes pulse
+    {
+        0% {-moz-transform: scale(0); opacity: 0;}
+        8% {-moz-transform: scale(0); opacity: 0;}
+        15% {-moz-transform: scale(0.1); opacity: 1;}
+        30% {-moz-transform: scale(0.5); opacity: 1;}
+        100% {opacity: 0; -moz-transform: scale(1);}
+    }
+
+    .tooltip:after {
+        border-right: 6px solid transparent;
+        border-top: 6px solid rgba(0, 0, 0, .75);
+        border-left: 6px solid transparent;
+        content: '';
+        height: 0;
+        bottom: 20px;
+        left: 1.3rem;
+        width: 0;
+    }
+
+    .tooltip:before {
+        background: rgba(0, 0, 0, .90);
+        border-radius: 0.2rem;
+        color: #fff;
+        font: inherit;
+        content: attr(data-title);
+        padding: 0.4rem 0.5rem;
+        bottom: 26px;
+        white-space: nowrap;
+    }
+
+}
+
+@media only screen and (min-width: 1282px) {
+    /*FONTS*/
+    .navbar, .description, .description2, .home-container, .contact-container, .selected {
+        font-size: 1.32rem;
+        font-weight: 500;
+    }
+
+    .contact1, .contact2 {
+        font-size: 1.37rem;
+    }
+
+    .title, .constantTitle, .modalTitle {
+        font-size: 4rem;
+        font-weight: 400;
+    }
+
+    .modalTitle {
+        font-size: 2.6rem;
+        font-weight: 700;
+    }
+    .modalDescription, .modalDescription2, .modalInstructions, .modalDescription3 {
+        font-size: 1.3rem;
+        font-weight: 500;
+    }
+
+    .tooltip {
+        font-size: 1.3rem;
+    }
+
+    /*SIZE ATTRIBUTES*/
+    body {
+        width: 2560px;
+        height: 100%;
+    }
+
+    /*EFFECTS*/
+    .circle_pulse {
+        position:absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: transparent;
+        opacity: 0.1;
+        width: 3.6rem;
+        height: 3.6rem;
+        border: 2px solid #682AE9FF;
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        -o-border-radius: 100px;
+        -ms-border-radius: 100px;
+        /* Giving Animation Function */
+        -webkit-animation: pulse 2s linear infinite;
+        -moz-animation: pulse 2s linear infinite;
+        border-image: initial;
+    }
+
+    @-webkit-keyframes pulse
+    {
+        0% {-webkit-transform: scale(0); opacity: 0;}
+        8% {-webkit-transform: scale(0); opacity: 0;}
+        15% {-webkit-transform: scale(0.1); opacity: 1;}
+        30% {-webkit-transform: scale(0.5); opacity: 1;}
+        100% {opacity: 0; -webkit-transform: scale(1);}
+    }
+
+    @-moz-keyframes pulse
+    {
+        0% {-moz-transform: scale(0); opacity: 0;}
+        8% {-moz-transform: scale(0); opacity: 0;}
+        15% {-moz-transform: scale(0.1); opacity: 1;}
+        30% {-moz-transform: scale(0.5); opacity: 1;}
+        100% {opacity: 0; -moz-transform: scale(1);}
+    }
+
+    .tooltip:after {
+        border-right: 6px solid transparent;
+        border-top: 6px solid rgba(0, 0, 0, .75);
+        border-left: 6px solid transparent;
+        content: '';
+        height: 0;
+        bottom: 20px;
+        left: 1.3rem;
+        width: 0;
+    }
+
+    .tooltip:before {
+        background: rgba(0, 0, 0, .90);
+        border-radius: 0.2rem;
+        color: #fff;
+        font: inherit;
+        content: attr(data-title);
+        padding: 0.4rem 0.5rem;
+        bottom: 26px;
+        white-space: nowrap;
     }
 }
 
@@ -320,12 +323,12 @@ html, body {
         font-size: 3rem;
         font-weight: 400;
     }
-    .first {
-        font-weight: 400;
+
+    .contact1, .contact2 {
+        font-size: 1rem;
     }
-    .second {
-        font-weight: 500;
-    }
+
+
     .modalTitle {
         font-size: 2rem;
         font-weight: 700;
@@ -335,226 +338,18 @@ html, body {
         font-weight: 500;
     }
 
-    .infoBtn {
-        position: relative;
-        float: right;
-        margin: auto;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        font-weight: bold;
-        color: #FFC300;
-        cursor:pointer;
-    }
-
     .tooltip {
         font-size: 1rem;
     }
 
     body {
         width: 1920px;
-        height: 100vh;
-    }
-
-    .navbar {
-        position: fixed;
-        z-index: 1000;
-        width: 100vw;
-        height: 2rem;
-    }
-
-    .selector-wrapper {
-        position: relative;
-        display: block;
-        left: 25%;
-        width: 50vw;
-        height: 2rem;
-        padding-top: 0.6rem;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .selected {
-        position: relative;
-        margin: auto;
-        float: left;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        color: #7b44ee;
-    }
-
-    .selector {
-        position: relative;
-        float: right;
-        margin: auto;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-    }
-
-    li a {
-        padding: 0 1.5rem 0 0;
-    }
-
-    .clearLeft1, .clearLeft2 {
-        position: fixed;
-        width: 25vw;
         height: 100%;
-    }
-
-    .constantTitleDiv {
-        position: absolute;
-        top: 0;
-        left: 25%;
-        width: 50vw;
-        height: 100%;
-        margin: 0;
-    }
-
-    .myDiv {
-        position: absolute;
-        z-index: 1;
-        top: 0;
-        left: 25%;
-        width: 50vw;
-        height: 100%;
-        margin: 0;
-    }
-
-    .clearTop {
-        position: relative;
-        height: 47.5vh;
-        display: block;
-        width: 100%;
-        top: 0;
-    }
-
-    .title {
-        height: auto;
-        width: 100%;
-        margin: 0;
-    }
-
-    .description {
-        color: #757474;
-        height: auto;
-        width: 100%;
-        margin: 0;
-    }
-
-    .description2 {
-        color: white;
-        height: auto;
-        width: 100%;
-        margin: 0;
-    }
-
-    .home-container {
-        margin: 0;
-        color: #757474;
-        width: 50%;
-    }
-
-    .span3 {
-        min-width: 100%;
-        height: auto;
-        margin-top: 1rem;
-        display: inline-block;
-        text-align: justify;
-        text-align-last: justify;
-    }
-
-    .modal {
-        font: inherit;
-        min-width: 40%;
-        height: auto;
-        z-index: 99;
-        text-align: center;
-    }
-
-    .modalTitle {
-        height: auto;
-        width: 100%;
-        margin: auto;
-    }
-
-    .modalInstructions {
-        position: relative;
-        color: #757474;
-        margin: auto;
-    }
-
-    .modalDescription3 {
-        color: white;
-        height: auto;
-        width: 100%;
-        margin: auto;
-    }
-
-    #bottom_fade {
-        position: fixed;
-        height: 7rem;
-        width: 100%;
-        bottom: 0;
-        background: linear-gradient(0deg, rgba(12,12,12,1) 0%, rgba(12,12,12,0)100%);
-        z-index: 90;
     }
 
     /*EFFECTS*/
-    .clearLeft1:after {
-        position: absolute;
-        display: inline-block;
-        height: 49.5vh;
-        right: 1.7325rem;
-        bottom: -0.5vh;
-        content: '';
-        border-right: solid 0.12rem #682AE9FF;
-        opacity: 0.8;
-    }
-
-    .clearLeft2:after {
-        position: absolute;
-        display: inline-block;
-        height: 51vh;
-        right: 1.7325rem;
-        content: '';
-        border-right: solid 0.12rem #682AE9FF;
-        opacity: 0;
-        animation: fadeIn 0.3s ease-in both;
-    }
-
-    .align {
-        position: relative;
-        float: right;
-        top: 48.3vh;
-        width: 3.5rem;
-        height: 3.5rem;
-        display: block;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .circle {
-        position:absolute;
-        margin: auto;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        width: 0.46rem;
-        height: 0.46rem;
-        background: #682AE9FF;
-        border-radius: 100%;
-    }
-
     .circle_pulse {
-        position:absolute;
+        position: absolute;
         margin: auto;
         top: 0;
         bottom: 0;
@@ -592,43 +387,53 @@ html, body {
         30% {-moz-transform: scale(0.5); opacity: 1;}
         100% {opacity: 0; -moz-transform: scale(1);}
     }
+
+    .tooltip:after {
+        border-right: 6px solid transparent;
+        border-top: 6px solid rgba(0, 0, 0, .75);
+        border-left: 6px solid transparent;
+        content: '';
+        height: 0;
+        bottom: 14px;
+        left: 1rem;
+        width: 0;
+    }
+
+    .tooltip:before {
+        background: rgba(0, 0, 0, .90);
+        border-radius: 2px;
+        color: #fff;
+        font: inherit;
+        content: attr(data-title);
+        padding: 0.2rem 0.3rem;
+        bottom: 20px;
+        white-space: nowrap;
+    }
 }
 
 @media only screen and (min-width: 2560px) {
     /*FONTS*/
-    .navbar, .description, .description2, .home-container, .contact-container, #selected {
-        font-size: 1.3rem;
+    .navbar, .description, .description2, .home-container, .contact-container, .selected {
+        font-size: 1.32rem;
         font-weight: 500;
     }
+
+    .contact1, .contact2 {
+        font-size: 1.37rem;
+    }
+
     .title, .constantTitle, .modalTitle {
-        font-size: 3.9rem;
+        font-size: 4rem;
         font-weight: 400;
     }
-    .first {
-        font-weight: 400;
-    }
-    .second {
-        font-weight: 500;
-    }
+
     .modalTitle {
-        font-size: 2.3rem;
+        font-size: 2.6rem;
         font-weight: 700;
     }
     .modalDescription, .modalDescription2, .modalInstructions, .modalDescription3 {
         font-size: 1.3rem;
         font-weight: 500;
-    }
-
-    .infoBtn {
-        position: relative;
-        margin: auto;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        font-weight: bold;
-        color: #FFC300;
-        cursor: pointer;
     }
 
     .tooltip {
@@ -638,220 +443,10 @@ html, body {
     /*SIZE ATTRIBUTES*/
     body {
         width: 2560px;
-        height: 100vh;
-    }
-
-    .navbar {
-        position: fixed;
-        z-index: 1000;
-        width: 100vw;
-        height: 3rem;
-    }
-
-    .selector-wrapper {
-        position: relative;
-        display: block;
-        width: 50vw;
-        height: 3rem;
-        padding-top: 0.9rem;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .selected {
-        position: relative;
-        margin: auto;
-        float: left;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        color: #7b44ee;
-    }
-
-    .selector {
-        position: relative;
-        float: right;
-        margin: auto;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-    }
-
-    li a {
-        padding: 0 1.5rem 0 0;
-    }
-
-    .clearLeft1, .clearLeft2 {
-        position: fixed;
-        width: 25vw;
         height: 100%;
     }
-
-    .constantTitleDiv {
-        position: absolute;
-        top: 0;
-        left: 25%;
-        width: 50vw;
-        height: 100%;
-        margin: 0;
-    }
-
-    .myDiv {
-        position: absolute;
-        z-index: 1;
-        top: 0;
-        left: 25%;
-        width: 50vw;
-        height: 100%;
-        margin: 0;
-    }
-
-    .clearTop {
-        position: relative;
-        height: 47.5vh;
-        display: block;
-        width: 100%;
-        top: 0;
-    }
-
-    .title {
-        position: relative;
-        height: auto;
-        width: 100%;
-        margin: 0;
-    }
-
-    .description {
-        color: #757474;
-        height: auto;
-        width: 100%;
-        margin: 0;
-    }
-
-    .description2 {
-        color: white;
-        height: auto;
-        width: 100%;
-        margin: 0;
-    }
-
-    .home-container, .contact-container {
-        margin: 0;
-        color: #757474;
-        width: 50%;
-    }
-
-    .span3 {
-        min-width: 100%;
-        height: auto;
-        margin-top: 1rem;
-        display: inline-block;
-        text-align: justify;
-        text-align-last: justify;
-    }
-
-    .modal {
-        font: inherit;
-        min-width: 35%;
-        height: auto;
-        z-index: 99;
-        text-align: center;
-    }
-
-    .modalTitle {
-        height: auto;
-        width: 100%;
-        margin: auto;
-    }
-
-    .modalDescription {
-        color: #757474;
-        height: auto;
-        width: 100%;
-        margin: auto;
-    }
-
-    .modalDescription2 {
-        color: white;
-        height: auto;
-        width: 100%;
-        margin-top: 10px;
-    }
-
-    .modalInstructions {
-        position: relative;
-        color: #757474;
-        margin: auto;
-    }
-
-    .modalDescription3 {
-        color: white;
-        height: auto;
-        width: 100%;
-        margin: auto;
-    }
-
-    #bottom_fade {
-        position: fixed;
-        height: 8rem;
-        width: 100%;
-        bottom: 0;
-        background: linear-gradient(0deg, rgba(12,12,12,1) 0%, rgba(12,12,12,0)100%);
-        z-index: 90;
-    }
-
 
     /*EFFECTS*/
-    .clearLeft1:after {
-        position: absolute;
-        display: inline-block;
-        height: 49.5vh;
-        right: 2.45rem;
-        bottom: -0.5vh;
-        content: '';
-        border-right: solid 0.12rem #682AE9FF;
-        opacity: 0.8;
-    }
-
-    .clearLeft2:after {
-        position: absolute;
-        display: inline-block;
-        height: 51vh;
-        right: 2.45rem;
-        content: '';
-        border-right: solid 0.12rem #682AE9FF;
-        opacity: 0;
-        animation: fadeIn 0.3s ease-in both;
-    }
-
-    .align {
-        position: relative;
-        float: right;
-        top: 48.2vh;
-        width: 4.9rem;
-        height: 4.9rem;
-        display: block;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .circle {
-        position:absolute;
-        margin: auto;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        width: 0.6rem;
-        height: 0.6rem;
-        background: #682AE9FF;
-        border-radius: 100%;
-    }
-
     .circle_pulse {
         position:absolute;
         margin: auto;
@@ -890,44 +485,55 @@ html, body {
         15% {-moz-transform: scale(0.1); opacity: 1;}
         30% {-moz-transform: scale(0.5); opacity: 1;}
         100% {opacity: 0; -moz-transform: scale(1);}
+    }
+
+    .tooltip:after {
+        border-right: 6px solid transparent;
+        border-top: 6px solid rgba(0, 0, 0, .75);
+        border-left: 6px solid transparent;
+        content: '';
+        height: 0;
+        bottom: 20px;
+        left: 1.3rem;
+        width: 0;
+    }
+
+    .tooltip:before {
+        background: rgba(0, 0, 0, .90);
+        border-radius: 0.2rem;
+        color: #fff;
+        font: inherit;
+        content: attr(data-title);
+        padding: 0.4rem 0.5rem;
+        bottom: 26px;
+        white-space: nowrap;
     }
 }
 
 @media only screen and (min-width: 3024px) {
     /*FONTS*/
-    .navbar, .description, .description2, .home-container, .contact-container, #selected {
-        font-size: 1.3rem;
-        font-weight: 500;
-    }
-    .title, .constantTitle, .modalTitle {
-        font-size: 3.9rem;
-        font-weight: 400;
-    }
-    .first {
-        font-weight: 400;
-    }
-    .second {
-        font-weight: 500;
-    }
-    .modalTitle {
-        font-size: 2.3rem;
-        font-weight: 700;
-    }
-    .modalDescription, .modalDescription2, .modalInstructions, .modalDescription3 {
-        font-size: 1.3rem;
+    .navbar, .description, .description2, .home-container, .contact-container, .selected {
+        font-size: 1.32rem;
         font-weight: 500;
     }
 
-    .infoBtn {
-        position: relative;
-        margin: auto;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        font-weight: bold;
-        color: #FFC300;
-        cursor: pointer;
+    .contact1, .contact2 {
+        font-size: 1.37rem;
+    }
+
+    .title, .constantTitle, .modalTitle {
+        font-size: 4rem;
+        font-weight: 400;
+    }
+
+    .modalTitle {
+        font-size: 2.6rem;
+        font-weight: 700;
+    }
+
+    .modalDescription, .modalDescription2, .modalInstructions, .modalDescription3 {
+        font-size: 1.3rem;
+        font-weight: 500;
     }
 
     .tooltip {
@@ -937,222 +543,12 @@ html, body {
     /*SIZE ATTRIBUTES*/
     body {
         width: 2560px;
-        height: 100vh;
-    }
-
-    .navbar {
-        position: fixed;
-        z-index: 1000;
-        width: 100vw;
-        height: 3rem;
-    }
-
-    .selector-wrapper {
-        position: relative;
-        display: block;
-        width: 50vw;
-        height: 3rem;
-        padding-top: 0.9rem;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .selected {
-        position: relative;
-        margin: auto;
-        float: left;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        color: #7b44ee;
-    }
-
-    .selector {
-        position: relative;
-        float: right;
-        margin: auto;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-    }
-
-    li a {
-        padding: 0 1.5rem 0 0;
-    }
-
-    .clearLeft1, .clearLeft2 {
-        position: fixed;
-        width: 25vw;
         height: 100%;
     }
-
-    .constantTitleDiv {
-        position: absolute;
-        top: 0;
-        left: 25%;
-        width: 50vw;
-        height: 100%;
-        margin: 0;
-    }
-
-    .myDiv {
-        position: absolute;
-        z-index: 1;
-        top: 0;
-        left: 25%;
-        width: 50vw;
-        height: 100%;
-        margin: 0;
-    }
-
-    .clearTop {
-        position: relative;
-        height: 47.5vh;
-        display: block;
-        width: 100%;
-        top: 0;
-    }
-
-    .title {
-        position: relative;
-        height: auto;
-        width: 100%;
-        margin: 0;
-    }
-
-    .description {
-        color: #757474;
-        height: auto;
-        width: 100%;
-        margin: 0;
-    }
-
-    .description2 {
-        color: white;
-        height: auto;
-        width: 100%;
-        margin: 0;
-    }
-
-    .home-container, .contact-container {
-        margin: 0;
-        color: #757474;
-        width: 50%;
-    }
-
-    .span3 {
-        min-width: 100%;
-        height: auto;
-        margin-top: 1rem;
-        display: inline-block;
-        text-align: justify;
-        text-align-last: justify;
-    }
-
-    .modal {
-        font: inherit;
-        min-width: 35%;
-        height: auto;
-        z-index: 99;
-        text-align: center;
-    }
-
-    .modalTitle {
-        height: auto;
-        width: 100%;
-        margin: auto;
-    }
-
-    .modalDescription {
-        color: #757474;
-        height: auto;
-        width: 100%;
-        margin: auto;
-    }
-
-    .modalDescription2 {
-        color: white;
-        height: auto;
-        width: 100%;
-        margin-top: 10px;
-    }
-
-    .modalInstructions {
-        position: relative;
-        color: #757474;
-        margin: auto;
-    }
-
-    .modalDescription3 {
-        color: white;
-        height: auto;
-        width: 100%;
-        margin: auto;
-    }
-
-    #bottom_fade {
-        position: fixed;
-        height: 8rem;
-        width: 100%;
-        bottom: 0;
-        background: linear-gradient(0deg, rgba(12,12,12,1) 0%, rgba(12,12,12,0)100%);
-        z-index: 90;
-    }
-
 
     /*EFFECTS*/
-    .clearLeft1:after {
-        position: absolute;
-        display: inline-block;
-        height: 49.5vh;
-        right: 2.45rem;
-        bottom: -0.5vh;
-        content: '';
-        border-right: solid 0.12rem #682AE9FF;
-        opacity: 0.8;
-    }
-
-    .clearLeft2:after {
-        position: absolute;
-        display: inline-block;
-        height: 51vh;
-        right: 2.45rem;
-        content: '';
-        border-right: solid 0.12rem #682AE9FF;
-        opacity: 0;
-        animation: fadeIn 0.3s ease-in both;
-    }
-
-    .align {
-        position: relative;
-        float: right;
-        top: 48.2vh;
-        width: 4.9rem;
-        height: 4.9rem;
-        display: block;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .circle {
-        position:absolute;
-        margin: auto;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        width: 0.6rem;
-        height: 0.6rem;
-        background: #682AE9FF;
-        border-radius: 100%;
-    }
-
     .circle_pulse {
-        position:absolute;
+        position: absolute;
         margin: auto;
         top: 0;
         bottom: 0;
@@ -1173,22 +569,72 @@ html, body {
         border-image: initial;
     }
 
-    @-webkit-keyframes pulse
-    {
-        0% {-webkit-transform: scale(0); opacity: 0;}
-        8% {-webkit-transform: scale(0); opacity: 0;}
-        15% {-webkit-transform: scale(0.1); opacity: 1;}
-        30% {-webkit-transform: scale(0.5); opacity: 1;}
-        100% {opacity: 0; -webkit-transform: scale(1);}
+    @-webkit-keyframes pulse {
+        0% {
+            -webkit-transform: scale(0);
+            opacity: 0;
+        }
+        8% {
+            -webkit-transform: scale(0);
+            opacity: 0;
+        }
+        15% {
+            -webkit-transform: scale(0.1);
+            opacity: 1;
+        }
+        30% {
+            -webkit-transform: scale(0.5);
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+            -webkit-transform: scale(1);
+        }
     }
 
-    @-moz-keyframes pulse
-    {
-        0% {-moz-transform: scale(0); opacity: 0;}
-        8% {-moz-transform: scale(0); opacity: 0;}
-        15% {-moz-transform: scale(0.1); opacity: 1;}
-        30% {-moz-transform: scale(0.5); opacity: 1;}
-        100% {opacity: 0; -moz-transform: scale(1);}
+    @-moz-keyframes pulse {
+        0% {
+            -moz-transform: scale(0);
+            opacity: 0;
+        }
+        8% {
+            -moz-transform: scale(0);
+            opacity: 0;
+        }
+        15% {
+            -moz-transform: scale(0.1);
+            opacity: 1;
+        }
+        30% {
+            -moz-transform: scale(0.5);
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+            -moz-transform: scale(1);
+        }
+    }
+
+    .tooltip:after {
+        border-right: 6px solid transparent;
+        border-top: 6px solid rgba(0, 0, 0, .75);
+        border-left: 6px solid transparent;
+        content: '';
+        height: 0;
+        bottom: 20px;
+        left: 1.3rem;
+        width: 0;
+    }
+
+    .tooltip:before {
+        background: rgba(0, 0, 0, .90);
+        border-radius: 0.2rem;
+        color: #fff;
+        font: inherit;
+        content: attr(data-title);
+        padding: 0.4rem 0.5rem;
+        bottom: 26px;
+        white-space: nowrap;
     }
 }
 
@@ -1209,8 +655,146 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+.navbar {
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: auto;
+}
+
+.selector-wrapper {
+    position: relative;
+    display: block;
+    left: 25%;
+    width: 50vw;
+    height: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0.5%;
+}
+
+.selected {
+    position: relative;
+    margin: auto;
+    float: left;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #7b44ee;
+}
+
+.infoBtn {
+    position: relative;
+    float: right;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-weight: bold;
+    color: #FFC300;
+    cursor:pointer;
+}
+
 .infoBtn:hover {
     color: #7b44ee;
+}
+
+.selector {
+    position: relative;
+    float: right;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+li a {
+    padding: 0 1vw 0 0;
+}
+
+.clearLeft {
+    position: fixed;
+    width: 25%;
+    height: 100%;
+}
+
+.constantTitle {
+    position: relative;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    width: 100%;
+}
+
+.myDiv {
+    position: absolute;
+    display: block;
+    z-index: 1;
+    top: 0;
+    left: 25%;
+    width: 50%;
+    height: 100%;
+    margin: 0;
+}
+
+.clearTop {
+    height: 46vh;
+    display: block;
+    width: 100%;
+    top: 0;
+}
+
+.title {
+    position: relative;
+    margin: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 6vh;
+    width: 100%;
+}
+
+.first {
+    font-weight: 400;
+}
+.second {
+    font-weight: 500;
+}
+
+.description {
+    color: #757474;
+    height: auto;
+    width: 100%;
+    margin: 0;
+}
+
+.description2 {
+    color: white;
+    height: auto;
+    width: 100%;
+    margin: 0;
+}
+
+.home-container, .contact-container {
+    margin: 0;
+    color: #757474;
+    width: 50%;
+}
+
+.span3 {
+    min-width: 100%;
+    height: auto;
+    margin-top: 2vh;
+    display: inline-block;
+    text-align: justify;
+    text-align-last: justify;
 }
 
 ul {
@@ -1295,7 +879,6 @@ li a:hover {
     width: 50%;
     height: 50%;
     color: white;
-    letter-spacing: 0.1rem;
 }
 
 .email, .email:hover, .email:focus {
@@ -1312,12 +895,60 @@ li a:hover {
     color: #FFC300;
 }
 
+.modal {
+    font: inherit;
+    min-width: 35%;
+    height: auto;
+    z-index: 99;
+    text-align: center;
+}
+
+.modalFirst {
+    margin-right: 0;
+}
+
+.modalSecond {
+    margin-left: 0;
+}
+
 .modalInstructions p {
     margin: auto;
 }
 
 .green {
     color: #e0f6bf;
+}
+
+.modalTitle {
+    height: auto;
+    width: 100%;
+    margin: auto;
+}
+
+.modalInstructions {
+    position: relative;
+    color: #757474;
+    margin: auto;
+}
+
+.modalDescription3 {
+    color: white;
+    height: auto;
+    width: 100%;
+    margin: auto;
+}
+
+#bottom_fade {
+    position: fixed;
+    height: 5vh;
+    width: 100%;
+    bottom: 0;
+    background: linear-gradient(0deg, rgba(12,12,12,1) 0%, rgba(12,12,12,0)100%);
+    z-index: 90;
+}
+
+.border1, .border2 {
+    height: 100%;
 }
 
 /* setup tooltips */
@@ -1330,28 +961,6 @@ li a:hover {
     opacity: 0;
     pointer-events: none;
     position: absolute;
-}
-
-.tooltip:after {
-    border-right: 6px solid transparent;
-    border-top: 6px solid rgba(0, 0, 0, .75);
-    border-left: 6px solid transparent;
-    content: '';
-    height: 0;
-    bottom: 20px;
-    left: 20px;
-    width: 0;
-}
-
-.tooltip:before {
-    background: rgba(0, 0, 0, .90);
-    border-radius: 2px;
-    color: #fff;
-    font: inherit;
-    content: attr(data-title);
-    padding: 6px 10px;
-    bottom: 26px;
-    white-space: nowrap;
 }
 
 .tooltip:after, .tooltip:before {
@@ -1410,6 +1019,53 @@ li a:hover {
 
 .stop-scrolling2 {
     overflow: hidden;
+}
+
+.border1:after {
+    position: absolute;
+    display: inline-block;
+    height: 50.5vh;
+    right: 50%;
+    bottom: -0.5vh;
+    content: '';
+    border-right: solid 0.12rem #682AE9FF;
+    opacity: 0.8;
+}
+
+.border2:after {
+    position: absolute;
+    display: inline-block;
+    height: 50.5vh;
+    right: 50%;
+    top: 0;
+    content: '';
+    border-right: solid 0.12rem #682AE9FF;
+    opacity: 0;
+    animation: fadeIn 0.3s ease-in both;
+}
+
+.align {
+    position: relative;
+    float: right;
+    width: 14%;
+    height: 100%;
+    display: block;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 0.6vh;
+    height: 0.6vh;
+    background: #682AE9FF;
+    border-radius: 100%;
 }
 
 
