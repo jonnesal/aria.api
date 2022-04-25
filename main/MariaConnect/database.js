@@ -5,7 +5,6 @@ const pool = mariadb.createPool({
     user:'root',
     password:'1234',
     database:'aria'
-
 })
 
 
@@ -19,7 +18,7 @@ async function asyncConnect() {
         //const rows = await conn.query("UPDATE testitaulu SET nimi='Gabe' WHERE nimi='Mike Thyson'");
         //const rows = await conn.query("DELETE FROM testitaulu WHERE name='Gabe'");
 
-        //console.log(rows);
+        console.log(rows);
 
     }catch (err) {
         throw err;
