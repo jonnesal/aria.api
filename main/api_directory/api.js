@@ -8,19 +8,22 @@ const options = {
 	optimizeQuery: true
 };
 
-songs.getLyrics(options).then((lyrics) =>console.log(lyrics)) ;
+const promise = songs.getLyrics(options).then((lyrics) =>{return lyrics});
+
+let lyriikat;
+let myJSON;
+const mySong = new Object();
 
 
+const printAddress = async () => {
+	lyriikat = await promise;
+	mySong.lyriikat = lyriikat;
 
-songs.getSong(options).then((song) =>
+	 myJSON = JSON.stringify(lyriikat);
+	 mySong.jsonLyrrikat = myJSON;
+};
+
+printAddress().then(r => console.log("lyriikka obj valmis"));
 
 
-	console.log(`
-	${song.id}
-	${song.title}
-	${song.url}
-	${song.albumArt}`)
-
-);
-
-module.exports = options;
+module.exports = mySong;
