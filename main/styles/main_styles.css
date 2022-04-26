@@ -2,6 +2,11 @@ html, body {
     font-size: 16px;
     scroll-behavior: smooth;
     width: 100%;
+    cursor: url('https://s.electerious.com/images/codepen/cursor.svg') 3 3, auto;
+}
+
+* {
+    cursor: none;
 }
 
 @font-face {
@@ -148,6 +153,11 @@ html, body {
         height: 100%;
     }
 
+    .circle {
+        width: 0.58vh;
+        height: 0.58vh;
+    }
+
     /*EFFECTS*/
     .circle_pulse {
         position:absolute;
@@ -248,6 +258,11 @@ html, body {
         height: 100%;
     }
 
+    .circle {
+        width: 0.58vh;
+        height: 0.58vh;
+    }
+
     /*EFFECTS*/
     .circle_pulse {
         position:absolute;
@@ -344,6 +359,11 @@ html, body {
     body {
         width: 1920px;
         height: 100%;
+    }
+
+    .circle {
+        width: 0.58vh;
+        height: 0.58vh;
     }
 
     /*EFFECTS*/
@@ -443,6 +463,11 @@ html, body {
     body {
         width: 2560px;
         height: 100%;
+    }
+
+    .circle {
+        width: 0.6vh;
+        height: 0.6vh;
     }
 
     /*EFFECTS*/
@@ -659,6 +684,7 @@ body::-webkit-scrollbar {
     z-index: 1000;
     width: 100%;
     height: auto;
+    mix-blend-mode: exclusion;
 }
 
 .selector-wrapper {
@@ -694,11 +720,14 @@ body::-webkit-scrollbar {
     right: 0;
     font-weight: bold;
     color: #FFC300;
-    cursor:pointer;
+    text-decoration: underline #FFC300;
+    text-underline-offset: 3px;
 }
 
 .infoBtn:hover {
     color: #7b44ee;
+    text-decoration: underline #682AE9FF;
+    text-underline-offset: 3px;
 }
 
 .selector {
@@ -741,6 +770,10 @@ li a {
     width: 50%;
     height: 100%;
     margin: 0;
+}
+
+#div4 {
+    overflow: hidden;
 }
 
 .clearTop {
@@ -809,8 +842,10 @@ li a {
     text-decoration: none;
 }
 
-li a:hover {
+.myLink:hover {
     color: #682AE9FF;
+    text-decoration: underline #682AE9FF;
+    text-underline-offset: 3px;
 }
 
 .active {
@@ -873,17 +908,25 @@ li a:hover {
 }
 
 .contact1, .contact2 {
-    margin: auto;
+    margin: 0;
     float: left;
     width: 50%;
-    height: 50%;
+    height: 100%;
     color: white;
+}
+
+.contact1 p, .contact2 p {
+    margin: 0;
 }
 
 .email, .email:hover, .email:focus {
     text-decoration: underline #682AE9FF;
     text-underline-offset: 3px;
     color: inherit;
+}
+
+.email:hover {
+    color: #682AE9FF;
 }
 
 .email:active {
@@ -1028,7 +1071,8 @@ li a:hover {
     bottom: -0.5vh;
     content: '';
     border-right: solid 0.12rem #682AE9FF;
-    opacity: 0.8;
+    opacity: 1;
+    animation: fadeIn1 0.5s ease-in both;
 }
 
 .border2:after {
@@ -1040,7 +1084,29 @@ li a:hover {
     content: '';
     border-right: solid 0.12rem #682AE9FF;
     opacity: 0;
-    animation: fadeIn 0.3s ease-in both;
+    animation: fadeIn2 0.3s ease-in both;
+}
+
+@keyframes fadeIn1 {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes fadeIn2 {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+    to {
+        opacity: 0.4;
+        transform: translate3d(0, 0, 0);
+    }
 }
 
 .align {
@@ -1061,11 +1127,29 @@ li a:hover {
     bottom: 0;
     left: 0;
     right: 0;
-    width: 0.6vh;
-    height: 0.6vh;
     background: #682AE9FF;
     border-radius: 100%;
 }
+
+/*.cursor {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--width);
+    height: var(--height);
+    transform: translate(calc(var(--x) - var(--width) / 2), calc(var(--y) - var(--height) / 2));
+    transition-duration: 0.1s;
+    z-index: 1;
+    border-radius: var(--radius);
+    border: 2px solid #682AE9FF;
+}
+@media (pointer: fine) {
+    .cursor {
+        display: block;
+    }
+}*/
+
 
 
 

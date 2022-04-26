@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://res.cloudinary.com/veseylab/raw/upload/v1636192990/magicmouse/magic_mouse-1.2.1.cdn.min.js"></script>
 </head>
 <body>
 
@@ -20,7 +21,7 @@
 <div class="navbar">
     <div class="selector-wrapper">
         <span class="selected">.api()</span>
-        <span><a class="infoBtn" href="#ex1" rel="modal:open">i.</a></span>
+        <span><a class="infoBtn" href="#ex1">i.</a></span>
         <ul class="selector">
             <li><a class="myLink active" divId="div1" href="#Home">.api()</a></li>
             <li><a class="myLink " divId="div2" href="#Trace">.trace()</a></li>
@@ -56,7 +57,7 @@
         <p>/ˈɑːrɪə/</p>
     </div>
     <div class="description2">
-        <span id="span2">In music, an aria is a self-<br>
+        <span>In music, an aria is a self-<br>
         contained piece for one voice.</span>
     </div>
     <div class="home-container">
@@ -94,6 +95,13 @@
         <span class="first">aria</span>
         <span class="second">.trace()</span>
     </div>
+    <div class="description">
+        <p>&#47;treɪs jɔːr ˈɑːrɪə&#47;</p>
+    </div>
+    <div class="description2">
+        <span>Seeking something missing, <br>
+        missing something left behind.</span>
+    </div>
 </div>
 
 <div class="myDiv" id="div3">
@@ -108,28 +116,34 @@
     <div class="clearTop"></div>
     <div class="title">
         <span class="first" id="first">aria</span>
-        <span class="second">.contact()</span>
+        <span class="second" id="second">.contact()</span>
     </div>
     <div class="description">
-        <p>&#60;contact+information&#62;</p>
+        <p>&#47;ˈkɒntækt ˌɪnfəˈmeɪʃən&#47;</p>
     </div>
 
     <div class="contact-container">
         <div class="contact1">
-<pre>student1 = {
-    <span>fname:</span> 'Svyatoslav',
-    <span>lname:</span> 'Beletskiy',
-    <a class="email tooltip" data-clipboard-text="svyatosb@metropolia.fi" href="mailto:svyatosb@metropolia.fi"
-       data-title="Copy to clipboard">email:</a> 'svyatosb@metropolia.fi'
-};</pre>
+            <p>
+                student1 = {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span>fname:</span> 'Svyatoslav',<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span>lname:</span> 'Beletskiy',<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<a class="email tooltip" data-clipboard-text="svyatosb@metropolia.fi"
+                   href="mailto:svyatosb@metropolia.fi"
+                   data-title="Copy to clipboard">email:</a> 'svyatosb@metropolia.fi'<br>
+                };
+            </p>
         </div>
         <div class="contact2">
-<pre>student2 = {
-    <span>fname:</span> 'Jonne',
-    <span>lname:</span> 'Salli',
-    <a class="email tooltip" data-clipboard-text="js@metropolia.fi" href="mailto:js@metropolia.fi"
-       data-title="Copy to clipboard">email:</a> 'js@metropolia.fi'
-};</pre>
+            <p>
+                student1 = {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span>fname:</span> 'Jonne',<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span>lname:</span> 'Salli',<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<a class="email tooltip" data-clipboard-text="jonne.salli@metropolia.fi"
+                    href="mailto:jonne.salli@metropolia.fi"
+                    data-title="Copy to clipboard">email:</a> 'jonne.salli@metropolia.fi'<br>
+                };
+            </p>
         </div>
     </div>
 </div>
@@ -193,7 +207,7 @@
 
     function pulse() {
         $("#pulsating").show();
-        $('#pulsating').delay(1800).fadeOut();
+        $('#pulsating').delay(1950).fadeOut();
     }
 
     function showLoader() {
@@ -205,16 +219,26 @@
         $('body, html').removeClass('stop-scrolling2');
     }
 
-    $(function () {
-        showLoader();
-        setTimeout(pulse, 1000);
-
+    function disableScrolling() {
         $('body, html').addClass('stop-scrolling2')
-        $("#div1, #div2, #div3, #div4, #div5, .constantTitleDiv, .navbar, .clearLeft, .border2").hide();
+    }
 
-        $('#div5').fadeIn(2000);
-        $('#div1, .constantTitleDiv, .navbar, .clearLeft').delay(1000).fadeIn(2000);
-        setTimeout(enableScrolling, 2000);
+    $(function () {
+        disableScrolling();
+        $("#div1, #div2, #div3, #div4, #div5, .constantTitleDiv, .navbar, .border1, .border2, .circle, .circle_pulse, .loader").hide();
+
+        setTimeout(function() {
+            scrollToTop();
+            showLoader();
+
+            $('#div5').fadeIn(2000);
+            $(".border1").hide().delay(1000).show(200);
+            $(".circle").delay(900).fadeIn(300);
+            setTimeout(pulse, 1200);
+
+            $('#div1, .constantTitleDiv, .navbar').delay(1000).fadeIn(2000);
+            setTimeout(enableScrolling, 2500);
+        }, 500);
     });
 
     $('.email').on("click", function () {
@@ -234,19 +258,21 @@
     });
 
     $(".myLink").click(function () {
-        showLoader();
-        setTimeout(pulse, 500);
-
-        //$(".myDiv").fadeOut(80);
-        $('.myDiv').not($('#div5')).fadeOut(80);
-
         let divId = $(this).attr("divId");
         if (divId === 'div4')
-            $('html, body').css({overflow: 'hidden'});
+            disableScrolling();
         else
-            $('html, body').css({overflow: ''});
+            setTimeout(enableScrolling, 500);
 
-        $("#" + divId).delay(800).fadeIn(500);
+        showLoader();
+
+        $(".border1").hide().delay(800).show(200);
+        $(".circle").delay(700).fadeIn(300);
+        setTimeout(pulse, 1200);
+
+        $('.myDiv, .clearLeft').not($('#div5')).fadeOut(300);
+
+        $(".clearLeft, #" + divId).delay(800).fadeIn(500);
 
         setTimeout(scrollToTop, 400);
         typeWriter(divId);
@@ -257,8 +283,12 @@
         $('body').addClass('stop-scrolling1')
     });
 
-    $(".infoBtn").on("click", function () {
-        $("#ex1").fadeIn(400);
+    $('a[href="#ex1"]').click(function (event) {
+        event.preventDefault();
+        $(this).modal({
+            showClose: false,
+            fadeDuration: 300
+        })
         $('body').removeClass('stop-scrolling1')
     });
 
@@ -270,7 +300,16 @@
         } else
             $(".border2").fadeOut(300);
     });
+</script>
 
-
+<script type="text/javascript">
+    options = {
+        "cursorOuter": "circle-basic",
+        "hoverItemMove": false,
+        "defaultCursor": false,
+        "outerWidth": 30,
+        "outerHeight": 30
+    };
+    magicMouse(options);
 </script>
 </html>
