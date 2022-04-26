@@ -9,8 +9,9 @@ const songInfo = require('./main/api_directory/api');
 app.use('/favorite', postRoute);
 
 
-app.get('/', function (req, res) {
-    console.log(songInfo.lyriikat); //Näkyy consolissa kun avaa localhost
+app.get('/', async function (req, res) {
+    console.log(songInfo.lyriikat); //Näkyy consolissa kun avaa localhost ja kutsu async sisällä
+    //console.log(songInfo.jsonLyriikat); sama mut json muodossa
     res.send('Hello World');
 });
 
