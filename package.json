@@ -4,6 +4,7 @@
     "body-parser": "^1.20.0",
     "cookie-parser": "^1.4.6",
     "express": "^4.17.3",
+    "genius-lyrics-api": "^3.2.0",
     "gsap": "^3.10.4",
     "js-cookie": "^3.0.1",
     "magicmouse.js": "^1.2.1",
@@ -12,5 +13,9 @@
     "scrollmagic": "^2.0.8",
     "tilt.js": "^1.2.1",
     "vue": "^3.2.33"
+  },
+  "devDependencies": {
+    "axios": "^0.27.0",
+    "request": "^2.88.2"
   }
 }
