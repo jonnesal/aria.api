@@ -20,10 +20,22 @@ const printAddress = async () => {
 	mySong.lyriikat = lyriikat;
 
 	 myJSON = JSON.stringify(lyriikat);
-	 mySong.jsonLyrrikat = myJSON;
+	 mySong.jsonLyyriikat = myJSON;
 };
 
 printAddress().then(r => console.log("lyriikka obj valmis"));
 
+/*songs.getLyrics(options).then((lyrics) => console.log(lyrics));
+
+songs.getSong(options).then((song) =>
+	console.log(`
+	${song.id}
+	${song.title}
+	${song.url}
+	${song.albumArt}
+	${song.lyrics}`)
+);
+
+ */
 
 module.exports = mySong;
