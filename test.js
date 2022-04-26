@@ -10,7 +10,6 @@ app.use('/favorite', postRoute);
 
 
 app.get('/', function (req, res) {
-
     console.log(songInfo.lyriikat); //Näkyy consolissa kun avaa localhost
     res.send('Hello World');
 });

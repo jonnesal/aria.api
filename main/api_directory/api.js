@@ -8,34 +8,36 @@ const options = {
 	optimizeQuery: true
 };
 
-const promise = songs.getLyrics(options).then((lyrics) =>{return lyrics});
+const promise = songs.getSong(options).then((song) =>{return {
+	songTitle: song.title,
+	songUrl: song.url,
+	songId: song.id,
+	songAlbumArt: song.albumArt,
+	songLyrics: song.lyrics
+}
 
-let lyriikat;
+});
+
+let tiedot;
 let myJSON;
+
 const mySong = new Object();
 
-
 const printAddress = async () => {
-	lyriikat = await promise;
-	mySong.lyriikat = lyriikat;
+	tiedot = await promise;
+	myJSON = JSON.stringify(tiedot.songLyrics);
 
-	 myJSON = JSON.stringify(lyriikat);
-	 mySong.jsonLyyriikat = myJSON;
+	//Laitetaan tiedot mySong objektin sisälle exporttia varten
+
+	mySong.albumArt = tiedot.songAlbumArt;
+	mySong.songId = tiedot.songId;
+	mySong.url = tiedot.songUrl;
+	mySong.title = tiedot.songTitle;
+	mySong.lyriikat = tiedot.songLyrics;
+	mySong.jsonLyyriikat = myJSON;
 };
 
 printAddress().then(r => console.log("lyriikka obj valmis"));
 
-/*songs.getLyrics(options).then((lyrics) => console.log(lyrics));
-
-songs.getSong(options).then((song) =>
-	console.log(`
-	${song.id}
-	${song.title}
-	${song.url}
-	${song.albumArt}
-	${song.lyrics}`)
-);
-
- */
 
 module.exports = mySong;
