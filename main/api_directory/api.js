@@ -1,10 +1,12 @@
 const songs = require('genius-lyrics-api');
 
+let title = 'Blinding Lights';
+let artist = 'The Weeknd';
 
 const options = {
 	apiKey: 'lC82BmEzP2bdMxsvN7VV0OwroYRkOmdepuS4LjNthaj1wMJwqcOGyRV27soK5l6C',
-	title: 'Blinding Lights',
-	artist: 'The Weeknd',
+	title: title,
+	artist: artist,
 	optimizeQuery: true
 };
 
