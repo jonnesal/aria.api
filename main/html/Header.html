@@ -109,6 +109,7 @@
         <div class="sdcard-container tilt" data-tilt>
             <!--<div class="overlay"></div>-->
             <img src="../assets/images/sd_top.png" class="sdcardtop">
+            <img src="../assets/images/overlay3.png" class="overlay3">
             <img src="../assets/images/overlay2.png" class="overlay2">
             <img src="../assets/images/overlay1.png" class="overlay1">
             <img src="../assets/images/cover.png" class="cover">
@@ -118,7 +119,17 @@
     <div class="card text-center m-auto shadow-lg" style="width: 18rem;" data-tilt>
         <img class="card-img-top" src="../assets/images/cover.png" alt="Card image cap">
     </div>
+    <div>
+        <form action="">
+            <label for="fname" style="color: white">Artist name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name..">
 
+            <label for="lname" style="color: white">Song title</label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
 </div>
 
 <div class="myDiv" id="div3">
@@ -260,7 +271,7 @@
     });
 
     $(function () {
-        disableScrolling();
+        /*disableScrolling();
         $("#div1, #div2, #div3, #div4, #div5, .constantTitleDiv, .navbar, .border1, .border2, .circle, .circle_pulse, .loader").hide();
 
         setTimeout(function() {
@@ -277,9 +288,9 @@
             $('#div1, .constantTitleDiv, .navbar').delay(1000).fadeIn(2000);
             setTimeout(enableScrolling, 2500);
             setTimeout(enableBorder, 2500)
-        }, 500);
+        }, 500);*/
 
-
+        $("#div1, #div3, #div4, #div5, .constantTitleDiv, .border2, .circle, .circle_pulse, .loader").hide();
     });
 
     $('.email').on("click", function () {

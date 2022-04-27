@@ -875,7 +875,7 @@ li a {
     90% { transform:translate(-10%, 10%) }
 }
 
-.sdcardtop {
+.sdcardtop, .overlay3 {
     position: absolute;
     margin: auto;
     top: 0;
@@ -885,6 +885,10 @@ li a {
     width: 15vw;
     height: auto;
     z-index: 5;
+}
+
+.overlay3 {
+
 }
 
 .cover {
