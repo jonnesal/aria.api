@@ -6,7 +6,7 @@ html, body {
 }
 
 * {
-    cursor: none;
+    cursor: inherit;
 }
 
 @font-face {
@@ -30,7 +30,11 @@ html, body {
 
     .title, .constantTitle, .modalTitle {
         font-size: 4rem;
-        font-weight: 400;
+        font-weight: 500;
+    }
+
+    .second {
+        font-weight: 550;
     }
 
     .modalTitle {
@@ -130,7 +134,11 @@ html, body {
 
     .title, .constantTitle, .modalTitle {
         font-size: 4rem;
-        font-weight: 400;
+        font-weight: 500;
+    }
+
+    .second {
+        font-weight: 600;
     }
 
     .modalTitle {
@@ -236,9 +244,12 @@ html, body {
 
     .title, .constantTitle, .modalTitle {
         font-size: 4rem;
-        font-weight: 400;
+        font-weight: 500;
     }
 
+    .second {
+        font-weight: 550;
+    }
     .modalTitle {
         font-size: 2.6rem;
         font-weight: 700;
@@ -329,15 +340,18 @@ html, body {
 
 @media only screen and (min-width: 1920px) {
     /*FONTS*/
-    .navbar, .description, .description2, .home-container, .contact-container, .selected {
+    .navbar, .description, .description2, .home-container, .contact-container, .selected, .cassette-container {
         font-size: 1rem;
         font-weight: 500;
     }
     .title, .constantTitle, .modalTitle {
         font-size: 3rem;
-        font-weight: 400;
+        font-weight: 500;
     }
 
+    .second {
+        font-weight: 550;
+    }
     .contact1, .contact2 {
         font-size: 1rem;
     }
@@ -432,7 +446,7 @@ html, body {
 
 @media only screen and (min-width: 2560px) {
     /*FONTS*/
-    .navbar, .description, .description2, .home-container, .contact-container, .selected {
+    .navbar, .description, .description2, .home-container, .contact-container, .selected, .cassette-container {
         font-size: 1.32rem;
         font-weight: 500;
     }
@@ -443,7 +457,11 @@ html, body {
 
     .title, .constantTitle, .modalTitle {
         font-size: 4rem;
-        font-weight: 400;
+        font-weight: 500;
+    }
+
+    .second {
+        font-weight: 600;
     }
 
     .modalTitle {
@@ -536,7 +554,7 @@ html, body {
 
 @media only screen and (min-width: 3024px) {
     /*FONTS*/
-    .navbar, .description, .description2, .home-container, .contact-container, .selected {
+    .navbar, .description, .description2, .home-container, .contact-container, .selected, .cassette-container {
         font-size: 1.32rem;
         font-weight: 500;
     }
@@ -547,7 +565,11 @@ html, body {
 
     .title, .constantTitle, .modalTitle {
         font-size: 4rem;
-        font-weight: 400;
+        font-weight: 500;
+    }
+
+    .second {
+        font-weight: 550;
     }
 
     .modalTitle {
@@ -721,13 +743,13 @@ body::-webkit-scrollbar {
     font-weight: bold;
     color: #FFC300;
     text-decoration: underline #FFC300;
-    text-underline-offset: 3px;
+    text-underline-offset: 0.25rem;
+    transition: color 0.5s;
 }
 
 .infoBtn:hover {
     color: #7b44ee;
     text-decoration: underline #682AE9FF;
-    text-underline-offset: 3px;
 }
 
 .selector {
@@ -793,13 +815,6 @@ li a {
     width: 100%;
 }
 
-.first {
-    font-weight: 400;
-}
-.second {
-    font-weight: 500;
-}
-
 .description {
     color: #757474;
     height: auto;
@@ -814,10 +829,102 @@ li a {
     margin: 0;
 }
 
-.home-container, .contact-container {
+.home-container, .contact-container, .trace-container {
     margin: 0;
     color: #757474;
     width: 50%;
+}
+
+.trace-container {
+    border: 1px blue solid;
+}
+
+.sdcard-container {
+    position: relative;
+    width: 15vw;
+    height: 40vh;
+    border: 1px red solid;
+    display: block;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay {
+    animation: grain 8s steps(10) infinite;
+    background-image: url("../assets/images/grainy.png");
+    content: "";
+    height: 300%;
+    left: -50%;
+    opacity: 0.3;
+    position: fixed;
+    top: -100%;
+    width: 300%;
+}
+
+@keyframes grain {
+    0%, 100% { transform:translate(0, 0) }
+    10% { transform:translate(-5%, -10%) }
+    20% { transform:translate(-15%, 5%) }
+    30% { transform:translate(7%, -25%) }
+    40% { transform:translate(-5%, 25%) }
+    50% { transform:translate(-15%, 10%) }
+    60% { transform:translate(15%, 0%) }
+    70% { transform:translate(0%, 15%) }
+    80% { transform:translate(3%, 35%) }
+    90% { transform:translate(-10%, 10%) }
+}
+
+.sdcardtop {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 15vw;
+    height: auto;
+    z-index: 5;
+}
+
+.cover {
+    position: absolute;
+    margin: auto;
+    top: 3rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    width: 13vw;
+    height: auto;
+}
+
+.overlay1, .overlay2 {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 14vw;
+    height: 31vh;
+    z-index: 3;
+}
+
+.overlay2 {
+    mix-blend-mode: multiply;
+}
+
+.sdcardbot {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 15vw;
+    height: auto;
+    z-index: 1;
 }
 
 .span3 {
@@ -842,14 +949,16 @@ li a {
     text-decoration: none;
 }
 
+.myLink {
+    transition: color 0.5s;
+}
+
 .myLink:hover {
     color: #682AE9FF;
-    text-decoration: underline #682AE9FF;
-    text-underline-offset: 3px;
 }
 
 .active {
-    color: #757474;
+   color: #757474;
 }
 
 @keyframes fadeIn {
@@ -941,7 +1050,7 @@ li a {
     font: inherit;
     min-width: 35%;
     height: auto;
-    z-index: 99;
+    z-index: 999999;
     text-align: center;
 }
 
@@ -1131,7 +1240,8 @@ li a {
     border-radius: 100%;
 }
 
-/*.cursor {
+/*CUSTOM CURSOR*/
+.cursor {
     display: none;
     position: fixed;
     top: 0;
@@ -1140,15 +1250,36 @@ li a {
     height: var(--height);
     transform: translate(calc(var(--x) - var(--width) / 2), calc(var(--y) - var(--height) / 2));
     transition-duration: 0.1s;
-    z-index: 1;
-    border-radius: var(--radius);
-    border: 2px solid #682AE9FF;
+    transition-timing-function: cubic-bezier(0.25, 0.25, 0.42, 1);
+    transition-property: width, height, transform;
+    z-index: 100;
+    pointer-events: none;
+    will-change: transform;
+    mix-blend-mode: difference;
 }
 @media (pointer: fine) {
     .cursor {
         display: block;
     }
-}*/
+}
+.cursor::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: var(--radius);
+    border: 2px solid #FFC300;
+    opacity: var(--scale);
+    transform: scale(var(--scale));
+    transition: 0.3s cubic-bezier(0.25, 0.25, 0.42, 1) opacity, 0.3s cubic-bezier(0.25, 0.25, 0.42, 1) transform, 0.1s cubic-bezier(0.25, 0.25, 0.42, 1) border-radius;
+}
+body:not(body:hover) .cursor::after {
+    opacity: 0;
+    transform: scale(0);
+}
+
 
 
 

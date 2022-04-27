@@ -11,12 +11,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
     <script type="text/javascript" src="https://res.cloudinary.com/veseylab/raw/upload/v1636192990/magicmouse/magic_mouse-1.2.1.cdn.min.js"></script>
+    <script src="tilt.js"></script>
 </head>
 <body>
 
 <div class="loader">
     <div class="loader__element"></div>
 </div>
+
+<div class="cursor"></div>
 
 <div class="navbar">
     <div class="selector-wrapper">
@@ -36,7 +39,7 @@
         <div class="circle"></div>
         <div class="circle_pulse" id="pulsating"></div>
         <div class="border1"></div>
-        <div class="border2"></div>
+        <div class="border2" id="border2"></div>
     </div>
 </div>
 
@@ -102,6 +105,20 @@
         <span>Seeking something missing, <br>
         missing something left behind.</span>
     </div>
+    <div class="trace-container">
+        <div class="sdcard-container tilt" data-tilt>
+            <!--<div class="overlay"></div>-->
+            <img src="../assets/images/sd_top.png" class="sdcardtop">
+            <img src="../assets/images/overlay2.png" class="overlay2">
+            <img src="../assets/images/overlay1.png" class="overlay1">
+            <img src="../assets/images/cover.png" class="cover">
+            <img src="../assets/images/sd_bot.png" class="sdcardbot">
+        </div>
+    </div>
+    <div class="card text-center m-auto shadow-lg" style="width: 18rem;" data-tilt>
+        <img class="card-img-top" src="../assets/images/cover.png" alt="Card image cap">
+    </div>
+
 </div>
 
 <div class="myDiv" id="div3">
@@ -181,6 +198,7 @@
 
 </body>
 
+<!--FRONT-END RELATED SCIRPTS-->
 <script>
     const updateSelected = () => {
         $(".selected").text($("a[class*='active']").text()).fadeIn(700);
@@ -223,12 +241,32 @@
         $('body, html').addClass('stop-scrolling2')
     }
 
+    function enableBorder() {
+        $("#border2").delay(2000).addClass("border2")
+        $(".border2").hide();
+    }
+
+    function disableBorder() {
+        $("#border2").removeClass("border2")
+    }
+
+    window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll > 0) {
+            $(".border2").show();
+        } else
+            $(".border2").fadeOut(300);
+    });
+
     $(function () {
         disableScrolling();
         $("#div1, #div2, #div3, #div4, #div5, .constantTitleDiv, .navbar, .border1, .border2, .circle, .circle_pulse, .loader").hide();
 
         setTimeout(function() {
+            disableScrolling();
             scrollToTop();
+            enableBorder();
             showLoader();
 
             $('#div5').fadeIn(2000);
@@ -238,7 +276,10 @@
 
             $('#div1, .constantTitleDiv, .navbar').delay(1000).fadeIn(2000);
             setTimeout(enableScrolling, 2500);
+            setTimeout(enableBorder, 2500)
         }, 500);
+
+
     });
 
     $('.email').on("click", function () {
@@ -258,24 +299,25 @@
     });
 
     $(".myLink").click(function () {
+        disableBorder();
+        disableScrolling();
+        $('.myDiv, .border1, .circle, .circle_pulse').not($('#div5')).fadeOut();
         let divId = $(this).attr("divId");
         if (divId === 'div4')
             disableScrolling();
         else
-            setTimeout(enableScrolling, 500);
+            setTimeout(enableScrolling, 2000);
 
         showLoader();
 
-        $(".border1").hide().delay(800).show(200);
-        $(".circle").delay(700).fadeIn(300);
+        $(".circle, .border1").delay(700).fadeIn();
+
         setTimeout(pulse, 1200);
-
-        $('.myDiv, .clearLeft').not($('#div5')).fadeOut(300);
-
-        $(".clearLeft, #" + divId).delay(800).fadeIn(500);
-
         setTimeout(scrollToTop, 400);
+        setTimeout(enableBorder, 2000);
         typeWriter(divId);
+
+        $("#" + divId).delay(1000).fadeIn(500);
     });
 
     $('body').addClass('stop-scrolling1')
@@ -292,24 +334,73 @@
         $('body').removeClass('stop-scrolling1')
     });
 
-    window.addEventListener("scroll", () => {
-        const currentScroll = window.pageYOffset;
-
-        if (currentScroll > 0) {
-            $(".border2").show();
-        } else
-            $(".border2").fadeOut(300);
-    });
 </script>
 
-<script type="text/javascript">
-    options = {
-        "cursorOuter": "circle-basic",
-        "hoverItemMove": false,
-        "defaultCursor": false,
-        "outerWidth": 30,
-        "outerHeight": 30
-    };
-    magicMouse(options);
+<!--API RELATED SCRIPTS -->
+<script>
+    const songInfo = require('./main/api_directory/api');
+
+
+</script>
+
+<!--CUSTOM CURSOR-->
+<script>
+    const updateProperties = (elem, state) => {
+
+        elem.style.setProperty('--x', `${ state.x }px`)
+        elem.style.setProperty('--y', `${ state.y }px`)
+        elem.style.setProperty('--width', `${ state.width }px`)
+        elem.style.setProperty('--height', `${ state.height }px`)
+        elem.style.setProperty('--radius', state.radius)
+        elem.style.setProperty('--scale', state.scale)
+
+    }
+
+    document.querySelectorAll('.cursor').forEach((cursor) => {
+
+        let onElement
+
+        const createState = (e) => {
+
+            const defaultState = {
+                x: e.clientX,
+                y: e.clientY,
+                width: 42,
+                height: 42,
+                radius: '100px'
+            }
+
+            const computedState = {}
+
+            if (onElement != null) {
+                const { top, left, width, height } = onElement.getBoundingClientRect()
+                const radius = window.getComputedStyle(onElement).borderTopLeftRadius
+
+                computedState.x = left + width / 2
+                computedState.y = top + height / 2
+                computedState.width = width
+                computedState.height = height
+                computedState.radius = radius
+            }
+
+            return {
+                ...defaultState,
+                ...computedState
+            }
+
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            const state = createState(e)
+            updateProperties(cursor, state)
+        })
+
+        /*document.querySelectorAll('a, button').forEach((elem) => {
+            elem.addEventListener('mouseenter', () => onElement = elem)
+            elem.addEventListener('mouseleave', () => onElement = undefined)
+        })*/
+
+    })
+
 </script>
 </html>
