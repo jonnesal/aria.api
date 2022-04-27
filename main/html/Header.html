@@ -10,7 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="https://res.cloudinary.com/veseylab/raw/upload/v1636192990/magicmouse/magic_mouse-1.2.1.cdn.min.js"></script>
+    <script type="text/javascript"
+            src="https://res.cloudinary.com/veseylab/raw/upload/v1636192990/magicmouse/magic_mouse-1.2.1.cdn.min.js"></script>
 </head>
 <body>
 
@@ -105,29 +106,21 @@
         missing something left behind.</span>
     </div>
     <div class="trace-container">
-        <div class="sdcard-container" data-tilt data-tilt-max="50" data-tilt-speed="400" data-tilt-perspective="500">>>
+        <div class="sdcard-container js-tilt" data-tilt>
             <!--<div class="overlay"></div>-->
+            <div class="sdcard-container2 js-tilt2" data-tilt>
+                <span class="tilt-logo-inner1">EXCLUSIVELY AT<br><span style="color: #FFC300"> &#47;&#47;</span>aria.api</span>
+                <span class="tilt-logo-inner2">LOCK <span>&#9650;</span></span>
+            </div>
             <img src="../assets/images/sd_top.png" class="sdcardtop">
+            <img src="../assets/images/overlay4.png" class="overlay4">
             <img src="../assets/images/overlay3.png" class="overlay3">
             <img src="../assets/images/overlay2.png" class="overlay2">
             <img src="../assets/images/overlay1.png" class="overlay1">
             <img src="../assets/images/cover.png" class="cover">
             <img src="../assets/images/sd_bot.png" class="sdcardbot">
         </div>
-    </div>
-    <div class="card text-center m-auto shadow-lg" style="width: 18rem;" data-tilt data-tilt-max="50" data-tilt-speed="400" data-tilt-perspective="500">
-        <img class="card-img-top" src="../assets/images/cover.png" alt="Card image cap">
-    </div>
-    <div>
-        <form action="">
-            <label for="fname" style="color: white">Artist name</label>
-            <input type="text" id="fname" name="firstname" placeholder="Your name..">
 
-            <label for="lname" style="color: white">Song title</label>
-            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-
-            <input type="submit" value="Submit">
-        </form>
     </div>
 </div>
 
@@ -156,8 +149,8 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;<span>fname:</span> 'Svyatoslav',<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;<span>lname:</span> 'Beletskiy',<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;<a class="email tooltip" data-clipboard-text="svyatosb@metropolia.fi"
-                   href="mailto:svyatosb@metropolia.fi"
-                   data-title="Copy to clipboard">email:</a> 'svyatosb@metropolia.fi'<br>
+                                           href="mailto:svyatosb@metropolia.fi"
+                                           data-title="Copy to clipboard">email:</a> 'svyatosb@metropolia.fi'<br>
                 };
             </p>
         </div>
@@ -167,8 +160,8 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;<span>fname:</span> 'Jonne',<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;<span>lname:</span> 'Salli',<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;<a class="email tooltip" data-clipboard-text="jonne.salli@metropolia.fi"
-                    href="mailto:jonne.salli@metropolia.fi"
-                    data-title="Copy to clipboard">email:</a> 'jonne.salli@metropolia.fi'<br>
+                                           href="mailto:jonne.salli@metropolia.fi"
+                                           data-title="Copy to clipboard">email:</a> 'jonne.salli@metropolia.fi'<br>
                 };
             </p>
         </div>
@@ -206,11 +199,25 @@
 
 <div id="bottom_fade"></div>
 
-<script type="text/javascript" src="vanilla-tilt.js"></script>
+<script src="tilt.js"></script>
 </body>
 
 <!--FRONT-END RELATED SCIRPTS-->
 <script>
+    $('.js-tilt').tilt({
+        maxTilt: 8,
+        scale: 1.1,
+        easing: "cubic-bezier(.03,.98,.52,.99)",
+        speed: 100,
+    });
+
+    $('.js-tilt2').tilt({
+        maxTilt: 12,
+        scale: 1.1,
+        easing: "cubic-bezier(.03,.98,.52,.99)",
+        speed: 300,
+    });
+
     const updateSelected = () => {
         $(".selected").text($("a[class*='active']").text()).fadeIn(700);
     }
@@ -358,10 +365,10 @@
 <script>
     const updateProperties = (elem, state) => {
 
-        elem.style.setProperty('--x', `${ state.x }px`)
-        elem.style.setProperty('--y', `${ state.y }px`)
-        elem.style.setProperty('--width', `${ state.width }px`)
-        elem.style.setProperty('--height', `${ state.height }px`)
+        elem.style.setProperty('--x', `${state.x}px`)
+        elem.style.setProperty('--y', `${state.y}px`)
+        elem.style.setProperty('--width', `${state.width}px`)
+        elem.style.setProperty('--height', `${state.height}px`)
         elem.style.setProperty('--radius', state.radius)
         elem.style.setProperty('--scale', state.scale)
 
@@ -384,7 +391,7 @@
             const computedState = {}
 
             if (onElement != null) {
-                const { top, left, width, height } = onElement.getBoundingClientRect()
+                const {top, left, width, height} = onElement.getBoundingClientRect()
                 const radius = window.getComputedStyle(onElement).borderTopLeftRadius
 
                 computedState.x = left + width / 2
