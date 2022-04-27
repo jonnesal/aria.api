@@ -11,7 +11,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
     <script type="text/javascript" src="https://res.cloudinary.com/veseylab/raw/upload/v1636192990/magicmouse/magic_mouse-1.2.1.cdn.min.js"></script>
-    <script src="tilt.js"></script>
 </head>
 <body>
 
@@ -106,7 +105,7 @@
         missing something left behind.</span>
     </div>
     <div class="trace-container">
-        <div class="sdcard-container tilt" data-tilt>
+        <div class="sdcard-container" data-tilt data-tilt-max="50" data-tilt-speed="400" data-tilt-perspective="500">>>
             <!--<div class="overlay"></div>-->
             <img src="../assets/images/sd_top.png" class="sdcardtop">
             <img src="../assets/images/overlay3.png" class="overlay3">
@@ -116,7 +115,7 @@
             <img src="../assets/images/sd_bot.png" class="sdcardbot">
         </div>
     </div>
-    <div class="card text-center m-auto shadow-lg" style="width: 18rem;" data-tilt>
+    <div class="card text-center m-auto shadow-lg" style="width: 18rem;" data-tilt data-tilt-max="50" data-tilt-speed="400" data-tilt-perspective="500">
         <img class="card-img-top" src="../assets/images/cover.png" alt="Card image cap">
     </div>
     <div>
@@ -207,6 +206,7 @@
 
 <div id="bottom_fade"></div>
 
+<script type="text/javascript" src="vanilla-tilt.js"></script>
 </body>
 
 <!--FRONT-END RELATED SCIRPTS-->
