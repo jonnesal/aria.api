@@ -10,8 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
-    <script type="text/javascript"
-            src="https://res.cloudinary.com/veseylab/raw/upload/v1636192990/magicmouse/magic_mouse-1.2.1.cdn.min.js"></script>
+    <script type="text/javascript" src="https://res.cloudinary.com/veseylab/raw/upload/v1636192990/magicmouse/magic_mouse-1.2.1.cdn.min.js"></script>
 </head>
 <body>
 
@@ -92,7 +91,7 @@
 
 </div>
 
-<div class="myDiv" id="div2">
+<<div class="myDiv" id="div2">
     <div class="clearTop"></div>
     <div class="title">
         <span class="first">aria</span>
@@ -106,21 +105,46 @@
         missing something left behind.</span>
     </div>
     <div class="trace-container">
-        <div class="sdcard-container js-tilt" data-tilt>
-            <!--<div class="overlay"></div>-->
-            <div class="sdcard-container2 js-tilt2" data-tilt>
-                <span class="tilt-logo-inner1">EXCLUSIVELY AT<br><span style="color: #FFC300"> &#47;&#47;</span>aria.api</span>
-                <span class="tilt-logo-inner2">LOCK <span>&#9650;</span></span>
+        <div class="floating">
+            <div class="tilt-container js-tilt">
+                <div class="flip-container">
+                    <div class="flipper">
+                        <div class="sdcard-container front">
+                            <!--<div class="sdcard-container2 js-tilt2">
+                                <div class="form__group1 field1">
+                                    <input type="input" class="form__field" placeholder="Artist" name="name" id='name' autocomplete="off" required />
+                                    <label for="name" class="form__label">.artist</label>
+                                </div>
+                                <div class="form__group2 field2">
+                                    <input type="input" class="form__field" placeholder="Song" name="song" id="song" autocomplete="off" required />
+                                    <label for="name" class="form__label">.title</label>
+                                </div>
+                                <span class="tilt-logo-inner1">EXCLUSIVELY AT<br><span style="color: #FFC300"> &#47;&#47;</span>aria.api</span>
+                                <span class="tilt-logo-inner2">LOCK <span>&#9650;</span></span>
+                            </div-->
+                            <img src="../assets/images/sd_bot.png" class="sdcardbot">
+                            <img src="../assets/images/cover.png" class="cover">
+                            <img src="../assets/images/overlay1.png" class="overlay1">
+                            <img src="../assets/images/overlay2.png" class="overlay2">
+                            <img src="../assets/images/overlay3.png" class="overlay3">
+                            <img src="../assets/images/overlay4.png" class="overlay4">
+                            <img src="../assets/images/sd_top.png" class="sdcardtop">
+                        </div>
+                        <div class="sdcard-container3 back">
+                            <img src="../assets/images/sd_back.png" class="sdcardback">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <img src="../assets/images/sd_top.png" class="sdcardtop">
-            <img src="../assets/images/overlay4.png" class="overlay4">
-            <img src="../assets/images/overlay3.png" class="overlay3">
-            <img src="../assets/images/overlay2.png" class="overlay2">
-            <img src="../assets/images/overlay1.png" class="overlay1">
-            <img src="../assets/images/cover.png" class="cover">
-            <img src="../assets/images/sd_bot.png" class="sdcardbot">
+            <<form action="" method="">
+                <button name="submitbutton" id="mysubmitbutton" type="submit" class="customButton1">
+                    .trace()
+                </button>
+            </form>
+            <button name="flipbutton" id="flip" class="customButton2">
+                .flip()
+            </button>
         </div>
-
     </div>
 </div>
 
@@ -204,18 +228,24 @@
 
 <!--FRONT-END RELATED SCIRPTS-->
 <script>
+    $('.customButton2').click(function() {
+        $('.flip-container').toggleClass('hover');
+        $(this).css('transform, rotateY(180deg)');
+    });
+
+
     $('.js-tilt').tilt({
         maxTilt: 8,
         scale: 1.1,
         easing: "cubic-bezier(.03,.98,.52,.99)",
-        speed: 100,
+        speed: 100
     });
 
     $('.js-tilt2').tilt({
-        maxTilt: 12,
+        maxTilt: 8,
         scale: 1.1,
         easing: "cubic-bezier(.03,.98,.52,.99)",
-        speed: 300,
+        speed: 300
     });
 
     const updateSelected = () => {
@@ -278,7 +308,7 @@
     });
 
     $(function () {
-        disableScrolling();
+        /*disableScrolling();
         $("#div1, #div2, #div3, #div4, #div5, .constantTitleDiv, .navbar, .border1, .border2, .circle, .circle_pulse, .loader").hide();
 
         setTimeout(function() {
@@ -295,7 +325,9 @@
             $('#div1, .constantTitleDiv, .navbar').delay(1000).fadeIn(2000);
             setTimeout(enableScrolling, 2500);
             setTimeout(enableBorder, 2500)
-        }, 500);
+        }, 500);*/
+
+        $("#div1, #div3, #div4, #div5, .constantTitleDiv, .border2, .circle_pulse, .loader").hide();
     });
 
     $('.email').on("click", function () {
