@@ -91,7 +91,7 @@
 
 </div>
 
-<<div class="myDiv" id="div2">
+<div class="myDiv" id="div2">
     <div class="clearTop"></div>
     <div class="title">
         <span class="first">aria</span>
@@ -136,14 +136,22 @@
                     </div>
                 </div>
             </div>
-            <<form action="" method="">
-                <button name="submitbutton" id="mysubmitbutton" type="submit" class="customButton1">
+            <form action="" method="">
+                <button onclick="showLyrics()" name="submitbutton" id="submit" type="button" class="customButton1">
                     .trace()
                 </button>
             </form>
             <button name="flipbutton" id="flip" class="customButton2">
                 .flip()
             </button>
+        </div>
+        <div class="lyrics-container">
+            <span>
+                Song lyrics:
+            </span>
+            <div class="lyrics">
+
+            </div>
         </div>
     </div>
 </div>
@@ -308,7 +316,7 @@
     });
 
     $(function () {
-        /*disableScrolling();
+        disableScrolling();
         $("#div1, #div2, #div3, #div4, #div5, .constantTitleDiv, .navbar, .border1, .border2, .circle, .circle_pulse, .loader").hide();
 
         setTimeout(function() {
@@ -325,9 +333,9 @@
             $('#div1, .constantTitleDiv, .navbar').delay(1000).fadeIn(2000);
             setTimeout(enableScrolling, 2500);
             setTimeout(enableBorder, 2500)
-        }, 500);*/
+        }, 500);
 
-        $("#div1, #div3, #div4, #div5, .constantTitleDiv, .border2, .circle_pulse, .loader").hide();
+        /*$("#div1, #div3, #div4, #div5, .constantTitleDiv, .border2, .circle_pulse, .loader").hide();*/
     });
 
     $('.email').on("click", function () {
@@ -387,6 +395,10 @@
 <!--API RELATED SCRIPTS -->
 <script>
     const songInfo = require('./main/api_directory/api');
+
+    function showLyrics() {
+        document.getElementsByClassName(".lyrics").innerHTML = songInfo.lyriikat;
+    }
 
 
 </script>
