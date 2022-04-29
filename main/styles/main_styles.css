@@ -607,14 +607,13 @@ li a {
     margin: 0;
     width: 100%;
     height: 100%;
-    border: 1px solid #FFC300;
 }
 
 .floating {
     position: absolute;
     width: 17vw;
     height: 23vw;
-    float: right;
+    right: 0;
     animation-name: floating;
     animation-duration: 5s;
     animation-iteration-count: infinite;
@@ -889,6 +888,25 @@ li a {
 .customButton1:active, .customButton2:active {
     transform: translate(0.05em, 0.05em);
     box-shadow: 0.05em 0.05em;
+}
+
+.lyrics-container {
+    border: 1px red solid;
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    left: 0;
+    color: #757474;
+    font-size: 1.3rem;
+    padding-top: 1rem;
+}
+
+.lyrics {
+    border: 1px green solid;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    left: 0;
 }
 
 .span3 {
