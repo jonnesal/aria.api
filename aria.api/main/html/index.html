@@ -316,7 +316,7 @@
     <!--ANIMATIONS THAT PLAY WHEN THE USER LOADS INTO THE WEBSITE FOR THE FIRST TIME-->
     $(function () {
         disableScrolling();
-        $("#div1, #div2, #div3, #div4, #div5, .constantTitleDiv, .navbar, .border1, .border2, .circle, .circle_pulse, .loader").hide();
+        $(".main, #div5, .constantTitleDiv, .navbar, .border1, .border2, .circle, .circle_pulse, .loader").hide();
 
         setTimeout(function() {
             disableScrolling();
@@ -330,7 +330,7 @@
             setTimeout(pulse, 1200);
             typeWriter('div1');
 
-            $('#div1, .constantTitleDiv, .navbar').delay(1000).fadeIn(2000);
+            $('.main, .constantTitleDiv, .navbar').delay(1000).fadeIn(2000);
             setTimeout(enableScrolling, 2500);
             setTimeout(enableBorder, 2500)
         }, 500);
