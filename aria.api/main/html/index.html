@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Title</title>
+    <title>aria.api</title>
     <link rel="stylesheet" href="../styles/main_styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
@@ -12,29 +12,34 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
     <script type="text/javascript" src="https://res.cloudinary.com/veseylab/raw/upload/v1636192990/magicmouse/magic_mouse-1.2.1.cdn.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
 </head>
 
 <body>
 
+<!--CUSTOM LOADER AT THE TOP OF THE PAGE-->
 <div class="loader">
     <div class="loader__element"></div>
-</div> <!--CUSTOM LOADER AT THE TOP OF THE PAGE-->
+</div>
 
-<div class="cursor"></div> <!--CUSTOM CURSOR-->
+<!--CUSTOM CURSOR-->
+<div class="cursor"></div>
 
+<!--NAVIGATION BAR-->
 <div class="navbar">
     <div class="selector-wrapper">
         <span class="selected">.api()</span>
-        <span><a class="infoBtn" href="#ex1">i.</a></span>
+        <span><a class="infoBtn" href="#instructionModal">i.</a></span>
         <ul class="selector">
-            <li><a class="myLink " divId="div1" id="home" href="/home">.api()</a></li>
-            <li><a class="myLink " divId="div2" id="trace" href="/trace">.trace()</a></li>
-            <li><a class="myLink " divId="div3" id="saved" href="/saved">.saved()</a></li>
-            <li><a class="myLink " divId="div4" id="contact" href="/contact">.contact()</a></li>
+            <li><a class="myLink " divId="div1" id="home" href="#home">.api()</a></li>
+            <li><a class="myLink " divId="div2" id="trace" href="#trace">.trace()</a></li>
+            <li><a class="myLink " divId="div3" id="saved" href="#saved">.saved()</a></li>
+            <li><a class="myLink " divId="div4" id="contact" href="#contact">.contact()</a></li>
         </ul>
     </div>
-</div> <!--NAVIGATION BAR-->
+</div>
 
+<!--LEFT LINE ANIMATION-->
 <div class="clearLeft">
     <div class="align">
         <div class="circle"></div>
@@ -42,16 +47,19 @@
         <div class="border1"></div>
         <div class="border2" id="border2"></div>
     </div>
-</div> <!--LEFT LINE ANIMATION-->
+</div>
 
+<!--ARIA TITLE-->
 <div class="myDiv" id="div5">
     <div class="clearTop"></div>
     <div class="constantTitle">
         <span class="first">aria</span>
     </div>
-</div> <!--ARIA TITLE-->
+</div>
 
+<!--MAIN PAGE CONTENT-->
 <div class="main">
+    <!--STARTING SCREEN / HOME PAGE CONTENT-->
     <div class="myDiv" id="div1">
         <div class="clearTop"></div>
         <div class="title">
@@ -92,11 +100,262 @@
             elit ut aliquam. Lorem ipsum dolor sit amet.</span>
         </div>
 
-    </div> <!--STARTING SCREEN / HOME PAGE CONTENT-->
-</div> <!--MAIN PAGE CONTENT-->
+    </div>
+</div>
 
+<!--INSTRUCTIONS POP-UP-->
+<div id="instructionModal" class="modal" style="background-color: #0c0c0c">
+    <div class="modalTitle">
+        <span class="modalFirst">aria</span><span class="modalSecond">.usage('<span class="p1">i</span>nfo')</span>
+    </div>
+    <div class="description">
+        <p>How to use the .trace() function</p>
+    </div>
+    <div class="description2">
+        <span>.trace().instructions = {</span>
+    </div>
+    <div class="modalInstructions">
+        <p>
+            &#160;&#160;&#160;&#160;<span class="p1">step1</span>: '<span class="green">Lorem ipsum dolor sit amet, consectetur adipiscing</span>'
+            +
+            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'<span class="green">elit. Lorem ipsum dolor sit amet.</span>',<br><br>
+            &#160;&#160;&#160;&#160;<span class="p1">step2</span>: '<span class="green">Lorem ipsum dolor sit amet, consectetur adipiscing.</span>',<br><br>
+            &#160;&#160;&#160;&#160;<span class="p1">step3</span>: '<span class="green">Lorem ipsum dolor sit amet, consectetur adipiscing</span>'
+            +
+            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'<span class="green">elit. Lorem ipsum dolor sit amet. Lorem ipsum</span>'
+            +
+            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'<span class="green">dolor sit amet, consectetur adipiscing.</span>',<br><br>
+            &#160;&#160;&#160;&#160;<span class="p1">step4</span>: '<span class="green">Lorem ipsum dolor sit amet, consectetur adipiscing.</span>'
+        </p>
+    </div>
+    <div class="modalDescription3">
+        <span>}</span>
+    </div>
+</div>
+
+<!--VISUAL FADE EFFECT AT THE BOTTOM OF THE SCREEN-->
+<div id="bottom_fade"></div>
+
+<!--SCRIPT FOR THE 3D TILT EFFECT-->
+<script src="../scripts/tilt.js"></script>
 </body>
 
+<!--API RELATED SCRIPT FOR THE .TRACE() FUNCTION-->
+<script>
+    $("#mysubmitbutton").on("click", function () {
+
+    })
+</script>
+
+<!--SCRIPT FOR SITE ANIMATIONS-->
+<script>
+
+    <!--SCROLLS TO THE TOP OF THE PAGE-->
+    function scrollToTop() {
+        $(window).scrollTop(0)
+    }
+
+    <!--UPDATES THE LEFTMOST TEXT IN THE NAVBAR TO DISPLAY WHICH TAB IS CURRENTLY ACTIVE-->
+    function updateSelected() {
+        $(".selected").text($("a[class*='active']").text()).fadeIn(700);
+    }
+
+    <!--MOMENTARILY ENABLES THE PULSATING EFFECT OF THE DOT NEXT TO THE PAGE TITLE-->
+    function pulse() {
+        $("#pulsating").show();
+        $('#pulsating').delay(1950).fadeOut();
+    }
+
+    <!--MOMENTARILY ENABLES THE CUSTOM LOADER AT THE TOP OF THE PAGE-->
+    function showLoader() {
+        $(".loader").show();
+        $('.loader').delay(1350).fadeOut(300);
+    }
+
+    <!--DISABLES SCROLLING ON THE PAGE-->
+    function disableScrolling() {
+        $('body, html').addClass('stop-scrolling2')
+    }
+
+    <!--ENABLES SCROLLING ON THE PAGE-->
+    function enableScrolling() {
+        $('body, html').removeClass('stop-scrolling2');
+    }
+
+    <!--ENABLES PART OF THE LINE ANIMATION ON THE LEFT SIDE OF THE SCREEN-->
+    function enableBorder() {
+        $("#border2").delay(2000).addClass("border2")
+        $(".border2").hide();
+    }
+
+    <!--DISABLED PREVIOUSLY MENTIONED LINE ANIMATION-->
+    function disableBorder() {
+        $("#border2").removeClass("border2")
+    }
+
+    <!--CHANGES THE TYPEWRITER ANIMATION OF THE TITLE BASED ON WHICH TAB IS ACTIVE-->
+    function typeWriter(divId) {
+        if (divId === 'div1') {
+            $('.second').css({width: '6ch', animation: 'typing 0.5s steps(6), blink .7s step-end infinite alternate'});
+        } else if (divId === 'div2') {
+            $('.second').css({width: '8ch', animation: 'typing 0.5s steps(8), blink .7s step-end infinite alternate'});
+        } else if (divId === 'div3') {
+            $('.second').css({width: '8ch', animation: 'typing 0.5s steps(8), blink .7s step-end infinite alternate'});
+        } else {
+            $('.second').css({
+                width: '10ch',
+                animation: 'typing 0.5s steps(10), blink .7s step-end infinite alternate'
+            });
+        }
+    }
+
+    <!--MAKES THE UPPER LINE VISIBLE ON THE LEFT SIDE OF THE SCREEN WHEN THE USER SCROLLS DOWN THE PAGE-->
+    window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll > 0) {
+            $(".border2").show();
+        } else
+            $(".border2").fadeOut(300);
+    });
+
+    <!--DISABLES SCROLLING IN THE Y-DIRECTION (HAS TO BE USED FOR THE POP-UP MODAL)-->
+    $('body').addClass('stop-scrolling1')
+    $(document).on("click", function () {
+        $('body').addClass('stop-scrolling1')
+    });
+
+    <!--BRINGS UP THE POP-UP INSTRUCTION WINDOW ON THE CLICK OF THE YELLOW LETTER 'i' IN THE NAVBAR-->
+    $('a[href="#instructionModal"]').click(function (event) {
+        event.preventDefault();
+        $(this).modal({
+            showClose: false,
+            fadeDuration: 300
+        })
+        $('body').removeClass('stop-scrolling1')
+    });
+
+    <!--CHANGES THE ACTIVE TAB IN THE NAVBAR-->
+    $(".selector a").click(function () {
+        $("a").removeClass("active");
+        $(this).addClass(" active");
+        $(".selected").fadeOut(300);
+        setTimeout(updateSelected, 500);
+    });
+
+    <!--COPIES THE EMAIL ADDRESS TO THE USERS CLIPBOARD ONCE THEY CLICK ON IT IN THE CONTACT TAB-->
+    /*$('.email').on("click", function () {
+        let value = $(this).data('clipboard-text');
+        let $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val(value).select();
+        document.execCommand("copy");
+        $temp.remove();
+    });*/
+
+    <!--ANIMATIONS THAT PLAY WHEN THE USER CHANGES TABS FROM THE NAVBAR-->
+    $(".myLink").click(function () {
+        disableBorder();
+        disableScrolling();
+        $('.border1, .circle, .circle_pulse, .main').fadeOut();
+        let divId = $(this).attr("divId");
+
+        showLoader();
+
+        $(".circle, .border1").delay(700).fadeIn();
+
+        setTimeout(pulse, 1200);
+        setTimeout(scrollToTop, 400);
+        setTimeout(enableScrolling, 2500);
+        setTimeout(enableBorder, 2000);
+        typeWriter(divId);
+
+        $(".main").delay(1000).fadeIn(500);
+    });
+
+    <!--ANIMATIONS THAT PLAY WHEN THE USER LOADS INTO THE WEBSITE FOR THE FIRST TIME-->
+    $(function () {
+        disableScrolling();
+        $("#div1, #div2, #div3, #div4, #div5, .constantTitleDiv, .navbar, .border1, .border2, .circle, .circle_pulse, .loader").hide();
+
+        setTimeout(function() {
+            disableScrolling();
+            scrollToTop();
+            enableBorder();
+            showLoader();
+
+            $('#div5').fadeIn(2000);
+            $(".border1").hide().delay(1000).show(200);
+            $(".circle").delay(900).fadeIn(300);
+            setTimeout(pulse, 1200);
+
+            $('#div1, .constantTitleDiv, .navbar').delay(1000).fadeIn(2000);
+            setTimeout(enableScrolling, 2500);
+            setTimeout(enableBorder, 2500)
+        }, 500);
+    });
+</script>
+
+<!--SCRIPT FOR THE CUSTOM CURSOR-->
+<script>
+    const updateProperties = (elem, state) => {
+
+        elem.style.setProperty('--x', `${state.x}px`)
+        elem.style.setProperty('--y', `${state.y}px`)
+        elem.style.setProperty('--width', `${state.width}px`)
+        elem.style.setProperty('--height', `${state.height}px`)
+        elem.style.setProperty('--radius', state.radius)
+        elem.style.setProperty('--scale', state.scale)
+
+    }
+
+    document.querySelectorAll('.cursor').forEach((cursor) => {
+
+        let onElement
+
+        const createState = (e) => {
+
+            const defaultState = {
+                x: e.clientX,
+                y: e.clientY,
+                width: 42,
+                height: 42,
+                radius: '100px'
+            }
+
+            const computedState = {}
+
+            if (onElement != null) {
+                const {top, left, width, height} = onElement.getBoundingClientRect()
+                const radius = window.getComputedStyle(onElement).borderTopLeftRadius
+
+                computedState.x = left + width / 2
+                computedState.y = top + height / 2
+                computedState.width = width
+                computedState.height = height
+                computedState.radius = radius
+            }
+
+            return {
+                ...defaultState,
+                ...computedState
+            }
+
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            const state = createState(e)
+            updateProperties(cursor, state)
+        })
+
+        /*document.querySelectorAll('a, button').forEach((elem) => {
+            elem.addEventListener('mouseenter', () => onElement = elem)
+            elem.addEventListener('mouseleave', () => onElement = undefined)
+        })*/
+    })
+</script>
+
+<!--AJAX SCRIPT-->
 <script>
     $(function() {
         $("#home").on("click", function () {
@@ -140,4 +399,5 @@
             });
         });
     });
-</script> <!--AJAX-->
+</script>
+
