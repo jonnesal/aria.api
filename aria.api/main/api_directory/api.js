@@ -39,10 +39,8 @@ const printAddress = async () => {
 	mySong.title = tiedot.songTitle;
 	mySong.lyriikat = tiedot.songLyrics;
 	mySong.jsonLyriikat = myJSON;
-
 };
 
 printAddress().then(r => console.log("lyriikat kutsutaan sit async functiossa"));
-
 
 module.exports = mySong;

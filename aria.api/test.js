@@ -19,22 +19,23 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.get('/',function (req, res) {
-
-    res.render('pages/home')
+    res.sendFile(path.join(__dirname+'/main/html/index.html'));
 
     console.log(songInfo.lyriikat); //Näkyy consolissa kun avaa localhost ja kutsu async sisällä
     //console.log(songInfo.jsonLyriikat); sama mut json muodossa
     //res.send('Hello World');
+});
 
-
+app.get('/home',function (req, res) {
+//array with items to send
 });
 
 app.get('/trace',function (req, res) {
 //array with items to send
-    res.render('pages/trace', {
+    /*res.render('pages/trace', {
         lyrics: songInfo.lyriikat
     })
-    console.log(songInfo.lyriikat);
+    console.log(songInfo.lyriikat);*/
 
 });
 
@@ -44,12 +45,12 @@ app.post('/trace',(req, res) => {
 
 app.get('/contact',function (req, res) {
 //array with items to send
-    res.render('pages/contact')
+
 });
 
 app.get('/saved',function (req, res) {
 //array with items to send
-    res.render('pages/saved')
+
 });
 
 app.post('/', function (req, res) {
