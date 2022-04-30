@@ -974,8 +974,6 @@ li a {
 
 .second {
     transition: all 1s;
-    width: 6ch;
-    animation: typing 0.5s steps(6), blink 0.7s step-end infinite alternate;
     white-space: nowrap;
     overflow: hidden;
     border-right: 3px solid;

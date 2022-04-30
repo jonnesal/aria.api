@@ -31,7 +31,7 @@
         <span class="selected">.api()</span>
         <span><a class="infoBtn" href="#instructionModal">i.</a></span>
         <ul class="selector">
-            <li><a class="myLink " divId="div1" id="home" href="#home">.api()</a></li>
+            <li><a class="myLink active" divId="div1" id="home" href="#home">.api()</a></li>
             <li><a class="myLink " divId="div2" id="trace" href="#trace">.trace()</a></li>
             <li><a class="myLink " divId="div3" id="saved" href="#saved">.saved()</a></li>
             <li><a class="myLink " divId="div4" id="contact" href="#contact">.contact()</a></li>
@@ -197,9 +197,7 @@
     function typeWriter(divId) {
         if (divId === 'div1') {
             $('.second').css({width: '6ch', animation: 'typing 0.5s steps(6), blink .7s step-end infinite alternate'});
-        } else if (divId === 'div2') {
-            $('.second').css({width: '8ch', animation: 'typing 0.5s steps(8), blink .7s step-end infinite alternate'});
-        } else if (divId === 'div3') {
+        } else if (divId === 'div2' || divId === 'div3') {
             $('.second').css({width: '8ch', animation: 'typing 0.5s steps(8), blink .7s step-end infinite alternate'});
         } else {
             $('.second').css({
@@ -244,21 +242,15 @@
     });
 
     <!--COPIES THE EMAIL ADDRESS TO THE USERS CLIPBOARD ONCE THEY CLICK ON IT IN THE CONTACT TAB-->
-    /*$('.email').on("click", function () {
-        let value = $(this).data('clipboard-text');
-        let $temp = $("<input>");
-        $("body").append($temp);
-        $temp.val(value).select();
-        document.execCommand("copy");
-        $temp.remove();
-    });*/
+    new ClipboardJS('.email');
 
     <!--ANIMATIONS THAT PLAY WHEN THE USER CHANGES TABS FROM THE NAVBAR-->
-    $(".myLink").click(function () {
+
+    function newTabLoad(tab) {
         disableBorder();
         disableScrolling();
         $('.border1, .circle, .circle_pulse, .main').fadeOut();
-        let divId = $(this).attr("divId");
+        let divId = tab;
 
         showLoader();
 
@@ -268,9 +260,57 @@
         setTimeout(scrollToTop, 400);
         setTimeout(enableScrolling, 2500);
         setTimeout(enableBorder, 2000);
-        typeWriter(divId);
+        setTimeout(function () { typeWriter(divId) }, 1000);
 
         $(".main").delay(1000).fadeIn(500);
+    }
+
+    <!--AJAX SCRIPT-->
+    $(function() {
+        $("#home").on("click", function () {
+            $.ajax({
+                type: 'GET',
+                url: '../html/home.html',
+                dataType: 'html',
+                success: function(result) {
+                    newTabLoad('div1');
+                    setTimeout(function () { $('.main').html(result)}, 500);
+                }
+            });
+        });
+        $("#trace").on("click", function () {
+            $.ajax({
+                type: 'GET',
+                url: '../html/trace.html',
+                dataType: 'html',
+                success: function(result) {
+                    newTabLoad('div2');
+                    setTimeout(function () { $('.main').html(result)}, 500);
+                }
+            });
+        });
+        $("#saved").on("click", function () {
+            $.ajax({
+                type: 'GET',
+                url: '../html/saved.html',
+                dataType: 'html',
+                success: function(result) {
+                    newTabLoad('div3');
+                    setTimeout(function () { $('.main').html(result)}, 500);
+                }
+            });
+        });
+        $("#contact").on("click", function () {
+            $.ajax({
+                type: 'GET',
+                url: '../html/contact.html',
+                dataType: 'html',
+                success: function(result) {
+                    newTabLoad('div4');
+                    setTimeout(function () { $('.main').html(result)}, 500);
+                }
+            });
+        });
     });
 
     <!--ANIMATIONS THAT PLAY WHEN THE USER LOADS INTO THE WEBSITE FOR THE FIRST TIME-->
@@ -288,6 +328,7 @@
             $(".border1").hide().delay(1000).show(200);
             $(".circle").delay(900).fadeIn(300);
             setTimeout(pulse, 1200);
+            typeWriter('div1');
 
             $('#div1, .constantTitleDiv, .navbar').delay(1000).fadeIn(2000);
             setTimeout(enableScrolling, 2500);
@@ -355,7 +396,7 @@
     })
 </script>
 
-<!--AJAX SCRIPT-->
+<!--AJAX SCRIPT
 <script>
     $(function() {
         $("#home").on("click", function () {
@@ -399,5 +440,5 @@
             });
         });
     });
-</script>
+</script>-->
 
