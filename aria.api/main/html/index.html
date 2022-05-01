@@ -61,7 +61,7 @@
 <!--MAIN PAGE CONTENT-->
 <div class="main">
     <!--STARTING SCREEN / HOME PAGE CONTENT-->
-    <!--<div class="myDiv" id="div1">
+    <div class="myDiv" id="div1">
         <div class="clearTop"></div>
         <div class="title">
             <span class="first">aria</span>
@@ -101,74 +101,7 @@
             elit ut aliquam. Lorem ipsum dolor sit amet.</span>
         </div>
 
-    </div>-->
-
-    <form id="sendSonginfo">
-        <div class="myDiv" id="div2">
-            <div class="clearTop"></div>
-            <div class="title">
-                <span class="first">aria</span>
-                <span class="second">.trace()</span>
-            </div>
-            <div class="description">
-                <p>&#47;treɪs jɔːr ˈɑːrɪə&#47;</p>
-            </div>
-            <div class="description2">
-        <span>Seeking something missing, <br>
-        missing something left behind.</span>
-            </div>
-            <div class="trace-container">
-                <div class="floating">
-                    <div class="tilt-container js-tilt">
-                        <div class="flip-container">
-                            <div class="flipper">
-                                <div class="sdcard-container front">
-                                    <div class="sdcard-container2 js-tilt2">
-                                        <div class="form__group1 field1">
-                                            <input type="input" class="form__field" placeholder="Artist" name="name"
-                                                   id='name'
-                                                   autocomplete="off" required/>
-                                            <label for="name" class="form__label">.artist</label>
-                                        </div>
-                                        <div class="form__group2 field2">
-                                            <input type="input" class="form__field" placeholder="Song" name="song"
-                                                   id="song"
-                                                   autocomplete="off" required/>
-                                            <label for="name" class="form__label">.title</label>
-                                        </div>
-                                        <span class="tilt-logo-inner1">EXCLUSIVELY AT<br><span style="color: #FFC300"> &#47;&#47;</span>aria.api</span>
-                                        <span class="tilt-logo-inner2">LOCK <span>&#9650;</span></span>
-                                    </div>
-                                    <img src="../assets/images/sd_bot.png" class="sdcardbot">
-                                    <img src="../assets/images/cover.png" class="cover">
-                                    <img src="../assets/images/overlay1.png" class="overlay1">
-                                    <img src="../assets/images/overlay2.png" class="overlay2">
-                                    <img src="../assets/images/overlay3.png" class="overlay3">
-                                    <img src="../assets/images/overlay4.png" class="overlay4">
-                                    <img src="../assets/images/sd_top.png" class="sdcardtop">
-                                </div>
-                                <div class="sdcard-container3 back">
-                                    <img src="../assets/images/sd_back.png" class="sdcardback">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <button type="submit" name="submitbutton" id="mysubmitbutton" class="customButton1">
-                        .trace()
-                    </button>
-                    <button name="flipbutton" id="flip" class="customButton2">
-                        .flip()
-                    </button>
-                </div>
-                <div class="lyrics-container">
-                    <span>
-                        Song lyrics:
-                    </span>
-                    <div class="lyrics" id="lyrics"></div>
-                </div>
-            </div>
-        </div>
-    </form>
+    </div>
 </div>
 
 <!--INSTRUCTIONS POP-UP-->
@@ -204,45 +137,10 @@
 <!--VISUAL FADE EFFECT AT THE BOTTOM OF THE SCREEN-->
 <div id="bottom_fade"></div>
 
-<!--SCRIPT FOR THE 3D TILT EFFECT-->
-<script src="../scripts/tilt.js"></script>
 </body>
-
-<!--API RELATED SCRIPT FOR THE .TRACE() FUNCTION-->
-<script>
-
-    $("#sendSonginfo").on("submit", function (e) {
-        e.preventDefault()
-        let artist = $("#name").val();
-        let title = $("#song").val();
-        $.post("http://localhost:8081/trace",
-            {
-                'artist': artist,
-                'title': title
-            },
-            function (data) {
-                console.log(data);
-                $(".lyrics").html(data.songLyrics);
-            });
-    });
-</script>
 
 <!--SCRIPT FOR SITE ANIMATIONS-->
 <script>
-
-    $('.js-tilt').tilt({
-        maxTilt: 8,
-        scale: 1.1,
-        easing: "cubic-bezier(.03,.98,.52,.99)",
-        speed: 100
-    });
-
-    $('.js-tilt2').tilt({
-        maxTilt: 8,
-        scale: 1.1,
-        easing: "cubic-bezier(.03,.98,.52,.99)",
-        speed: 300
-    });
 
     <!--SCROLLS TO THE TOP OF THE PAGE-->
     function scrollToTop() {
@@ -381,7 +279,7 @@
                 }
             });
         });
-        /*$("#trace").on("click", function () {
+        $("#trace").on("click", function () {
             $.ajax({
                 type: 'GET',
                 url: '../html/trace.html',
@@ -393,7 +291,7 @@
                     }, 500);
                 }
             });
-        });*/
+        });
         $("#saved").on("click", function () {
             $.ajax({
                 type: 'GET',

@@ -56,12 +56,47 @@
                 </button>
             </div>
             <div class="lyrics-container">
-            <span>
-                Song lyrics:
-            </span>
-                <div class="lyrics" id="lyrics">
-                </div>
+                    <span>
+                        Song lyrics:
+                    </span>
+                <div class="lyrics" id="lyrics"></div>
             </div>
         </div>
     </div>
 </form>
+
+<!--SCRIPT FOR THE 3D TILT EFFECT-->
+<script src="../scripts/tilt.js"></script>
+
+<!--API RELATED SCRIPT FOR THE .TRACE() FUNCTION-->
+<script>
+    $("#sendSonginfo").on("submit", function (e) {
+        e.preventDefault()
+        let artist = $("#name").val();
+        let title = $("#song").val();
+        $.post("http://localhost:8081/trace",
+            {
+                'artist': artist,
+                'title': title
+            },
+            function (data) {
+                console.log(data);
+                $(".lyrics").html(data.songLyrics);
+            });
+    });
+
+    $('.js-tilt').tilt({
+        maxTilt: 8,
+        scale: 1.1,
+        easing: "cubic-bezier(.03,.98,.52,.99)",
+        speed: 100
+    });
+
+    $('.js-tilt2').tilt({
+        maxTilt: 8,
+        scale: 1.1,
+        easing: "cubic-bezier(.03,.98,.52,.99)",
+        speed: 300
+    });
+</script>
+
