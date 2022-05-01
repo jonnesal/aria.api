@@ -4,4 +4,77 @@
         <span class="first">aria</span>
         <span class="second">.saved()</span>
     </div>
-</div>
+    <div>
+    <input type="button" value="Add Row" onclick="addRow('dataTable')" />
+
+    <input type="button" value="Delete Row" onclick="deleteRow('dataTable')" />
+
+
+        <input type="button" value="refresh" onclick="deleteRow('dataTable')" />
+
+    <table id="dataTable" width="350px" border="1">
+        <tr>
+            <td><input type="checkbox" name="chk"/></td>
+            <td> 1 </td>
+            <td> <p>TESTi TEKSTI</p> </td>
+        </tr>
+    </table>
+    </div>
+
+    </div>
+
+
+
+
+
+<script>
+
+
+
+    function addRow(tableID) {
+
+        const table = document.getElementById(tableID);
+
+        let rowCount = table.rows.length;
+        let row = table.insertRow(rowCount);
+
+        let cell1 = row.insertCell(0);
+        const element1 = document.createElement("input");
+        element1.type = "checkbox";
+        element1.name="chkbox[]";
+        cell1.appendChild(element1);
+
+        let cell2 = row.insertCell(1);
+        cell2.innerHTML = rowCount + 1;
+
+        let cell3 = row.insertCell(2);
+        let element2 = document.createElement("p");
+        element2.type = "text";
+        //element2.name = "TESTI";
+        cell3.appendChild(element2);
+
+
+    }
+
+    function deleteRow(tableID) {
+        try {
+            let table = document.getElementById(tableID);
+            let rowCount = table.rows.length;
+
+            for(let i=0; i<rowCount; i++) {
+                let row = table.rows[i];
+                let chkbox = row.cells[0].childNodes[0];
+                if(null != chkbox && true == chkbox.checked) {
+                    table.deleteRow(i);
+                    rowCount--;
+                    i--;
+                }
+
+
+            }
+        }catch(e) {
+            alert(e);
+        }
+    }
+
+</script>
