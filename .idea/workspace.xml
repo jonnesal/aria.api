@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="363b56de-e820-4eae-9dda-9c9c6e0e2e08" name="Changes" comment="uusin versio 5">
+    <list default="true" id="363b56de-e820-4eae-9dda-9c9c6e0e2e08" name="Changes" comment="saved.html testi lista">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aria.api/main/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aria.api/main/html/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aria.api/main/html/trace.html" beforeDir="false" afterPath="$PROJECT_DIR$/aria.api/main/html/trace.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aria.api/main/MariaConnect/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/aria.api/main/MariaConnect/database.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aria.api/main/api_directory/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/aria.api/main/api_directory/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aria.api/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/aria.api/test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -22,15 +33,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="javascript.nodejs.core.library.configured.version" value="16.14.0" />
-    <property name="javascript.nodejs.core.library.typings.version" value="16.11.32" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Asus/WebstormProjects/aria.apiii",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Svyat's\Desktop\metropolia\web-projekti\aria.api\aria.api\main\views\partials" />
@@ -38,7 +50,16 @@
     </key>
   </component>
   <component name="RunManager" selected="Node.js.test.js">
+    <configuration name="database.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/aria.api/main/MariaConnect/database.js" working-dir="$PROJECT_DIR$/aria.api/main/MariaConnect">
+      <method v="2" />
+    </configuration>
+    <configuration name="geniusApi.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/aria.api/main/api_directory/geniusApi.js" working-dir="$PROJECT_DIR$/aria.api/main/api_directory">
+      <method v="2" />
+    </configuration>
     <configuration name="test.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/aria.api/test.js" working-dir="$PROJECT_DIR$/aria.api">
+      <method v="2" />
+    </configuration>
+    <configuration name="testi.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/aria.api/main/api_directory/testi.js" working-dir="$PROJECT_DIR$/aria.api/main/api_directory">
       <method v="2" />
     </configuration>
     <configuration name="tilt.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/aria.api/main/scripts/tilt.js" working-dir="$PROJECT_DIR$/aria.api/main/scripts">
@@ -47,6 +68,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Node.js.test.js" />
+        <item itemvalue="Node.js.testi.js" />
+        <item itemvalue="Node.js.geniusApi.js" />
+        <item itemvalue="Node.js.database.js" />
         <item itemvalue="Node.js.tilt.js" />
       </list>
     </recent_temporary>
@@ -60,6 +84,7 @@
       <option name="presentableId" value="Default" />
       <updated>1651347959505</updated>
       <workItem from="1651347961187" duration="21574000" />
+      <workItem from="1651413929486" duration="14781000" />
     </task>
     <task id="LOCAL-00001" summary="uusin versio">
       <created>1651348387414</created>
@@ -89,7 +114,13 @@
       <option name="project" value="LOCAL" />
       <updated>1651401480262</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL−00005" summary="saved.html testi lista">
+      <created>1651423369000</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1651423369000</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,6 +141,7 @@
     <MESSAGE value="uusin versio" />
     <MESSAGE value="uusin versio 4" />
     <MESSAGE value="uusin versio 5" />
-    <option name="LAST_COMMIT_MESSAGE" value="uusin versio 5" />
+    <MESSAGE value="saved.html testi lista" />
+    <option name="LAST_COMMIT_MESSAGE" value="saved.html testi lista" />
   </component>
 </project>

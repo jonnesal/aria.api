@@ -8,6 +8,7 @@ const pool = mariadb.createPool({
 })
 
 
+
 async function asyncConnect() {
 
     try{
@@ -29,4 +30,7 @@ asyncConnect()
 
 
 
+
+
 module.exports = pool;
+

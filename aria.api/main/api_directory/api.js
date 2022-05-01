@@ -18,6 +18,7 @@ const promise = songs.getSong(options).then((song) =>{return {
 	songId: song.id,
 	songAlbumArt: song.albumArt,
 	songLyrics: song.lyrics
+
 }
 
 });
