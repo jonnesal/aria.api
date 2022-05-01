@@ -43,4 +43,4 @@ const printAddress = async () => {
 
 printAddress().then(r => console.log("lyriikat kutsutaan sit async functiossa"));
 
-module.exports = mySong;
+//module.exports = mySong;
