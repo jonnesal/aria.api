@@ -36,7 +36,6 @@ app.get('/home',function (req, res) {
 app.get('/trace',function (req, res) {
 
 });
-
 let songInfo = new Object();
 let saveArtist;
 let saveTitle;
@@ -48,7 +47,6 @@ app.post('/trace',async (req, res) => {
     saveArtist = req.body.artist;
     saveTitle = req.body.title;
 
-
     const options = {
         apiKey: 'lC82BmEzP2bdMxsvN7VV0OwroYRkOmdepuS4LjNthaj1wMJwqcOGyRV27soK5l6C',
         title: title,
@@ -58,6 +56,7 @@ app.post('/trace',async (req, res) => {
 
     const promise = songs.getSong(options).then(async (song) => {
         return {
+
             songTitle: song.title,
             songUrl: song.url,
             songId: song.id,
@@ -67,9 +66,9 @@ app.post('/trace',async (req, res) => {
     });
 
     console.log((await promise).songLyrics);
-    let myJSON;
 
     ////////////////////////////////
+    //API2
 
     const axios = require("axios");
 
@@ -82,27 +81,54 @@ app.post('/trace',async (req, res) => {
         }
     };
 
-    axios.request(optionss).then(async function (response) {
+    const emt = axios.request(optionss).then(async (response) => {
 
-        console.log(response.data.map);
-        //response.data[1];
-        //myJSON = JSON.stringify(response.data);
-        //await console.log(myJSON);
+        console.log(response.data);
+        let dat = response.data.response;
+        let albumNam = dat["song"].album["name"];
+        let realease = dat["song"]["release_date"];
+
+        console.log(albumNam);
+
+        console.log(realease);
+      return {
+            albumName: dat["song"].album["name"],
+            realeaseYear: dat["song"]["release_date"]
+        }
+
+
+
+
     }).catch(function (error) {
         console.error(error);
     });
 
-
-
-
-
-
-
-
-
     ///////////////////////////////
+    let tiedot;
+    let tiedot2;
 
-    songInfo = await promise;
+
+    const lisaaTietoa = async () => {
+        tiedot = await promise;
+        tiedot2 = await emt;
+
+        return {
+            albumArt: tiedot.songAlbumArt,
+            songId: tiedot.songId,
+            url: tiedot.songUrl,
+            title: tiedot.songTitle,
+            songLyrics: tiedot.songLyrics,
+            albumName: tiedot2.albumName,
+            releaseYear: tiedot2.realeaseYear
+        };
+
+
+    };
+
+    lisaaTietoa().then(r => console.log(""));
+
+    //await console.log(songInfo1);
+    songInfo = await lisaaTietoa();
 
     res.send(songInfo);
 
