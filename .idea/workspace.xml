@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="363b56de-e820-4eae-9dda-9c9c6e0e2e08" name="Changes" comment="saved.html testi lista">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aria.api/main/MariaConnect/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/aria.api/main/MariaConnect/database.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aria.api/main/html/trace.html" beforeDir="false" afterPath="$PROJECT_DIR$/aria.api/main/html/trace.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aria.api/main/sql/create_favorite.sql" beforeDir="false" afterPath="$PROJECT_DIR$/aria.api/main/sql/create_favorite.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/aria.api/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/aria.api/test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +77,7 @@
       <workItem from="1651347961187" duration="21574000" />
       <workItem from="1651413929486" duration="15084000" />
       <workItem from="1651496210427" duration="11827000" />
-      <workItem from="1651597659064" duration="2473000" />
+      <workItem from="1651597659064" duration="3246000" />
     </task>
     <task id="LOCAL-00001" summary="uusin versio">
       <created>1651348387414</created>
@@ -138,7 +133,13 @@
       <option name="project" value="LOCAL" />
       <updated>1651576620911</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL−00009" summary="saved.html testi lista">
+      <created>1651600400934</created>
+      <option name="number" value="LOCAL−00009" />
+      <option name="presentableId" value="LOCAL−00009" />
+      <updated>1651600400934</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,9 +160,9 @@
     <MESSAGE value="uusin versio" />
     <MESSAGE value="uusin versio 4" />
     <MESSAGE value="uusin versio 5" />
-    <MESSAGE value="saved.html testi lista" />
     <MESSAGE value="uusin versio 10" />
     <MESSAGE value="uusin versio 11" />
-    <option name="LAST_COMMIT_MESSAGE" value="uusin versio 11" />
+    <MESSAGE value="saved.html testi lista" />
+    <option name="LAST_COMMIT_MESSAGE" value="saved.html testi lista" />
   </component>
 </project>

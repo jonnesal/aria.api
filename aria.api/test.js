@@ -188,7 +188,7 @@ app.post('/saved',async function (req, res) {
 
     console.log(time + " " + saveArtist + " " + saveTitle);
 
-    if(typeof time !== 'undefined') {
+    if(typeof time, saveTitle, saveArtist !== 'undefined') {
 
         try{
 
