@@ -9,17 +9,24 @@ const pool = mariadb.createPool({
 
 
 
+pool.getConnection(function (err) {
+    if (err) throw err;
+}).then(r => console.log("Connected!"));
+
+module.exports = pool
+
+
+/*
 async function asyncConnect() {
 
     try{
 
-        let conn = await pool.getConnection();
+        const conn = await pool.getConnection();
         //const rows = await conn.query("INSERT INTO favorite (artist,song) VALUES ('Myke Thyson','testi2')");
         //const rows = await conn.query("SELECT * FROM favorite");
         //const rows = await conn.query("UPDATE testitaulu SET nimi='Gabe' WHERE nimi='Mike Thyson'");
         //const rows = await conn.query("DELETE FROM testitaulu WHERE name='Gabe'");
-
-        //console.log(rows);
+        console.log(rows);
 
     }catch (err) {
         throw err;
@@ -29,8 +36,12 @@ asyncConnect()
     .then(r => {console.log("toimii")});
 
 
+ */
 
 
 
-module.exports = pool;
+
+//module.exports = pool;
+
+
 

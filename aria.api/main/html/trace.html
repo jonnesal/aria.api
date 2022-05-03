@@ -118,6 +118,28 @@
             });
     });
 
+
+    //SAVE
+    $('.customButton3').click(function () {
+        let dt = new Date();
+        let time = dt.getFullYear() + "-"
+            + dt.getMonth() + "-"
+            + dt.getDate() + " "
+            + dt.getHours() + ":"
+            + dt.getMinutes() + ":"
+            + dt.getSeconds();
+        $.post("http://localhost:8081/saved",
+            {
+                'time': time
+            })
+    });
+
+
+
+
+
+
+
     $('.js-tilt').tilt({
         maxTilt: 8,
         scale: 1.1,
