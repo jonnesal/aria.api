@@ -14,41 +14,25 @@
     <div class="home-container">
         <input type="button" value="Add Row" onclick="addRow('dataTable')"/>
 
-        <input type="button" value="Delete Row" onclick="deleteRow('dataTable')"/>
-
-        <input type="button" value="refresh" onclick="deleteRow('dataTable')"/>
-
         <table id="dataTable" class="tableFavorite">
+            <caption>&#60;favorites&#62;</caption>
+
             <tr>
-                <th class="table_heading"><span class="purple">.date_added</span>:</th>
-                <th class="table_heading"><span class="purple">.song_artist</span>:</th>
-                <th class="table_heading"><span class="purple">.song_title</span>:</th>
-                <th class="table_heading"><span></span></th>
+                <th class="table_heading date"><span class="purple">.date_added</span>:</th>
+                <th class="table_heading artist"><span class="purple">.song_artist</span>:</th>
+                <th class="table_heading name"><span class="purple">.song_title</span>:</th>
+                <th class="table_heading buttons"><span></span></th>
             </tr>
 
-            <tr class="table_row" style="display: none">
-                <td class="table_content">2022-05-03, 15:16:10</td>
-                <td class="table_content">Eminem</td>
-                <td class="table_content">Godzilla (ft. Juice WRLD)</td>
-                <td class="table_content">
+            <tr class="table_row">
+                <td class="table_content date">2022-05-03, 15:16:10</td>
+                <td class="table_content artist">Eminem</td>
+                <td class="table_content name">Godzilla (ft. Juice WRLD)</td>
+                <td class="table_content buttons">
                     <button type="button" class="customButton4">
                         <span class="gg-eye"></span>
                     </button>
                     <button type="button" buttonId="remove" class="customButton5">
-                        <span class="gg-close"></span>
-                    </button>
-                </td>
-            </tr>
-
-            <tr class="table_row">
-                <td class="table_content">2022-05-03, 15:16:10</td>
-                <td class="table_content">Eminem</td>
-                <td class="table_content">Godzilla (ft. Juice WRLD)</td>
-                <td class="table_content">
-                    <button type="button" class="customButton4">
-                        <span class="gg-eye"></span>
-                    </button>
-                    <button type="button" id="remove" class="customButton5">
                         <span class="gg-close"></span>
                     </button>
                 </td>
@@ -70,16 +54,19 @@
             '                    <button type="button" class="customButton4">\n' +
             '                        <span class="gg-eye"></span>\n' +
             '                    </button>\n' +
-            '                    <button type="button" id="remove" class="customButton5">\n' +
+            '                    <button type="button" buttonId="remove" class="customButton5">\n' +
             '                        <span class="gg-close"></span>\n' +
             '                    </button>\n' +
             '                </td>\n' +
             '            </tr>');
         //$(".table_row:last").clone().appendTo('#' + tableID).removeAttr("style");
+        $(".table_row button[buttonId^='remove']").on("click", function (e) {
+            e.preventDefault();
+            $(this).closest('.table_row').remove();
+        })
     }
 
-
-    $(".table_row button[id^='remove']").click(function (e) {
+    $(".table_row button[buttonId^='remove']").on("click", function (e) {
         e.preventDefault();
         $(this).closest('.table_row').remove();
     })

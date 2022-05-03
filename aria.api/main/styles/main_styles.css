@@ -148,6 +148,11 @@ html, body {
         font-weight: 500;
     }
 
+    .tableFavorite caption {
+        font-size: 1rem;
+        text-align: left;
+    }
+
     .second {
         font-weight: 550;
     }
@@ -255,6 +260,7 @@ html, body {
         font-size: 1.3rem;
     }
 
+
     .tableFavorite {
         font-size: 1.3rem;
     }
@@ -266,6 +272,11 @@ html, body {
     .title, .constantTitle, .modalTitle {
         font-size: 4rem;
         font-weight: 500;
+    }
+
+    .tableFavorite caption {
+        font-size: 1.3rem;
+        text-align: left;
     }
 
     .second {
@@ -800,9 +811,9 @@ li a {
 }
 
 .tableFavorite {
-    border: 1px red solid;
     width: 100%;
     height: auto;
+    table-layout: fixed;
 }
 
 .table_heading {
@@ -811,8 +822,20 @@ li a {
     color: white;
 }
 
-.tableFavorite .table_heading:last-child {
-    border-bottom: none;
+.tableFavorite .date {
+    width: 25%;
+}
+
+.tableFavorite .artist {
+    width: 25%;
+}
+
+.tableFavorite .name {
+    width: 40%;
+}
+
+.tableFavorite .buttons {
+    width: 10%;
 }
 
 .customButton4, .customButton5 {
