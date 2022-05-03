@@ -19,6 +19,7 @@ const url = require("url");
 const mariadb = require("mariadb");
 const fetch = require("node-fetch");
 const axios = require("axios");
+const {makeArray} = require("jquery");
 
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -164,9 +165,6 @@ app.post('/trace',async (req, res) => {
 
 app.get('/saved',async function (req, res) {
 
-
-
-
 /*
     try{
         const sqlQuery = "SELECT * FROM favorite";
@@ -183,6 +181,7 @@ app.get('/saved',async function (req, res) {
 });
 
 
+
 app.post('/saved',async function (req, res) {
     let time = req.body.time;
 
@@ -192,15 +191,33 @@ app.post('/saved',async function (req, res) {
 
         try{
 
-            const sqlQuery2 = ("SELECT * FROM favorite");
-
-            const sqlQuery = (`INSERT INTO favorite (artist,song, aika) VALUES ('${saveArtist}', '${saveTitle}', '${time}')`);
+            //const sqlQuery = ("SELECT * FROM favorite");
+            const sqlQuery3 = (`INSERT INTO favorite (artist,song, aika) VALUES ('${saveArtist}', '${saveTitle}', '${time}')`);
             //const sqlQuery = ("DELETE FROM favorite");
 
-            const result = await pool.query(sqlQuery);
-            const result2 = await pool.query(sqlQuery2);
-            console.log(result);
-            console.log(result2);
+            //const result = await pool.query(sqlQuery);
+            const result3 = await pool.query(sqlQuery3);
+            //const result2 = await pool.query(sqlQuery2);
+
+            async function testi() {
+                        let favoriteObj = await pool.query("SELECT * FROM favorite", function (err, result, fields) {
+                        if (err) throw err;
+                        Object.keys(result).forEach(function (key) {
+                        });
+                    });
+                    return favoriteObj;
+            }
+            const favoriteObj = await testi();
+            console.log(favoriteObj[0]);
+            res.send(favoriteObj);
+
+
+
+            //const result2 = await pool.query(sqlQuery2);
+            console.log(result3);
+            //console.log(result);
+            //console.log(result2);
+            //console.log(result2);
 
 
         }catch (error) {
