@@ -243,6 +243,15 @@ app.post('/saved',async function (req, res) {
 
 });
 
+app.post('/delete', function (req, res) {
+
+    let song = req.body.title;
+    console.log(song);
+
+
+
+});
+
 
 
 
