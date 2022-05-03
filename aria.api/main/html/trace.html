@@ -89,10 +89,19 @@
         e.preventDefault()
         let artist = $("#name").val();
         let title = $("#song").val();
+
+        let dt = new Date();
+        let time = dt.getFullYear() + "-"
+            + dt.getMonth()  + "-"
+            + dt.getDate() + " "
+            + dt.getHours() + ":"
+            + dt.getMinutes() + ":"
+            + dt.getSeconds();
         $.post("http://localhost:8081/trace",
             {
                 'artist': artist,
-                'title': title
+                'title': title,
+                'time': time
             },
             function (data) {
                 console.log(data);
