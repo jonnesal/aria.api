@@ -229,13 +229,6 @@
         $('body').removeClass('stop-scrolling1')
     });
 
-    <!--CHANGES THE ACTIVE TAB IN THE NAVBAR-->
-    /*$(".selector a").click(function () {
-        $("a").removeClass(" active");
-        $(this).addClass(" active");
-        $(".selected").fadeOut(300);
-    });*/
-
     <!--COPIES THE EMAIL ADDRESS TO THE USERS CLIPBOARD ONCE THEY CLICK ON IT IN THE CONTACT TAB-->
     new ClipboardJS('.email');
 
@@ -285,7 +278,8 @@
     let History = window.History;
 
     $(function(){
-        History.pushState({path: 'home'}, 'home', './?page=home');
+        <!--ANIMATIONS THAT PLAY WHEN THE USER LOADS INTO THE WEBSITE FOR THE FIRST TIME-->
+        History.pushState({path: 'home'}, 'home', './home');
         disableScrolling();
         $(".main, #div5, .constantTitleDiv, .navbar, .border1, .border2, .circle, .circle_pulse, .loader").hide();
         setTimeout(updateSelected, 500);
@@ -310,18 +304,18 @@
         if (History.enabled) {
             let page = get_url_value('page');
             let path = page ? page : 'home';
-            // Load the page
+
             load_page_content(path);
         } else {
             return false;
         }
 
-        // Content update and back/forward button handler
+        <!--UPDATE PAGE CONTENT ON PRESS OF BACK/FORWARD-->
         History.Adapter.bind(window, 'statechange', function() {
             let State = History.getState();
-            // Do ajax
+
             load_page_content(State.data.path);
-            // Log the history object to your browser's console
+
             History.log(State);
         });
 
@@ -332,7 +326,7 @@
             let urlPath = $(this).attr('href');
             let title = $(this).text();
 
-            History.pushState({path: urlPath}, title, './?page=' + urlPath); // When we do this, History.Adapter will also execute its contents.
+            History.pushState({path: urlPath}, title, './' + urlPath); // When we do this, History.Adapter will also execute its contents.
         });
 
         function load_page_content(page) {
@@ -360,8 +354,6 @@
             return(false);
         }
     });
-
-    <!--ANIMATIONS THAT PLAY WHEN THE USER LOADS INTO THE WEBSITE FOR THE FIRST TIME-->
 
 </script>
 
