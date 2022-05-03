@@ -135,6 +135,10 @@ html, body {
         font-size: 1rem;
     }
 
+    .tableFavorite {
+        font-size: 1rem;
+    }
+
     .lyrics-container, .form__label, .form__field:focus ~ .form__label {
         font-size: 1rem;
     }
@@ -248,6 +252,10 @@ html, body {
     }
 
     .songTitle1, .songTitle2, .songArtists1, .songArtists2, .songAlbum1, .songAlbum2, .songDate1, .songDate2, .songProducers1, .songProducers2 {
+        font-size: 1.3rem;
+    }
+
+    .tableFavorite {
         font-size: 1.3rem;
     }
 
@@ -675,7 +683,7 @@ li a {
 
 .purple {
     color: #7b44ee;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .sdcardbot {
@@ -748,7 +756,7 @@ li a {
     height: auto;
 }
 
-.customButton1, .customButton2, .customButton3 {
+.customButton1, .customButton2, .customButton3, .customButton4, .customButton5 {
     position: absolute;
     right: -1vw;
     width: 2vw;
@@ -781,14 +789,51 @@ li a {
     top: 70%;
 }
 
-.customButton1:hover, .customButton2:hover {
+.customButton1:hover, .customButton2:hover, .customButton3:hover, .customButton4:hover, .customButton5:hover {
     transform: translate(-0.05em, -0.05em);
     box-shadow: 0.15em 0.15em;
 }
 
-.customButton1:active, .customButton2:active {
+.customButton1:active, .customButton2:active, .customButton3:active, .customButton4:active, .customButton5:active {
     transform: translate(0.05em, 0.05em);
     box-shadow: 0.05em 0.05em;
+}
+
+.tableFavorite {
+    border: 1px red solid;
+    width: 100%;
+    height: auto;
+}
+
+.table_heading {
+    border-bottom: thin solid #FFC300;
+    font-weight: 600;
+    color: white;
+}
+
+.tableFavorite .table_heading:last-child {
+    border-bottom: none;
+}
+
+.customButton4, .customButton5 {
+    position: relative;
+    float: left;
+}
+
+.customButton4 {
+    left: 0;
+}
+
+.customButton5 {
+    left: 5%;
+}
+
+th {
+    text-align: left;
+}
+
+td, th {
+    padding: .5rem;
 }
 
 .lyrics-container {

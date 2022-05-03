@@ -48,7 +48,7 @@ app.post('/trace',async (req, res) => {
     saveArtist = req.body.artist;
     saveTitle = req.body.title;
 
-    let time = req.body.time;
+    //let time = req.body.time;
 
 
 

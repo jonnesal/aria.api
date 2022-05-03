@@ -228,7 +228,7 @@
 
     <!--CHANGES THE ACTIVE TAB IN THE NAVBAR-->
     $(".selector a").click(function () {
-        $("a").removeClass("active");
+        $("a").removeClass(" active");
         $(this).addClass(" active");
         $(".selected").fadeOut(300);
         setTimeout(updateSelected, 500);
@@ -269,6 +269,7 @@
                 success: function (result) {
                     newTabLoad('div1');
                     setTimeout(function () {
+                        $( ".main" ).empty();
                         $('.main').html(result)
                     }, 500);
                 }
@@ -282,6 +283,7 @@
                 success: function (result) {
                     newTabLoad('div2');
                     setTimeout(function () {
+                        $( ".main" ).empty();
                         $('.main').html(result)
                     }, 500);
                 }
@@ -295,6 +297,7 @@
                 success: function (result) {
                     newTabLoad('div3');
                     setTimeout(function () {
+                        $( ".main" ).empty();
                         $('.main').html(result)
                     }, 500);
                 }
@@ -308,6 +311,7 @@
                 success: function (result) {
                     newTabLoad('div4');
                     setTimeout(function () {
+                        $( ".main" ).empty();
                         $('.main').html(result)
                     }, 500);
                 }
