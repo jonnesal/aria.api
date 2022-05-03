@@ -33,7 +33,7 @@ app.get('/',function (req, res) {
 app.get('/home',function (req, res) {
     res.sendFile(path.join(__dirname+'/main/html/index.html'));
 });
-
+let favoriteObj;
 let songInfo = new Object();
 let saveArtist;
 let saveTitle;
@@ -149,7 +149,6 @@ app.post('/trace',async (req, res) => {
             releaseDate: tiedot2.releaseDate
         };
 
-
     };
 
     lisaaTietoa().then(r => console.log(""));
@@ -162,21 +161,8 @@ app.post('/trace',async (req, res) => {
 
 });
 
-app.get('/saved',async function (req, res) {
-
-/*
-    try{
-        const sqlQuery = "SELECT * FROM favorite";
-        const rows = await pool.query(sqlQuery);
-        console.log(rows);
-
-
-    }catch (error) {
-        res.send(error.message);
-    }
-
- */
-
+app.get('/trace',async function (req, res) {
+    res.send(songInfo);
 });
 
 
@@ -233,12 +219,17 @@ app.post('/saved',async function (req, res) {
         });
         return favoriteObj;
     }
-    const favoriteObj = await testi();
+    favoriteObj = await testi();
 
     for (let i = 0; i < favoriteObj.length; i++) {
         console.log(favoriteObj[i])
     }
 
+    res.send(favoriteObj);
+
+});
+
+app.get('/saved',async function (req, res) {
     res.send(favoriteObj);
 
 });
@@ -251,8 +242,6 @@ app.post('/delete', function (req, res) {
 
 
 });
-
-
 
 
 app.post('/', function (req, res) {
