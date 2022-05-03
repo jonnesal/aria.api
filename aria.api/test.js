@@ -46,9 +46,6 @@ app.post('/trace',async (req, res) => {
     let title = req.body.artist;
     let artist = req.body.title;
 
-    saveArtist = req.body.artist;
-    saveTitle = req.body.title;
-
     //let time = req.body.time;
 
 
@@ -101,6 +98,7 @@ app.post('/trace',async (req, res) => {
 
         //console.log(response.data);
         let dat = response.data.response;
+        let mainArtist = dat["song"]["primary_artist"]["name"];
         let albumName = dat["song"].album["name"];
         let songFullName = dat["song"]["title_with_featured"];
         let featuredArtists = [];
@@ -113,16 +111,17 @@ app.post('/trace',async (req, res) => {
         }
         let release = dat["song"]["release_date_for_display"];
 
-        //console.log(release);
+        saveArtist = mainArtist;
+        saveTitle = songFullName;
+
         return {
+            mainArtist: mainArtist,
             albumName: albumName,
             songFullName: songFullName,
             artistsList: featuredArtists,
             producerList: producers,
             releaseDate: release
         }
-
-
     }).catch(function (error) {
         console.error(error);
     });
@@ -187,7 +186,7 @@ app.post('/saved',async function (req, res) {
 
     console.log(time + " " + saveArtist + " " + saveTitle);
 
-    if(typeof time, saveTitle, saveArtist !== 'undefined') {
+    if(typeof time !== 'undefined' && saveTitle !== 'undefined' && saveArtist !== 'undefined') {
 
         try{
 
@@ -199,7 +198,7 @@ app.post('/saved',async function (req, res) {
             const result3 = await pool.query(sqlQuery3);
             //const result2 = await pool.query(sqlQuery2);
 
-            async function testi() {
+            /*async function testi() {
                         let favoriteObj = await pool.query("SELECT * FROM favorite", function (err, result, fields) {
                         if (err) throw err;
                         Object.keys(result).forEach(function (key) {
@@ -208,10 +207,12 @@ app.post('/saved',async function (req, res) {
                     return favoriteObj;
             }
             const favoriteObj = await testi();
-            console.log(favoriteObj[0]);
-            res.send(favoriteObj);
 
+            for (let i = 0; i < favoriteObj.length; i++) {
+                console.log(favoriteObj[i])
+            }
 
+            res.send(favoriteObj);*/
 
             //const result2 = await pool.query(sqlQuery2);
             console.log(result3);
@@ -219,11 +220,26 @@ app.post('/saved',async function (req, res) {
             //console.log(result2);
             //console.log(result2);
 
-
         }catch (error) {
             console.log(error);
         }
     }
+
+    async function testi() {
+        let favoriteObj = await pool.query("SELECT * FROM favorite", function (err, result, fields) {
+            if (err) throw err;
+            Object.keys(result).forEach(function (key) {
+            });
+        });
+        return favoriteObj;
+    }
+    const favoriteObj = await testi();
+
+    for (let i = 0; i < favoriteObj.length; i++) {
+        console.log(favoriteObj[i])
+    }
+
+    res.send(favoriteObj);
 
 });
 

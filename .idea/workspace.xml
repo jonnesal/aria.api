@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="363b56de-e820-4eae-9dda-9c9c6e0e2e08" name="Changes" comment="uusin versio 15">
-      <change afterPath="$PROJECT_DIR$/aria.api/main/scripts/jquery.history.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/aria.api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aria.api.iml" afterDir="false" />
+    <list default="true" id="363b56de-e820-4eae-9dda-9c9c6e0e2e08" name="Changes" comment="uusin versio 17">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aria.api/main/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aria.api/main/html/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aria.api/main/html/saved.html" beforeDir="false" afterPath="$PROJECT_DIR$/aria.api/main/html/saved.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aria.api/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/aria.api/test.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651606004301</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="uusin versio 17">
+      <created>1651613625354</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1651613625354</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,6 +194,7 @@
     <MESSAGE value="uusin versio 13" />
     <MESSAGE value="uusin versio 14" />
     <MESSAGE value="uusin versio 15" />
-    <option name="LAST_COMMIT_MESSAGE" value="uusin versio 15" />
+    <MESSAGE value="uusin versio 17" />
+    <option name="LAST_COMMIT_MESSAGE" value="uusin versio 17" />
   </component>
 </project>

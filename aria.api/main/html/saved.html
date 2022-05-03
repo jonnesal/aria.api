@@ -12,7 +12,8 @@
         that which you sought.</span>
     </div>
     <div class="home-container">
-        <input type="button" value="Add Row" onclick="addRow('dataTable1')"/>
+        <!--<input type="button" value="Add Row" onclick="addRow('dataTable1')"/>-->
+        <input type="button" value="refresh" id="refresh"/>
 
         <table id="dataTable1" class="tableFavorite">
             <caption>&#60;favorites&#62;</caption>
@@ -24,7 +25,7 @@
                 <th class="table_heading buttons"><span></span></th>
             </tr>
 
-            <tr class="table_row">
+            <!--<tr class="table_row">
                 <td class="table_content date">2022-05-03, 15:16:10</td>
                 <td class="table_content artist">Eminem</td>
                 <td class="table_content name">Godzilla (ft. Juice WRLD)</td>
@@ -36,7 +37,7 @@
                         <span class="gg-close"></span>
                     </button>
                 </td>
-            </tr>
+            </tr>-->
         </table>
 
         <input type="button" value="Add Row" onclick="addRow('dataTable2')"/>
@@ -72,7 +73,36 @@
 
 <script>
 
-    function addRow(tableID) {
+    $('#refresh').click(function (e) {
+        e.preventDefault();
+        $.post("http://localhost:8081/saved").then((data) => {
+            let favoriteObject = data;
+            $('#dataTable1 .table_row').remove();
+            for (let i = 0; i < favoriteObject.length; i++) {
+                $('#dataTable1').append('<tr class="table_row">\n' +
+                    '                <td class="table_content">' + favoriteObject[i].aika + '</td>\n' +
+                    '                <td class="table_content">' + favoriteObject[i].artist + '</td>\n' +
+                    '                <td class="table_content">' + favoriteObject[i].song + '</td>\n' +
+                    '                <td class="table_content">\n' +
+                    '                    <button type="button" class="customButton4">\n' +
+                    '                        <span class="gg-eye"></span>\n' +
+                    '                    </button>\n' +
+                    '                    <button type="button" buttonId="remove" class="customButton5">\n' +
+                    '                        <span class="gg-close"></span>\n' +
+                    '                    </button>\n' +
+                    '                </td>\n' +
+                    '            </tr>');
+            }
+
+
+            $(".table_row button[buttonId^='remove']").on("click", function (e) {
+                e.preventDefault();
+                $(this).closest('.table_row').remove();
+            })
+        });
+    });
+
+    /*function addRow(tableID) {
         $('#' + tableID).append('<tr class="table_row">\n' +
             '                <td class="table_content">2022-05-03, 15:16:10</td>\n' +
             '                <td class="table_content">Eminem</td>\n' +
@@ -91,7 +121,7 @@
             e.preventDefault();
             $(this).closest('.table_row').remove();
         })
-    }
+    }*/
 
     $(".table_row button[buttonId^='remove']").on("click", function (e) {
         e.preventDefault();
