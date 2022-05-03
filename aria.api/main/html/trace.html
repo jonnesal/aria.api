@@ -31,11 +31,9 @@
                                                autocomplete="off" required/>
                                         <label for="name" class="form__label">.title</label>
                                     </div>
-                                    <span class="tilt-logo-inner1">EXCLUSIVELY AT<br><span style="color: #FFC300"> &#47;&#47;</span>aria.api</span>
-                                    <span class="tilt-logo-inner2">LOCK <span>&#9650;</span></span>
                                 </div>
                                 <img src="../assets/images/sd_bot.png" class="sdcardbot">
-                                <img src="../assets/images/cover.png" class="cover">
+                                <img class="cover">
                                 <img src="../assets/images/overlay1.png" class="overlay1">
                                 <img src="../assets/images/overlay2.png" class="overlay2">
                                 <img src="../assets/images/overlay3.png" class="overlay3">
@@ -43,23 +41,38 @@
                                 <img src="../assets/images/sd_top.png" class="sdcardtop">
                             </div>
                             <div class="sdcard-container3 back">
+                                <div class="sdcard-container2 js-tilt2">
+                                    <div class="songInfo">
+                                        <span class="songTitle1"><span class="purple">.title</span>:</span> <br>
+                                        <span class="songTitle2"></span> <br>
+                                        <span class="songArtists1"><span class="purple">.featured_artists</span>:</span> <br>
+                                        <span class="songArtists2"></span> <br>
+                                        <span class="songAlbum1"><span class="purple">.album</span>:</span> <br>
+                                        <span class="songAlbum2"></span> <br>
+                                        <span class="songDate1"><span class="purple">.release_date</span>:</span> <br>
+                                        <span class="songDate2"></span> <br>
+                                        <span class="songProducers1"><span class="purple">.production</span>:</span> <br>
+                                        <span class="songProducers2"></span>
+                                    </div>
+
+                                </div>
                                 <img src="../assets/images/sd_back.png" class="sdcardback">
                             </div>
                         </div>
                     </div>
                 </div>
                 <button type="submit" name="submitbutton" id="mysubmitbutton" class="customButton1">
-                    .trace()
+                    <span class="gg-search"></span>
                 </button>
-                <button name="flipbutton" id="flip" class="customButton2">
-                    .flip()
+                <button type="button" name="flipbutton" id="flip" class="customButton2">
+                    <span class="gg-more-alt"></span>
+                </button>
+                <button type="button" name="savebutton" id="save" class="customButton3">
+                    <span class="gg-bookmark"></span>
                 </button>
             </div>
             <div class="lyrics-container">
-                    <span>
-                        Song lyrics:
-                    </span>
-                <div class="lyrics" id="lyrics"></div>
+                <pre class="lyrics" id="lyrics"></pre>
             </div>
         </div>
     </div>
@@ -70,6 +83,8 @@
 
 <!--API RELATED SCRIPT FOR THE .TRACE() FUNCTION-->
 <script>
+    let lyrics;
+
     $("#sendSonginfo").on("submit", function (e) {
         e.preventDefault()
         let artist = $("#name").val();
@@ -81,7 +96,16 @@
             },
             function (data) {
                 console.log(data);
-                $(".lyrics").html(data.songLyrics);
+                $(".lyrics").html((data.songLyrics));
+                $(".cover").fadeOut('slow').promise().done(function(){
+                    $(".cover").attr("src",data.albumArt).fadeIn();
+                });
+
+                $(".songTitle2").html(data.songFullTitle);
+                $(".songArtists2").html(data.artistsList.join(", "));
+                $(".songAlbum2").html(data.albumName);
+                $(".songDate2").html(data.releaseDate);
+                $(".songProducers2").html(data.producerList.join(", "));
             });
     });
 
@@ -97,6 +121,12 @@
         scale: 1.1,
         easing: "cubic-bezier(.03,.98,.52,.99)",
         speed: 300
+    });
+
+    <!--ROTATES THE SD CARD-->
+    $('.customButton2').click(function () {
+        $('.flip-container').toggleClass('hover');
+        $(this).css('transform, rotateY(180deg)');
     });
 </script>
 

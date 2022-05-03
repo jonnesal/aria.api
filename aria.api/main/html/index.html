@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href='https://css.gg/css' rel='stylesheet'>
     <script type="text/javascript"
             src="https://res.cloudinary.com/veseylab/raw/upload/v1636192990/magicmouse/magic_mouse-1.2.1.cdn.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
@@ -198,12 +199,6 @@
             });
         }
     }
-
-    <!--ROTATES THE SD CARD-->
-    $('.customButton2').click(function () {
-        $('.flip-container').toggleClass('hover');
-        $(this).css('transform, rotateY(180deg)');
-    });
 
     <!--MAKES THE UPPER LINE VISIBLE ON THE LEFT SIDE OF THE SCREEN WHEN THE USER SCROLLS DOWN THE PAGE-->
     window.addEventListener("scroll", () => {

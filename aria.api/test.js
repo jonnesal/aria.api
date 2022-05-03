@@ -36,6 +36,7 @@ app.get('/home',function (req, res) {
 app.get('/trace',function (req, res) {
 
 });
+
 let songInfo = new Object();
 let saveArtist;
 let saveTitle;
@@ -47,6 +48,7 @@ app.post('/trace',async (req, res) => {
     saveArtist = req.body.artist;
     saveTitle = req.body.title;
 
+
     const options = {
         apiKey: 'lC82BmEzP2bdMxsvN7VV0OwroYRkOmdepuS4LjNthaj1wMJwqcOGyRV27soK5l6C',
         title: title,
@@ -56,7 +58,6 @@ app.post('/trace',async (req, res) => {
 
     const promise = songs.getSong(options).then(async (song) => {
         return {
-
             songTitle: song.title,
             songUrl: song.url,
             songId: song.id,
@@ -66,9 +67,9 @@ app.post('/trace',async (req, res) => {
     });
 
     console.log((await promise).songLyrics);
+    let myJSON;
 
     ////////////////////////////////
-    //API2
 
     const axios = require("axios");
 
@@ -81,22 +82,41 @@ app.post('/trace',async (req, res) => {
         }
     };
 
+    axios.request(optionss).then(async function (response) {
+
+        console.log(response.data);
+        //response.data[1];
+        //myJSON = JSON.stringify(response.data);
+        //await console.log(myJSON);
+    }).catch(function (error) {
+        console.error(error);
+    });
+
+
     const emt = axios.request(optionss).then(async (response) => {
 
         console.log(response.data);
         let dat = response.data.response;
-        let albumNam = dat["song"].album["name"];
-        let realease = dat["song"]["release_date"];
-
-        console.log(albumNam);
-
-        console.log(realease);
-      return {
-            albumName: dat["song"].album["name"],
-            realeaseYear: dat["song"]["release_date"]
+        let albumName = dat["song"].album["name"];
+        let songFullName = dat["song"]["title_with_featured"];
+        let featuredArtists = [];
+        for (let i = 0; i < dat["song"]["featured_artists"].length; i++) {
+            featuredArtists.push(dat["song"]["featured_artists"][i]["name"]);
         }
+        let producers = [];
+        for (let i = 0; i < dat["song"]["producer_artists"].length; i++) {
+            producers.push(dat["song"]["producer_artists"][i]["name"]);
+        }
+        let release = dat["song"]["release_date_for_display"];
 
-
+        console.log(release);
+        return {
+            albumName: albumName,
+            songFullName: songFullName,
+            artistsList: featuredArtists,
+            producerList: producers,
+            releaseDate: release
+        }
 
 
     }).catch(function (error) {
@@ -119,7 +139,10 @@ app.post('/trace',async (req, res) => {
             title: tiedot.songTitle,
             songLyrics: tiedot.songLyrics,
             albumName: tiedot2.albumName,
-            releaseYear: tiedot2.realeaseYear
+            songFullTitle: tiedot2.songFullName,
+            artistsList: tiedot2.artistsList,
+            producerList: tiedot2.producerList,
+            releaseDate: tiedot2.releaseDate
         };
 
 
@@ -129,6 +152,10 @@ app.post('/trace',async (req, res) => {
 
     //await console.log(songInfo1);
     songInfo = await lisaaTietoa();
+
+    ///////////////////////////////
+
+    //songInfo = await promise;
 
     res.send(songInfo);
 
