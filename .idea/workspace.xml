@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="363b56de-e820-4eae-9dda-9c9c6e0e2e08" name="Changes" comment="uusin versio 13">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="363b56de-e820-4eae-9dda-9c9c6e0e2e08" name="Changes" comment="uusin versio 14">
       <change beforePath="$PROJECT_DIR$/aria.api/main/html/saved.html" beforeDir="false" afterPath="$PROJECT_DIR$/aria.api/main/html/saved.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aria.api/main/styles/main_styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/aria.api/main/styles/main_styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +139,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651604192910</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="uusin versio 14">
+      <created>1651605616759</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1651605616759</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,6 +171,7 @@
     <MESSAGE value="uusin versio 11" />
     <MESSAGE value="saved.html testi lista" />
     <MESSAGE value="uusin versio 13" />
-    <option name="LAST_COMMIT_MESSAGE" value="uusin versio 13" />
+    <MESSAGE value="uusin versio 14" />
+    <option name="LAST_COMMIT_MESSAGE" value="uusin versio 14" />
   </component>
 </project>

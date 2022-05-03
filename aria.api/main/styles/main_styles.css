@@ -135,7 +135,7 @@ html, body {
         font-size: 1rem;
     }
 
-    .tableFavorite {
+    .tableFavorite, .tableHistory {
         font-size: 1rem;
     }
 
@@ -148,7 +148,7 @@ html, body {
         font-weight: 500;
     }
 
-    .tableFavorite caption {
+    .tableFavorite caption, .tableHistory caption {
         font-size: 1rem;
         text-align: left;
     }
@@ -260,8 +260,7 @@ html, body {
         font-size: 1.3rem;
     }
 
-
-    .tableFavorite {
+    .tableFavorite, .tableHistory {
         font-size: 1.3rem;
     }
 
@@ -274,7 +273,7 @@ html, body {
         font-weight: 500;
     }
 
-    .tableFavorite caption {
+    .tableFavorite caption, .tableHistory caption {
         font-size: 1.3rem;
         text-align: left;
     }
@@ -810,7 +809,7 @@ li a {
     box-shadow: 0.05em 0.05em;
 }
 
-.tableFavorite {
+.tableFavorite, .tableHistory {
     width: 100%;
     height: auto;
     table-layout: fixed;
@@ -822,19 +821,19 @@ li a {
     color: white;
 }
 
-.tableFavorite .date {
+.tableFavorite .date, .tableHistory .date {
     width: 25%;
 }
 
-.tableFavorite .artist {
+.tableFavorite .artist, .tableHistory .artist {
     width: 25%;
 }
 
-.tableFavorite .name {
+.tableFavorite .name, .tableHistory .name {
     width: 40%;
 }
 
-.tableFavorite .buttons {
+.tableFavorite .buttons, .tableHistory .buttons {
     width: 10%;
 }
 

@@ -12,13 +12,40 @@
         that which you sought.</span>
     </div>
     <div class="home-container">
-        <input type="button" value="Add Row" onclick="addRow('dataTable')"/>
+        <input type="button" value="Add Row" onclick="addRow('dataTable1')"/>
 
-        <table id="dataTable" class="tableFavorite">
+        <table id="dataTable1" class="tableFavorite">
             <caption>&#60;favorites&#62;</caption>
 
             <tr>
                 <th class="table_heading date"><span class="purple">.date_added</span>:</th>
+                <th class="table_heading artist"><span class="purple">.song_artist</span>:</th>
+                <th class="table_heading name"><span class="purple">.song_title</span>:</th>
+                <th class="table_heading buttons"><span></span></th>
+            </tr>
+
+            <tr class="table_row">
+                <td class="table_content date">2022-05-03, 15:16:10</td>
+                <td class="table_content artist">Eminem</td>
+                <td class="table_content name">Godzilla (ft. Juice WRLD)</td>
+                <td class="table_content buttons">
+                    <button type="button" class="customButton4">
+                        <span class="gg-eye"></span>
+                    </button>
+                    <button type="button" buttonId="remove" class="customButton5">
+                        <span class="gg-close"></span>
+                    </button>
+                </td>
+            </tr>
+        </table>
+
+        <input type="button" value="Add Row" onclick="addRow('dataTable2')"/>
+
+        <table id="dataTable2" class="tableHistory">
+            <caption>&#60;search_history&#62;</caption>
+
+            <tr>
+                <th class="table_heading date"><span class="purple">.date_searched</span>:</th>
                 <th class="table_heading artist"><span class="purple">.song_artist</span>:</th>
                 <th class="table_heading name"><span class="purple">.song_title</span>:</th>
                 <th class="table_heading buttons"><span></span></th>
