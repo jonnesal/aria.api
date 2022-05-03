@@ -15,6 +15,9 @@
     <script type="text/javascript"
             src="https://res.cloudinary.com/veseylab/raw/upload/v1636192990/magicmouse/magic_mouse-1.2.1.cdn.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+    <script src="//rawgithub.com/browserstate/ajaxify/master/ajaxify-html5.js"></script>
+    <script src="//browserstate.github.io/history.js/scripts/bundled/html4+html5/jquery.history.js"></script>
+    <script type="text/javascript" src="main/scripts/jquery.history.js"></script>
 </head>
 
 <body>
@@ -33,10 +36,10 @@
         <span class="selected">.api()</span>
         <span><a class="infoBtn" href="#instructionModal">i.</a></span>
         <ul class="selector">
-            <li><a class="myLink active" divId="div1" id="home" href="#home">.api()</a></li>
-            <li><a class="myLink " divId="div2" id="trace" href="#trace">.trace()</a></li>
-            <li><a class="myLink " divId="div3" id="saved" href="#saved">.saved()</a></li>
-            <li><a class="myLink " divId="div4" id="contact" href="#contact">.contact()</a></li>
+            <li><a class="myLink active" divId="div1" id="home" href="home">.api()</a></li>
+            <li><a class="myLink " divId="div2" id="trace" href="trace">.trace()</a></li>
+            <li><a class="myLink " divId="div3" id="saved" href="saved">.saved()</a></li>
+            <li><a class="myLink " divId="div4" id="contact" href="contact">.contact()</a></li>
         </ul>
     </div>
 </div>
@@ -150,7 +153,7 @@
 
     <!--UPDATES THE LEFTMOST TEXT IN THE NAVBAR TO DISPLAY WHICH TAB IS CURRENTLY ACTIVE-->
     function updateSelected() {
-        $(".selected").text($("a[class*='active']").text()).fadeIn(700);
+        $(".selected").text($(".selector a[class*='active']").text()).fadeIn(700);
     }
 
     <!--MOMENTARILY ENABLES THE PULSATING EFFECT OF THE DOT NEXT TO THE PAGE TITLE-->
@@ -227,12 +230,11 @@
     });
 
     <!--CHANGES THE ACTIVE TAB IN THE NAVBAR-->
-    $(".selector a").click(function () {
+    /*$(".selector a").click(function () {
         $("a").removeClass(" active");
         $(this).addClass(" active");
         $(".selected").fadeOut(300);
-        setTimeout(updateSelected, 500);
-    });
+    });*/
 
     <!--COPIES THE EMAIL ADDRESS TO THE USERS CLIPBOARD ONCE THEY CLICK ON IT IN THE CONTACT TAB-->
     new ClipboardJS('.email');
@@ -241,16 +243,36 @@
     function newTabLoad(tab) {
         disableBorder();
         disableScrolling();
+        $(".selector a").removeClass(" active");
+
         $('.border1, .circle, .circle_pulse, .main').fadeOut();
-        let divId = tab;
+        setTimeout(scrollToTop, 400);
+        let divId;
+        if (tab === 'home') {
+            divId = 'div1';
+            $('.selector a[href=home]').addClass(" active");
+            setTimeout(enableScrolling, 2500);
+        } else if (tab === 'trace') {
+            divId = 'div2';
+            $('.selector a[href=trace]').addClass(" active");
+            setTimeout(enableScrolling, 2500);
+        } else if (tab === 'saved') {
+            divId = 'div3';
+            $('.selector a[href=saved]').addClass(" active");
+            setTimeout(enableScrolling, 2500);
+        } else if (tab === 'contact') {
+            divId = 'div4';
+            $('.selector a[href=contact]').addClass(" active");
+            disableScrolling();
+        }
 
         showLoader();
+        $(".selected").fadeOut(300);
+        setTimeout(updateSelected, 500);
 
         $(".circle, .border1").delay(700).fadeIn();
 
         setTimeout(pulse, 1200);
-        setTimeout(scrollToTop, 400);
-        setTimeout(enableScrolling, 2500);
         setTimeout(enableBorder, 2000);
         setTimeout(function () {
             typeWriter(divId)
@@ -260,69 +282,13 @@
     }
 
     <!--AJAX SCRIPT-->
-    $(function () {
-        $("#home").on("click", function () {
-            $.ajax({
-                type: 'GET',
-                url: '../html/home.html',
-                dataType: 'html',
-                success: function (result) {
-                    newTabLoad('div1');
-                    setTimeout(function () {
-                        $( ".main" ).empty();
-                        $('.main').html(result)
-                    }, 500);
-                }
-            });
-        });
-        $("#trace").on("click", function () {
-            $.ajax({
-                type: 'GET',
-                url: '../html/trace.html',
-                dataType: 'html',
-                success: function (result) {
-                    newTabLoad('div2');
-                    setTimeout(function () {
-                        $( ".main" ).empty();
-                        $('.main').html(result)
-                    }, 500);
-                }
-            });
-        });
-        $("#saved").on("click", function () {
-            $.ajax({
-                type: 'GET',
-                url: '../html/saved.html',
-                dataType: 'html',
-                success: function (result) {
-                    newTabLoad('div3');
-                    setTimeout(function () {
-                        $( ".main" ).empty();
-                        $('.main').html(result)
-                    }, 500);
-                }
-            });
-        });
-        $("#contact").on("click", function () {
-            $.ajax({
-                type: 'GET',
-                url: '../html/contact.html',
-                dataType: 'html',
-                success: function (result) {
-                    newTabLoad('div4');
-                    setTimeout(function () {
-                        $( ".main" ).empty();
-                        $('.main').html(result)
-                    }, 500);
-                }
-            });
-        });
-    });
+    let History = window.History;
 
-    <!--ANIMATIONS THAT PLAY WHEN THE USER LOADS INTO THE WEBSITE FOR THE FIRST TIME-->
-    $(function () {
+    $(function(){
+        History.pushState({path: 'home'}, 'home', './?page=home');
         disableScrolling();
         $(".main, #div5, .constantTitleDiv, .navbar, .border1, .border2, .circle, .circle_pulse, .loader").hide();
+        setTimeout(updateSelected, 500);
 
         setTimeout(function () {
             disableScrolling();
@@ -340,7 +306,63 @@
             setTimeout(enableScrolling, 2500);
             setTimeout(enableBorder, 2500)
         }, 500);
+
+        if (History.enabled) {
+            let page = get_url_value('page');
+            let path = page ? page : 'home';
+            // Load the page
+            load_page_content(path);
+        } else {
+            return false;
+        }
+
+        // Content update and back/forward button handler
+        History.Adapter.bind(window, 'statechange', function() {
+            let State = History.getState();
+            // Do ajax
+            load_page_content(State.data.path);
+            // Log the history object to your browser's console
+            History.log(State);
+        });
+
+        // Navigation link handler
+        $('.myLink').on('click', function(e) {
+            e.preventDefault();
+
+            let urlPath = $(this).attr('href');
+            let title = $(this).text();
+
+            History.pushState({path: urlPath}, title, './?page=' + urlPath); // When we do this, History.Adapter will also execute its contents.
+        });
+
+        function load_page_content(page) {
+            $.ajax({
+                type: 'GET',
+                url: '../html/' + page + '.html',
+                dataType: 'html',
+                success: function (result) {
+                    newTabLoad(page)
+                    setTimeout(function () {
+                        $( ".main" ).empty();
+                        $('.main').html(result)
+                    }, 500);
+                }
+            });
+        }
+
+        function get_url_value(variable) {
+            let query = window.location.search.substring(1);
+            let vars = query.split("&");
+            for (let i=0;i<vars.length;i++) {
+                let pair = vars[i].split("=");
+                if(pair[0] === variable){return pair[1];}
+            }
+            return(false);
+        }
     });
+
+    <!--ANIMATIONS THAT PLAY WHEN THE USER LOADS INTO THE WEBSITE FOR THE FIRST TIME-->
+
 </script>
 
 <!--SCRIPT FOR THE CUSTOM CURSOR-->
@@ -401,4 +423,3 @@
         })*/
     })
 </script>
-

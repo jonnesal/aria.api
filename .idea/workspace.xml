@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="363b56de-e820-4eae-9dda-9c9c6e0e2e08" name="Changes" comment="uusin versio 14">
-      <change beforePath="$PROJECT_DIR$/aria.api/main/html/saved.html" beforeDir="false" afterPath="$PROJECT_DIR$/aria.api/main/html/saved.html" afterDir="false" />
+    <list default="true" id="363b56de-e820-4eae-9dda-9c9c6e0e2e08" name="Changes" comment="uusin versio 15">
+      <change afterPath="$PROJECT_DIR$/aria.api/main/scripts/jquery.history.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/aria.api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aria.api.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aria.api/main/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aria.api/main/html/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +29,10 @@
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -71,6 +78,7 @@
       <workItem from="1651413929486" duration="15084000" />
       <workItem from="1651496210427" duration="11827000" />
       <workItem from="1651597659064" duration="3246000" />
+      <workItem from="1651607454002" duration="4074000" />
     </task>
     <task id="LOCAL-00001" summary="uusin versio">
       <created>1651348387414</created>
@@ -146,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651605616759</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="uusin versio 15">
+      <created>1651606004301</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1651606004301</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,6 +187,7 @@
     <MESSAGE value="saved.html testi lista" />
     <MESSAGE value="uusin versio 13" />
     <MESSAGE value="uusin versio 14" />
-    <option name="LAST_COMMIT_MESSAGE" value="uusin versio 14" />
+    <MESSAGE value="uusin versio 15" />
+    <option name="LAST_COMMIT_MESSAGE" value="uusin versio 15" />
   </component>
 </project>
