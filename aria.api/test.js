@@ -237,12 +237,11 @@ app.get('/saved',async function (req, res) {
 app.post('/delete', async function (req, res) {
 
     let song = req.body.title;
-    console.log(song);
 
-    const sqlQuery3 =  `DELETE FROM favorite WHERE song = ${song}`;
-    //const sqlQuery3 = ("DELETE * FROM favorite");
-    //const result = await pool.query(sqlQuery);
+    const sqlQuery3 =  (`DELETE FROM favorite WHERE song=('${song}')`);
+
     const result3 = await pool.query(sqlQuery3);
+
     console.log(result3);
 
 });
