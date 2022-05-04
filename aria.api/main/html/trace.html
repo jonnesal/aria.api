@@ -83,21 +83,33 @@
 
 <!--API RELATED SCRIPT FOR THE .TRACE() FUNCTION-->
 <script>
+
+
     $("#sendSonginfo").on("submit", function (e) {
         e.preventDefault()
         let artist = $("#name").val();
         let title = $("#song").val();
+        let dt = new Date();
+        let time = dt.getFullYear() + "-"
+            + (dt.getMonth() + 1) + "-"
+            + dt.getDate() + " "
+            + dt.getHours() + ":"
+            + dt.getMinutes() + ":"
+            + dt.getSeconds();
+
 
         $.post("http://localhost:8081/trace",
+
             {
                 'artist': artist,
-                'title': title
+                'title': title,
+                'time': time
             },
             function (data) {
                 console.log(data);
                 $(".lyrics").html((data.songLyrics));
-                $(".cover").fadeOut('slow').promise().done(function(){
-                    $(".cover").attr("src",data.albumArt).fadeIn();
+                $(".cover").fadeOut('slow').promise().done(function () {
+                    $(".cover").attr("src", data.albumArt).fadeIn();
                 });
 
                 $(".songTitle2").html(data.songFullTitle);
@@ -105,7 +117,22 @@
                 $(".songAlbum2").html(data.albumName);
                 $(".songDate2").html(data.releaseDate);
                 $(".songProducers2").html(data.producerList.join(", "));
+                console.log("MMMMMMMMMMMMMMMMMMMMMM");
+
             });
+        $.post("http://localhost:8081/history",
+
+            {
+                'artist': artist,
+                'title': title,
+                'time': time
+            },
+            function (data) {
+
+            });
+
+
+
     });
 
     //SAVE

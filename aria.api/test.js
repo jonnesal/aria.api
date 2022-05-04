@@ -37,7 +37,7 @@ let favoriteObj;
 let songInfo = new Object();
 let saveArtist;
 let saveTitle;
-
+let historyObjekti;
 app.post('/trace',async (req, res) => {
 
 
@@ -45,10 +45,6 @@ app.post('/trace',async (req, res) => {
 
     let title = req.body.artist;
     let artist = req.body.title;
-
-    //let time = req.body.time;
-
-
 
     const options = {
         apiKey: 'lC82BmEzP2bdMxsvN7VV0OwroYRkOmdepuS4LjNthaj1wMJwqcOGyRV27soK5l6C',
@@ -153,6 +149,8 @@ app.post('/trace',async (req, res) => {
 
     lisaaTietoa().then(r => console.log(""));
     songInfo = await lisaaTietoa();
+
+
     ///////////////////////////////////////////////////////
 
 
@@ -163,6 +161,41 @@ app.post('/trace',async (req, res) => {
 
 app.get('/trace',async function (req, res) {
     res.send(songInfo);
+});
+
+app.post('/history',async function (req, res) {
+    /////////////////////////////////////////////////
+    //HISTORY SQL
+
+    let time = req.body.time;
+    let artistHis = req.body.artist;
+    let titleHis = req.body.title;
+
+    try{
+        console.log(time);
+        const sqlQuery3 = (`INSERT INTO history (artist, song, aika) VALUES ('${artistHis}', '${titleHis}', '${time}')`);
+        await pool.query(sqlQuery3);
+
+    }catch(error) {
+
+    }
+
+    async function historyObj() {
+        let hisObj = await pool.query("SELECT * FROM history", function (err, result, fields) {
+            if (err) throw err;
+            Object.keys(result).forEach(function (key) {
+            });
+        });
+        return hisObj;
+    }
+    historyObjekti = await historyObj();
+
+    for (let i = 0; i < historyObjekti.length; i++) {
+        console.log(historyObjekti[i])
+    }
+
+    res.send(historyObjekti);
+
 });
 
 app.post('/saved',async function (req, res) {
@@ -209,7 +242,7 @@ app.post('/saved',async function (req, res) {
         }
     }
 
-    async function testi() {
+    async function favoritObj() {
         let favoriteObj = await pool.query("SELECT * FROM favorite", function (err, result, fields) {
             if (err) throw err;
             Object.keys(result).forEach(function (key) {
@@ -217,11 +250,13 @@ app.post('/saved',async function (req, res) {
         });
         return favoriteObj;
     }
-    favoriteObj = await testi();
+    favoriteObj = await favoritObj();
+
 
     for (let i = 0; i < favoriteObj.length; i++) {
         console.log(favoriteObj[i])
     }
+
 
     res.send(favoriteObj);
 
@@ -243,7 +278,6 @@ app.post('/delete', async function (req, res) {
     console.log(result3);
 
 });
-
 
 app.post('/', function (req, res) {
 
