@@ -165,14 +165,12 @@ app.get('/trace',async function (req, res) {
     res.send(songInfo);
 });
 
-
-
 app.post('/saved',async function (req, res) {
     let time = req.body.time;
 
     console.log(time + " " + saveArtist + " " + saveTitle);
 
-    if(typeof time !== 'undefined' && saveTitle !== 'undefined' && saveArtist !== 'undefined') {
+    if(time && saveTitle && saveArtist) {
 
         try{
 

@@ -30,6 +30,36 @@
 <!--CUSTOM CURSOR-->
 <div class="cursor"></div>
 
+<!--INSTRUCTIONS POP-UP-->
+<div id="instructionModal" class="modal" style="background-color: #0c0c0c">
+    <div class="modalTitle">
+        <span class="modalFirst">aria</span><span class="modalSecond">.usage('<span class="p1">i</span>nfo')</span>
+    </div>
+    <div class="description">
+        <p>How to use the .trace() function</p>
+    </div>
+    <div class="description2">
+        <span>.trace().instructions = {</span>
+    </div>
+    <div class="modalInstructions">
+        <p>
+            &#160;&#160;&#160;&#160;<span class="p1">step1</span>: '<span class="green">Lorem ipsum dolor sit amet, consectetur adipiscing</span>'
+            +
+            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'<span class="green">elit. Lorem ipsum dolor sit amet.</span>',<br><br>
+            &#160;&#160;&#160;&#160;<span class="p1">step2</span>: '<span class="green">Lorem ipsum dolor sit amet, consectetur adipiscing.</span>',<br><br>
+            &#160;&#160;&#160;&#160;<span class="p1">step3</span>: '<span class="green">Lorem ipsum dolor sit amet, consectetur adipiscing</span>'
+            +
+            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'<span class="green">elit. Lorem ipsum dolor sit amet. Lorem ipsum</span>'
+            +
+            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'<span class="green">dolor sit amet, consectetur adipiscing.</span>',<br><br>
+            &#160;&#160;&#160;&#160;<span class="p1">step4</span>: '<span class="green">Lorem ipsum dolor sit amet, consectetur adipiscing.</span>'
+        </p>
+    </div>
+    <div class="modalDescription3">
+        <span>}</span>
+    </div>
+</div>
+
 <!--NAVIGATION BAR-->
 <div class="navbar">
     <div class="selector-wrapper">
@@ -65,36 +95,6 @@
 <!--MAIN PAGE CONTENT-->
 <div class="main">
 
-</div>
-
-<!--INSTRUCTIONS POP-UP-->
-<div id="instructionModal" class="modal" style="background-color: #0c0c0c">
-    <div class="modalTitle">
-        <span class="modalFirst">aria</span><span class="modalSecond">.usage('<span class="p1">i</span>nfo')</span>
-    </div>
-    <div class="description">
-        <p>How to use the .trace() function</p>
-    </div>
-    <div class="description2">
-        <span>.trace().instructions = {</span>
-    </div>
-    <div class="modalInstructions">
-        <p>
-            &#160;&#160;&#160;&#160;<span class="p1">step1</span>: '<span class="green">Lorem ipsum dolor sit amet, consectetur adipiscing</span>'
-            +
-            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'<span class="green">elit. Lorem ipsum dolor sit amet.</span>',<br><br>
-            &#160;&#160;&#160;&#160;<span class="p1">step2</span>: '<span class="green">Lorem ipsum dolor sit amet, consectetur adipiscing.</span>',<br><br>
-            &#160;&#160;&#160;&#160;<span class="p1">step3</span>: '<span class="green">Lorem ipsum dolor sit amet, consectetur adipiscing</span>'
-            +
-            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'<span class="green">elit. Lorem ipsum dolor sit amet. Lorem ipsum</span>'
-            +
-            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'<span class="green">dolor sit amet, consectetur adipiscing.</span>',<br><br>
-            &#160;&#160;&#160;&#160;<span class="p1">step4</span>: '<span class="green">Lorem ipsum dolor sit amet, consectetur adipiscing.</span>'
-        </p>
-    </div>
-    <div class="modalDescription3">
-        <span>}</span>
-    </div>
 </div>
 
 <!--VISUAL FADE EFFECT AT THE BOTTOM OF THE SCREEN-->
@@ -173,19 +173,20 @@
     });
 
     <!--DISABLES SCROLLING IN THE Y-DIRECTION (HAS TO BE USED FOR THE POP-UP MODAL)-->
-    $('body').addClass('stop-scrolling1')
+    /*$('body').addClass('stop-scrolling1')
+    $('.navbar').removeClass(' disable_nav');
     $(document).on("click", function () {
-        $('body').addClass('stop-scrolling1')
-    });
+        $('body').addClass('stop-scrolling1');
+        $('.navbar').removeClass(' disable_nav');
+    });*/
 
     <!--BRINGS UP THE POP-UP INSTRUCTION WINDOW ON THE CLICK OF THE YELLOW LETTER 'i' IN THE NAVBAR-->
-    $('a[href="#instructionModal"]').click(function (event) {
-        event.preventDefault();
+    $('a[href="#instructionModal"]').on("click",function () {
         $(this).modal({
             showClose: false,
-            fadeDuration: 300
+            fadeDuration: 300,
         })
-        $('body').removeClass('stop-scrolling1')
+        //$('body').removeClass('stop-scrolling1');
     });
 
     <!--COPIES THE EMAIL ADDRESS TO THE USERS CLIPBOARD ONCE THEY CLICK ON IT IN THE CONTACT TAB-->
@@ -285,7 +286,24 @@
             let urlPath = $(this).attr('href');
             let title = $(this).text();
 
-            History.pushState({path: urlPath}, title, './' + urlPath); // When we do this, History.Adapter will also execute its contents.
+            History.pushState({path: urlPath}, title, './' + urlPath);
+        });
+
+        $('#expand').on("click", function () {
+            History.pushState({path: 'trace'}, 'trace', './trace');
+
+            $.ajax({
+                type: 'GET',
+                url: '../html/trace.html',
+                dataType: 'html',
+                success: function (result) {
+                    newTabLoad('trace')
+                    setTimeout(function () {
+                        $( ".main" ).empty();
+                        $('.main').html(result)
+                    }, 500);
+                }
+            });
         });
 
         function load_page_content(page) {

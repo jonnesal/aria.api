@@ -11,9 +11,7 @@
         <span>Here you can revisit <br>
         that which you sought.</span>
     </div>
-    <div class="home-container">
-        <!--<input type="button" value="Add Row" onclick="addRow('dataTable1')"/>-->
-        <!--<input type="button" value="refresh" id="refresh"/>-->
+    <div class="saved-container">
 
         <table id="dataTable1" class="tableFavorite">
             <caption>&#60;favorites&#62;</caption>
@@ -25,22 +23,7 @@
                 <th class="table_heading buttons"><span></span></th>
             </tr>
 
-            <!--<tr class="table_row">
-                <td class="table_content date">2022-05-03, 15:16:10</td>
-                <td class="table_content artist">Eminem</td>
-                <td class="table_content name">Godzilla (ft. Juice WRLD)</td>
-                <td class="table_content buttons">
-                    <button type="button" class="customButton4">
-                        <span class="gg-eye"></span>
-                    </button>
-                    <button type="button" buttonId="remove" class="customButton5">
-                        <span class="gg-close"></span>
-                    </button>
-                </td>
-            </tr>-->
         </table>
-
-        <!--<input type="button" value="Add Row" onclick="addRow('dataTable2')"/>-->
 
         <table id="dataTable2" class="tableHistory">
             <caption>&#60;search_history&#62;</caption>
@@ -60,6 +43,7 @@
 <script>
 
     $(function(){
+
         $.post("http://localhost:8081/saved").then((data) => {
             let favoriteObject = data;
             $('#dataTable1 .table_row').remove();
@@ -69,7 +53,7 @@
                     '                <td class="table_content artist" tableId="artist">' + favoriteObject[i].artist + '</td>\n' +
                     '                <td class="table_content name" tableId="name">' + favoriteObject[i].song + '</td>\n' +
                     '                <td class="table_content buttons">\n' +
-                    '                    <button type="button" class="customButton4">\n' +
+                    '                    <button type="button" buttonId="expand" class="customButton4">\n' +
                     '                        <span class="gg-eye"></span>\n' +
                     '                    </button>\n' +
                     '                    <button type="button" buttonId="remove" class="customButton5">\n' +
@@ -93,59 +77,47 @@
                         'date': date
                     })
             });
-        });
 
-    });
-
-
-
-    /*$('#refresh').click(function (e) {
-        e.preventDefault();
-        $.post("http://localhost:8081/saved").then((data) => {
-            let favoriteObject = data;
-            $('#dataTable1 .table_row').remove();
-            for (let i = 0; i < favoriteObject.length; i++) {
-                $('#dataTable1').append('<tr class="table_row">\n' +
-                    '                <td class="table_content">' + favoriteObject[i].aika + '</td>\n' +
-                    '                <td class="table_content">' + favoriteObject[i].artist + '</td>\n' +
-                    '                <td class="table_content">' + favoriteObject[i].song + '</td>\n' +
-                    '                <td class="table_content">\n' +
-                    '                    <button type="button" class="customButton4">\n' +
-                    '                        <span class="gg-eye"></span>\n' +
-                    '                    </button>\n' +
-                    '                    <button type="button" buttonId="remove" class="customButton5">\n' +
-                    '                        <span class="gg-close"></span>\n' +
-                    '                    </button>\n' +
-                    '                </td>\n' +
-                    '            </tr>');
-            }
-
-
-            $(".table_row button[buttonId^='remove']").on("click", function (e) {
+            $("button[buttonId^='expand']").on("click", function (e) {
                 e.preventDefault();
-                $(this).closest('.table_row').remove();
-            })
-        });
-    });*/
 
-    /*function addRow(tableID) {
-        $('#' + tableID).append('<tr class="table_row">\n' +
-            '                <td class="table_content">2022-05-03, 15:16:10</td>\n' +
-            '                <td class="table_content">Eminem</td>\n' +
-            '                <td class="table_content">Godzilla (ft. Juice WRLD)</td>\n' +
-            '                <td class="table_content">\n' +
-            '                    <button type="button" class="customButton4">\n' +
-            '                        <span class="gg-eye"></span>\n' +
-            '                    </button>\n' +
-            '                    <button type="button" buttonId="remove" class="customButton5">\n' +
-            '                        <span class="gg-close"></span>\n' +
-            '                    </button>\n' +
-            '                </td>\n' +
-            '            </tr>');
-        //$(".table_row:last").clone().appendTo('#' + tableID).removeAttr("style");
-        $(".table_row button[buttonId^='remove']").on("click", function (e) {
-            e.preventDefault();
-            $(this).closest('.table_row').remove();
-        })
-    }*/
+                let artist = $(this).closest('.table_row').find('td[tableId="artist"]').html();
+                let title = $(this).closest('.table_row').find('td[tableId="name"]').html();
+
+
+                $.post("http://localhost:8081/trace",
+                    {
+                        'artist': artist,
+                        'title': title
+                    },
+                    function (data) {
+                        console.log(data);
+                        $(".lyrics").html((data.songLyrics));
+                        $(".cover").fadeOut('slow').promise().done(function(){
+                            $(".cover").attr("src",data.albumArt).fadeIn();
+                        });
+
+                        $(".songTitle2").html(data.songFullTitle);
+                        $(".songArtists2").html(data.artistsList.join(", "));
+                        $(".songAlbum2").html(data.albumName);
+                        $(".songDate2").html(data.releaseDate);
+                        $(".songProducers2").html(data.producerList.join(", "));
+                    });
+
+                History.pushState({path: 'trace'}, 'trace', './trace');
+
+                $.ajax({
+                    type: 'GET',
+                    url: '../html/trace.html',
+                    dataType: 'html',
+                    success: function (result) {
+                        setTimeout(function () {
+                            $( ".main" ).empty();
+                            $('.main').html(result)
+                        }, 500);
+                    }
+                });
+            });
+        });
+    });
 </script>
