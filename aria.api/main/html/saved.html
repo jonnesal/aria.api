@@ -51,20 +51,6 @@
                 <th class="table_heading name"><span class="purple">.song_title</span>:</th>
                 <th class="table_heading buttons"><span></span></th>
             </tr>
-
-            <tr class="table_row">
-                <td class="table_content date">2022-05-03, 15:16:10</td>
-                <td class="table_content artist">Eminem</td>
-                <td class="table_content name" tableId="name">Godzilla (ft. Juice WRLD)</td>
-                <td class="table_content buttons">
-                    <button type="button" class="customButton4">
-                        <span class="gg-eye"></span>
-                    </button>
-                    <button type="button" buttonId="remove" class="customButton5">
-                        <span class="gg-close"></span>
-                    </button>
-                </td>
-            </tr>
         </table>
     </div>
 
@@ -79,7 +65,7 @@
             $('#dataTable1 .table_row').remove();
             for (let i = 0; i < favoriteObject.length; i++) {
                 $('#dataTable1').append('<tr class="table_row">\n' +
-                    '                <td class="table_content date">' + favoriteObject[i].aika + '</td>\n' +
+                    '                <td class="table_content date" tableId="date">' + favoriteObject[i].aika + '</td>\n' +
                     '                <td class="table_content artist" tableId="artist">' + favoriteObject[i].artist + '</td>\n' +
                     '                <td class="table_content name" tableId="name">' + favoriteObject[i].song + '</td>\n' +
                     '                <td class="table_content buttons">\n' +
@@ -97,14 +83,14 @@
                 e.preventDefault();
 
                 let songTitle = $(this).closest('.table_row').find('td[tableId="name"]').html();
-                let artist = $(this).closest('.table_row').find('td[tableId="artist"]').html();
+                let date = $(this).closest('.table_row').find('td[tableId="date"]').html();
 
                 $(this).closest('.table_row').remove();
 
                 $.post("http://localhost:8081/delete",
                     {
                         'title': songTitle,
-                        'artist': artist
+                        'date': date
                     })
             });
         });

@@ -181,8 +181,8 @@ html, body {
         height: 0.58vh;
     }
 
-    .customButton1, .customButton2 {
-        font-size: 1rem;
+    .gg-search, .gg-more-alt, .gg-bookmark, .gg-eye, .gg-close  {
+        --ggs: 1;
     }
 
     /*EFFECTS*/
@@ -302,8 +302,8 @@ html, body {
         height: 0.6vh;
     }
 
-    .customButton1, .customButton2 {
-        font-size: 1.3rem;
+    .gg-search, .gg-more-alt, .gg-bookmark, .gg-eye, .gg-close  {
+        --ggs: 1.25;
     }
 
     /*EFFECTS*/
@@ -483,7 +483,7 @@ li a {
 }
 
 .clearTop {
-    height: 46vh;
+    height: 47vh;
     display: block;
     width: 100%;
     top: 0;
@@ -491,7 +491,9 @@ li a {
 
 .title {
     position: relative;
-    margin: auto;
+    margin-bottom: 1rem;
+    float: left;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
@@ -514,7 +516,7 @@ li a {
     color: white;
     height: auto;
     width: 100%;
-    margin: 0;
+    margin: auto;
 }
 
 .home-container, .contact-container {
@@ -781,10 +783,6 @@ li a {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-}
-
-.gg-search, .gg-more-alt, .gg-bookmark  {
-    --ggs: 1.25;
 }
 
 .customButton1 {
