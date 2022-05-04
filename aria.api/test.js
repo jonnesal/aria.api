@@ -107,8 +107,8 @@ app.post('/trace',async (req, res) => {
         }
         let release = dat["song"]["release_date_for_display"];
 
-        saveArtist = mainArtist;
-        saveTitle = songFullName;
+        saveArtist = mainArtist.replace(/['"]+/g, '');
+        saveTitle = songFullName.replace(/['"]+/g, '');
 
         return {
             mainArtist: mainArtist,
@@ -142,7 +142,8 @@ app.post('/trace',async (req, res) => {
             songFullTitle: tiedot2.songFullName,
             artistsList: tiedot2.artistsList,
             producerList: tiedot2.producerList,
-            releaseDate: tiedot2.releaseDate
+            releaseDate: tiedot2.releaseDate,
+            mainArtist: tiedot2.mainArtist
         };
 
     };
@@ -171,13 +172,16 @@ app.post('/history',async function (req, res) {
     let artistHis = req.body.artist;
     let titleHis = req.body.title;
 
-    try{
-        console.log(time);
-        const sqlQuery3 = (`INSERT INTO history (artist, song, aika) VALUES ('${artistHis}', '${titleHis}', '${time}')`);
-        await pool.query(sqlQuery3);
+    if(time && titleHis && artistHis) {
 
-    }catch(error) {
+        try {
+            console.log(time + ", " + artistHis + ', ' + titleHis);
+            const sqlQuery3 = (`INSERT INTO history (artistHis, songHis, aikaHis) VALUES ('${artistHis}', '${titleHis}', '${time}')`);
+            await pool.query(sqlQuery3);
 
+        } catch (error) {
+
+        }
     }
 
     async function historyObj() {
@@ -190,8 +194,13 @@ app.post('/history',async function (req, res) {
     }
     historyObjekti = await historyObj();
 
-    for (let i = 0; i < historyObjekti.length; i++) {
-        console.log(historyObjekti[i])
+    if (historyObjekti.length > 10) {
+        try {
+            const sqlQuery4 = (`DELETE FROM history ORDER BY id LIMIT 1`);
+            await pool.query(sqlQuery4);
+        } catch (error) {
+
+        }
     }
 
     res.send(historyObjekti);
@@ -272,6 +281,18 @@ app.post('/delete', async function (req, res) {
     let date = req.body.date;
 
     const sqlQuery3 =  (`DELETE FROM favorite WHERE aika=('${date}')`);
+
+    const result3 = await pool.query(sqlQuery3);
+
+    console.log(result3);
+
+});
+
+app.post('/delete/history', async function (req, res) {
+
+    let date = req.body.date;
+
+    const sqlQuery3 =  (`DELETE FROM history WHERE aikaHis=('${date}')`);
 
     const result3 = await pool.query(sqlQuery3);
 

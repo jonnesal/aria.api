@@ -117,23 +117,18 @@
                 $(".songAlbum2").html(data.albumName);
                 $(".songDate2").html(data.releaseDate);
                 $(".songProducers2").html(data.producerList.join(", "));
-                console.log("MMMMMMMMMMMMMMMMMMMMMM");
+
+                $.post("http://localhost:8081/history",
+                    {
+                        'artist': (data.mainArtist).replace(/['"]+/g, ''),
+                        'title': (data.songFullTitle).replace(/['"]+/g, ''),
+                        'time': time
+                    });
 
             });
-        $.post("http://localhost:8081/history",
-
-            {
-                'artist': artist,
-                'title': title,
-                'time': time
-            },
-            function (data) {
-
-            });
-
-
 
     });
+
 
     //SAVE
     $('.customButton3').on("click",function () {

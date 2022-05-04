@@ -46,7 +46,7 @@
 
         $.post("http://localhost:8081/saved").then((data) => {
             let favoriteObject = data;
-            $('#dataTable1 .table_row').remove();
+
             for (let i = 0; i < favoriteObject.length; i++) {
                 $('#dataTable1').append('<tr class="table_row">\n' +
                     '                <td class="table_content date" tableId="date">' + favoriteObject[i].aika + '</td>\n' +
@@ -56,14 +56,88 @@
                     '                    <button type="button" buttonId="expand" class="customButton4">\n' +
                     '                        <span class="gg-eye"></span>\n' +
                     '                    </button>\n' +
-                    '                    <button type="button" buttonId="remove" class="customButton5">\n' +
+                    '                    <button type="button" buttonId="remove1" class="customButton5">\n' +
                     '                        <span class="gg-close"></span>\n' +
                     '                    </button>\n' +
                     '                </td>\n' +
                     '            </tr>');
             }
 
-            $("button[buttonId^='remove']").on("click", function (e) {
+            $.post("http://localhost:8081/history").then((data) => {
+                let historyObject = data;
+
+                for (let i = 0; i < historyObject.length; i++) {
+                    $('#dataTable2').append('<tr class="table_row">\n' +
+                        '                <td class="table_content date" tableId="date">' + historyObject[i].aikaHis + '</td>\n' +
+                        '                <td class="table_content artist" tableId="artist">' + historyObject[i].artistHis + '</td>\n' +
+                        '                <td class="table_content name" tableId="name">' + historyObject[i].songHis + '</td>\n' +
+                        '                <td class="table_content buttons">\n' +
+                        '                    <button type="button" buttonId="expand" class="customButton4">\n' +
+                        '                        <span class="gg-eye"></span>\n' +
+                        '                    </button>\n' +
+                        '                    <button type="button" buttonId="remove2" class="customButton5">\n' +
+                        '                        <span class="gg-close"></span>\n' +
+                        '                    </button>\n' +
+                        '                </td>\n' +
+                        '            </tr>');
+                }
+
+                $("button[buttonId^='remove2']").on("click", function (e) {
+                    e.preventDefault();
+
+                    let date = $(this).closest('.table_row').find('td[tableId="date"]').html();
+
+                    $(this).closest('.table_row').remove();
+
+                    $.post("http://localhost:8081/delete/history",
+                        {
+                            'date': date
+                        })
+
+                });
+
+                $("button[buttonId^='expand']").on("click", function () {
+
+                    let artist = $(this).closest('.table_row').find('td[tableId="artist"]').html();
+                    let title = $(this).closest('.table_row').find('td[tableId="name"]').html();
+
+
+                    $.post("http://localhost:8081/trace",
+                        {
+                            'artist': artist,
+                            'title': title
+                        },
+                        function (data) {
+                            console.log(data);
+                            $(".lyrics").html((data.songLyrics));
+                            $(".cover").fadeOut('slow').promise().done(function(){
+                                $(".cover").attr("src",data.albumArt).fadeIn();
+                            });
+
+                            $(".songTitle2").html(data.songFullTitle);
+                            $(".songArtists2").html(data.artistsList.join(", "));
+                            $(".songAlbum2").html(data.albumName);
+                            $(".songDate2").html(data.releaseDate);
+                            $(".songProducers2").html(data.producerList.join(", "));
+                        });
+
+                    History.pushState({path: 'trace'}, 'trace', './trace');
+
+                    $.ajax({
+                        type: 'GET',
+                        url: '../html/trace.html',
+                        dataType: 'html',
+                        success: function (result) {
+                            setTimeout(function () {
+                                $( ".main" ).empty();
+                                $('.main').html(result)
+                            }, 500);
+                        }
+                    });
+                });
+            });
+
+            $("button[buttonId^='remove1']").on("click", function (e) {
                 e.preventDefault();
 
                 let songTitle = $(this).closest('.table_row').find('td[tableId="name"]').html();
@@ -76,47 +150,6 @@
                         'title': songTitle,
                         'date': date
                     })
-            });
-
-            $("button[buttonId^='expand']").on("click", function (e) {
-                e.preventDefault();
-
-                let artist = $(this).closest('.table_row').find('td[tableId="artist"]').html();
-                let title = $(this).closest('.table_row').find('td[tableId="name"]').html();
-
-
-                $.post("http://localhost:8081/trace",
-                    {
-                        'artist': artist,
-                        'title': title
-                    },
-                    function (data) {
-                        console.log(data);
-                        $(".lyrics").html((data.songLyrics));
-                        $(".cover").fadeOut('slow').promise().done(function(){
-                            $(".cover").attr("src",data.albumArt).fadeIn();
-                        });
-
-                        $(".songTitle2").html(data.songFullTitle);
-                        $(".songArtists2").html(data.artistsList.join(", "));
-                        $(".songAlbum2").html(data.albumName);
-                        $(".songDate2").html(data.releaseDate);
-                        $(".songProducers2").html(data.producerList.join(", "));
-                    });
-
-                History.pushState({path: 'trace'}, 'trace', './trace');
-
-                $.ajax({
-                    type: 'GET',
-                    url: '../html/trace.html',
-                    dataType: 'html',
-                    success: function (result) {
-                        setTimeout(function () {
-                            $( ".main" ).empty();
-                            $('.main').html(result)
-                        }, 500);
-                    }
-                });
             });
         });
     });
