@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="363b56de-e820-4eae-9dda-9c9c6e0e2e08" name="Changes" comment="uusin versio 21">
+    <list default="true" id="363b56de-e820-4eae-9dda-9c9c6e0e2e08" name="Changes" comment="uusin versio 22">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aria.api/main/html/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/aria.api/main/html/contact.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/aria.api/main/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aria.api/main/html/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aria.api/main/html/saved.html" beforeDir="false" afterPath="$PROJECT_DIR$/aria.api/main/html/saved.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aria.api/main/html/trace.html" beforeDir="false" afterPath="$PROJECT_DIR$/aria.api/main/html/trace.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/aria.api/main/styles/main_styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/aria.api/main/styles/main_styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +85,10 @@
       <workItem from="1651496210427" duration="11827000" />
       <workItem from="1651597659064" duration="3246000" />
       <workItem from="1651607454002" duration="4074000" />
+      <workItem from="1651702538351" duration="11000" />
+      <workItem from="1651740857723" duration="15228000" />
+      <workItem from="1651774177548" duration="574000" />
+      <workItem from="1651779008365" duration="19838000" />
     </task>
     <task id="LOCAL-00001" summary="uusin versio">
       <created>1651348387414</created>
@@ -189,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651638289385</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="uusin versio 22">
+      <created>1651694781778</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1651694781779</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,6 +237,7 @@
     <MESSAGE value="uusin versio 18" />
     <MESSAGE value="uusin versio 19" />
     <MESSAGE value="uusin versio 21" />
-    <option name="LAST_COMMIT_MESSAGE" value="uusin versio 21" />
+    <MESSAGE value="uusin versio 22" />
+    <option name="LAST_COMMIT_MESSAGE" value="uusin versio 22" />
   </component>
 </project>

@@ -64,7 +64,47 @@
 
 <!--MAIN PAGE CONTENT-->
 <div class="main">
+    <div class="myDiv" id="div1">
+        <div class="clearTop"></div>
+        <div class="title">
+            <span class="first">aria</span>
+            <span class="second">.api()</span>
+        </div>
+        <div class="description">
+            <p>/ˈɑːrɪə/</p>
+        </div>
+        <div class="description2">
+        <span>In music, an aria is a self-<br>
+        contained piece for one voice.</span>
+        </div>
+        <div class="home-container">
+        <span class="span3">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Egestas sed sed risus pretium quam vulputate. Aliquet sagittis id
+            consectetur purus ut faucibus pulvinar elementum. Enim praesent
+            elementum facilisis leo vel fringilla est ullamcorper eget.
+            Quis auctor elit sed vulputate mi sit amet mauris. Sollicitudin
+            nibh sit amet commodo nulla. Cras tincidunt lobortis feugiat vivamus at.
+            Sed turpis tincidunt id aliquet. Quisque sagittis purus sit amet
+            volutpat consequat mauris nunc. Malesuada pellentesque elit eget
+            gravida cum sociis natoque penatibus. Viverra nam libero justo
+            laoreet sit amet cursus sit amet. Amet consectetur adipiscing
+            elit ut aliquam. Lorem ipsum dolor sit amet.</span>
+            <span class="span3">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Egestas sed sed risus pretium quam vulputate. Aliquet sagittis id
+            consectetur purus ut faucibus pulvinar elementum. Enim praesent
+            elementum facilisis leo vel fringilla est ullamcorper eget.
+            Quis auctor elit sed vulputate mi sit amet mauris. Sollicitudin
+            nibh sit amet commodo nulla. Cras tincidunt lobortis feugiat vivamus at.
+            Sed turpis tincidunt id aliquet. Quisque sagittis purus sit amet
+            volutpat consequat mauris nunc. Malesuada pellentesque elit eget
+            gravida cum sociis natoque penatibus. Viverra nam libero justo
+            laoreet sit amet cursus sit amet. Amet consectetur adipiscing
+            elit ut aliquam. Lorem ipsum dolor sit amet.</span>
+        </div>
 
+    </div> <!--HOME VIEW-->
 </div>
 
 <!--INSTRUCTIONS POP-UP-->
@@ -105,7 +145,6 @@
 <!--SCRIPT FOR SITE ANIMATIONS-->
 <script>
 
-    <!--SCROLLS TO THE TOP OF THE PAGE-->
     function scrollToTop() {
         $(window).scrollTop(0)
     }
@@ -162,35 +201,34 @@
         }
     }
 
-    <!--MAKES THE UPPER LINE VISIBLE ON THE LEFT SIDE OF THE SCREEN WHEN THE USER SCROLLS DOWN THE PAGE-->
-    window.addEventListener("scroll", () => {
-        const currentScroll = window.pageYOffset;
-
+    /*<!--MAKES THE UPPER LINE VISIBLE ON THE LEFT SIDE OF THE SCREEN WHEN THE USER SCROLLS DOWN THE PAGE-->
+    window.addEventListener("scroll", function() {
+        let currentScroll = window.scrollY;
         if (currentScroll > 0) {
-            $(".border2").show();
-        } else
-            $(".border2").fadeOut(300);
-    });
-
-    <!--DISABLES SCROLLING IN THE Y-DIRECTION (HAS TO BE USED FOR THE POP-UP MODAL)-->
-    /*$('body').addClass('stop-scrolling1')
-    $('.navbar').removeClass(' disable_nav');
-    $(document).on("click", function () {
-        $('body').addClass('stop-scrolling1');
-        $('.navbar').removeClass(' disable_nav');
+            $('.border2').show();
+        } else {
+            $('.border2').fadeOut(100);
+        }
     });*/
 
     <!--BRINGS UP THE POP-UP INSTRUCTION WINDOW ON THE CLICK OF THE YELLOW LETTER 'i' IN THE NAVBAR-->
-    $('a[href="#instructionModal"]').on("click",function () {
+    $('a[href="#instructionModal"]').on("click", function () {
         $(this).modal({
             showClose: false,
             fadeDuration: 300,
         })
-        //$('body').removeClass('stop-scrolling1');
     });
 
     <!--COPIES THE EMAIL ADDRESS TO THE USERS CLIPBOARD ONCE THEY CLICK ON IT IN THE CONTACT TAB-->
     new ClipboardJS('.email');
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 0) {
+            $('.border2').show();
+        } else {
+            $('.border2').fadeOut();
+        }
+    });
 
     <!--ANIMATIONS THAT PLAY WHEN THE USER CHANGES TABS FROM THE NAVBAR-->
     function newTabLoad(tab) {
@@ -200,6 +238,7 @@
 
         $('.border1, .circle, .circle_pulse, .main').fadeOut();
         setTimeout(scrollToTop, 400);
+
         let divId;
         if (tab === 'home') {
             divId = 'div1';
@@ -218,11 +257,10 @@
             $('.selector a[href=contact]').addClass(" active");
             disableScrolling();
         }
-
         showLoader();
         $(".selected").fadeOut(300);
         setTimeout(updateSelected, 500);
-
+        //alert($(".title").height())
         $(".circle, .border1").delay(700).fadeIn();
 
         setTimeout(pulse, 1200);
@@ -237,41 +275,35 @@
     <!--AJAX SCRIPT-->
     let History = window.History;
 
-    $(function(){
-        <!--ANIMATIONS THAT PLAY WHEN THE USER LOADS INTO THE WEBSITE FOR THE FIRST TIME-->
+    <!--ANIMATIONS THAT PLAY WHEN THE USER LOADS INTO THE WEBSITE FOR THE FIRST TIME-->
+    $(function () {
         History.pushState({path: 'home'}, 'home', './home');
+
+        scrollToTop();
+        disableBorder();
         disableScrolling();
-        $(".main, #div5, .constantTitleDiv, .navbar, .border1, .border2, .circle, .circle_pulse, .loader").hide();
-        setTimeout(updateSelected, 500);
 
+        $(".loader, .navbar, .circle, .circle_pulse, .border1, #div5, .main").hide();
+
+        showLoader();
         setTimeout(function () {
-            disableScrolling();
-            scrollToTop();
-            enableBorder();
-            showLoader();
+            $("#div5").delay(500).fadeIn(1000);
 
-            $('#div5').fadeIn(2000);
-            $(".border1").hide().delay(1000).show(200);
-            $(".circle").delay(900).fadeIn(300);
-            setTimeout(pulse, 1200);
-            typeWriter('div1');
+            $(".circle, .border1").delay(1300).fadeIn();
+            setTimeout(pulse, 1500);
 
-            $('.main, .constantTitleDiv, .navbar').delay(1000).fadeIn(2000);
+            typeWriter('div1')
+            $(".navbar, .main").delay(1700).fadeIn();
+
+
             setTimeout(enableScrolling, 2500);
-            setTimeout(enableBorder, 2500)
-        }, 500);
+            enableBorder();
+        }, 700);
 
-        if (History.enabled) {
-            let page = get_url_value('page');
-            let path = page ? page : 'home';
 
-            load_page_content(path);
-        } else {
-            return false;
-        }
 
         <!--UPDATE PAGE CONTENT ON PRESS OF BACK/FORWARD-->
-        History.Adapter.bind(window, 'statechange', function() {
+        History.Adapter.bind(window, 'statechange', function () {
             let State = History.getState();
 
             load_page_content(State.data.path);
@@ -280,9 +312,9 @@
         });
 
         // Navigation link handler
-        $('.myLink').on('click', function(e) {
+        $('.myLink').on('click', function (e) {
             e.preventDefault();
-
+            alert($(".floating").width())
             let urlPath = $(this).attr('href');
             let title = $(this).text();
 
@@ -299,7 +331,7 @@
                 success: function (result) {
                     newTabLoad('trace')
                     setTimeout(function () {
-                        $( ".main" ).empty();
+                        $(".main").empty();
                         $('.main').html(result)
                     }, 500);
                 }
@@ -312,11 +344,12 @@
                 url: '../html/' + page + '.html',
                 dataType: 'html',
                 success: function (result) {
-                    newTabLoad(page)
+                    newTabLoad(page);
                     setTimeout(function () {
-                        $( ".main" ).empty();
+                        $(".main").empty();
                         $('.main').html(result)
-                    }, 500);
+                    }, 500)
+
                 }
             });
         }
@@ -324,12 +357,16 @@
         function get_url_value(variable) {
             let query = window.location.search.substring(1);
             let vars = query.split("&");
-            for (let i=0;i<vars.length;i++) {
+            for (let i = 0; i < vars.length; i++) {
                 let pair = vars[i].split("=");
-                if(pair[0] === variable){return pair[1];}
+                if (pair[0] === variable) {
+                    return pair[1];
+                }
             }
-            return(false);
+            return (false);
         }
+
+
     });
 
 
