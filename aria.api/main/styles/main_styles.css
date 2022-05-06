@@ -942,8 +942,9 @@ body:not(body:hover) .cursor::after {
 /*<-------------------------------------SAVED-PAGE------------------------------------->*/
 
 .tableFavorite, .tableHistory {
-    height: auto;
+    border-collapse: collapse;
     table-layout: fixed;
+    width: 100%;
     margin-top: 2rem;
 }
 
@@ -984,28 +985,11 @@ td, th {
     color: white;
 }
 
-.tableFavorite .date, .tableHistory .date {
-    width: 25%;
-}
-
-.tableFavorite .artist, .tableHistory .artist {
-    width: 25%;
-}
-
-.tableFavorite .name, .tableHistory .name {
-    width: 40%;
-}
-
-.tableFavorite .buttons, .tableHistory .buttons {
-    width: 10%;
-}
-
 .customButton4, .customButton5 {
     position: relative;
-    float: left;
+    float: right;
     background: #FFC300;
     font-weight: 600;
-    border: 3px solid black;
     border-radius: 0.4em;
     box-shadow: 0.1em 0.1em;
     z-index: 10;
@@ -1013,14 +997,15 @@ td, th {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    margin-right: 0.5rem;
 }
 
 .customButton4 {
-    left: 0;
+    right: 0;
 }
 
 .customButton5 {
-    left: 5%;
+    right: 5%;
 }
 
 /*<-------------------------------------CONTACT-PAGE------------------------------------->*/
