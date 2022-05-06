@@ -1,30 +1,21 @@
 const express = require('express');
 const pool = require('./main/MariaConnect/database');
-var bodyParser = require('body-parser')
+const bodyParser = require('body-parser')
 const songs = require("genius-lyrics-api");
 const cors = require('cors');
-
-
-
 const path = require('path');
 const app = express();
-app.use(cors());
+
+
 
 app.set('view engine', 'html');
 
+
 app.use(express.static('./main'));
-//Import routes
-//const songInfo = require('./main/api_directory/api');
-const url = require("url");
-const mariadb = require("mariadb");
-const fetch = require("node-fetch");
-const axios = require("axios");
-const {makeArray} = require("jquery");
-
-
-app.use(bodyParser.urlencoded({ extended: false }))
-//app.use('/saved', postRoute);
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: false })) //express.json(); olisi myös voinut käyttää
 app.use(bodyParser.json())
+
 
 app.get('/',function (req, res) {
     res.sendFile(path.join(__dirname+'/main/html/index.html'));
@@ -33,21 +24,23 @@ app.get('/',function (req, res) {
 app.get('/home',function (req, res) {
     res.sendFile(path.join(__dirname+'/main/html/index.html'));
 });
+
 let favoriteObj;
 let songInfo = new Object();
 let saveArtist;
 let saveTitle;
 let historyObjekti;
+
+//Trace sivu
 app.post('/trace',async (req, res) => {
 
 
     //LYRIIKKA API
-
     let title = req.body.artist;
     let artist = req.body.title;
 
     const options = {
-        apiKey: 'lC82BmEzP2bdMxsvN7VV0OwroYRkOmdepuS4LjNthaj1wMJwqcOGyRV27soK5l6C',
+        apiKey: 'lC82BmEzP2bdMxsvN7VV0OwroYRkOmdepuS4LjNthaj1wMJwqcOGyRV27soK5l6C', //Regenereittaan api koodini koodin kurssin loputtua
         title: title,
         artist: artist,
         optimizeQuery: true
@@ -61,6 +54,9 @@ app.post('/trace',async (req, res) => {
             songAlbumArt: song.albumArt,
             songLyrics: song.lyrics
         }
+
+    }).catch(function (error) {
+        console.error(error);
     });
 
     console.log((await promise).songLyrics);
@@ -73,26 +69,17 @@ app.post('/trace',async (req, res) => {
 
     const optionss = {
         method: 'GET',
-        url: `https://genius.p.rapidapi.com/songs/${(await promise).songId}`, //id saadaan song lyrics api:lta
+        url: `https://genius.p.rapidapi.com/songs/${(await promise).songId}`, //song id saadaan song lyrics api:lta
         headers: {
             'X-RapidAPI-Host': 'genius.p.rapidapi.com',
-            'X-RapidAPI-Key': '338f534270msh8669883ed4f4f3dp1ebf08jsnb467c77a2b33'
+            'X-RapidAPI-Key': '338f534270msh8669883ed4f4f3dp1ebf08jsnb467c77a2b33' //Regenereittaan api koodini koodin kurssin loputtua
         }
     };
 
 
+    //Otetaan api response vastaan ja lisätään ne promisedSongInfo
+    const promisedSongInfo = axios.request(optionss).then(async (response) => {
 
-    axios.request(optionss).then(async function (response) {
-
-        //console.log(response.data);
-    }).catch(function (error) {
-        console.error(error);
-    });
-
-
-    const emt = axios.request(optionss).then(async (response) => {
-
-        //console.log(response.data);
         let dat = response.data.response;
         let mainArtist = dat["song"]["primary_artist"]["name"];
         let albumName = dat["song"].album["name"];
@@ -124,34 +111,32 @@ app.post('/trace',async (req, res) => {
 
     ///////////////////////////////
     //YHDISTETÄÄN OBJECTIT
-    let tiedot;
-    let tiedot2;
+    let LyricsInfo;
+    let ArtistInfo;
 
 
     const lisaaTietoa = async () => {
-        tiedot = await promise;
-        tiedot2 = await emt;
+        LyricsInfo = await promise;
+        ArtistInfo = await promisedSongInfo;
 
         return {
-            albumArt: tiedot.songAlbumArt,
-            songId: tiedot.songId,
-            url: tiedot.songUrl,
-            title: tiedot.songTitle,
-            songLyrics: tiedot.songLyrics,
-            albumName: tiedot2.albumName,
-            songFullTitle: tiedot2.songFullName,
-            artistsList: tiedot2.artistsList,
-            producerList: tiedot2.producerList,
-            releaseDate: tiedot2.releaseDate,
-            mainArtist: tiedot2.mainArtist
+            albumArt: LyricsInfo.songAlbumArt,
+            songId: LyricsInfo.songId,
+            url: LyricsInfo.songUrl,
+            title: LyricsInfo.songTitle,
+            songLyrics: LyricsInfo.songLyrics,
+            albumName: ArtistInfo.albumName,
+            songFullTitle: ArtistInfo.songFullName,
+            artistsList: ArtistInfo.artistsList,
+            producerList: ArtistInfo.producerList,
+            releaseDate: ArtistInfo.releaseDate,
+            mainArtist: ArtistInfo.mainArtist
         };
 
     };
 
     lisaaTietoa().then(r => console.log(""));
-    songInfo = await lisaaTietoa();
-
-
+    songInfo = await lisaaTietoa(); //Lisätään tiedot uuteen objektiin jotta niihin pääsisi käsiksi app.post /trace ulkopuoleltakin
     ///////////////////////////////////////////////////////
 
 
@@ -160,18 +145,23 @@ app.post('/trace',async (req, res) => {
 
 });
 
+
+
 app.get('/trace',async function (req, res) {
     res.send(songInfo);
 });
 
+//Front-end lähettää tietoa tähän osoitteeseen
 app.post('/history',async function (req, res) {
     /////////////////////////////////////////////////
     //HISTORY SQL
 
+    //Otetaan front-endistä tulevat tiedot vastaan ja asetetaan ne variableille.
     let time = req.body.time;
     let artistHis = req.body.artist;
     let titleHis = req.body.title;
 
+    //Lisätään  front-endistä tulevat tiedot tietokannan "history" taululle
     if(time && titleHis && artistHis) {
 
         try {
@@ -184,6 +174,8 @@ app.post('/history',async function (req, res) {
         }
     }
 
+
+    //Otetaan kaikki tiedot tietokannan history taululta
     async function historyObj() {
         let hisObj = await pool.query("SELECT * FROM history", function (err, result, fields) {
             if (err) throw err;
@@ -194,6 +186,7 @@ app.post('/history',async function (req, res) {
     }
     historyObjekti = await historyObj();
 
+    //Jos history taulussa on enemmän kuin 10 row niin poistateen id:n mukaan pienin eli vanhin row
     if (historyObjekti.length > 10) {
         try {
             const sqlQuery4 = (`DELETE FROM history ORDER BY id LIMIT 1`);
@@ -202,55 +195,31 @@ app.post('/history',async function (req, res) {
 
         }
     }
-
+    //lähetetään objekti front-endiin
     res.send(historyObjekti);
 
 });
 
 app.post('/saved',async function (req, res) {
-    let time = req.body.time;
+    let time = req.body.time; //Saadaan käyttäjän lähettämä tieto frond-endista
 
     console.log(time + " " + saveArtist + " " + saveTitle);
-
+    //Lisätään  front-endistä tulevat tiedot tietokannan "favorite" taululle
     if(time && saveTitle && saveArtist) {
 
         try{
 
-            //const sqlQuery = ("SELECT * FROM favorite");
-            const sqlQuery3 = (`INSERT INTO favorite (artist,song, aika) VALUES ('${saveArtist}', '${saveTitle}', '${time}')`);
-            //const sqlQuery = ("DELETE FROM favorite");
+            const sqlQuery = (`INSERT INTO favorite (artist,song, aika) VALUES ('${saveArtist}', '${saveTitle}', '${time}')`);
 
-            //const result = await pool.query(sqlQuery);
-            const result3 = await pool.query(sqlQuery3);
-            //const result2 = await pool.query(sqlQuery2);
+            const result = await pool.query(sqlQuery); //pool määritetään MariaConnect/database
 
-            /*async function testi() {
-                        let favoriteObj = await pool.query("SELECT * FROM favorite", function (err, result, fields) {
-                        if (err) throw err;
-                        Object.keys(result).forEach(function (key) {
-                        });
-                    });
-                    return favoriteObj;
-            }
-            const favoriteObj = await testi();
-
-            for (let i = 0; i < favoriteObj.length; i++) {
-                console.log(favoriteObj[i])
-            }
-
-            res.send(favoriteObj);*/
-
-            //const result2 = await pool.query(sqlQuery2);
-            console.log(result3);
-            //console.log(result);
-            //console.log(result2);
-            //console.log(result2);
+            console.log(result);
 
         }catch (error) {
             console.log(error);
         }
     }
-
+    //valitaan kaikki tiedot favorite taululta tietokannassa
     async function favoritObj() {
         let favoriteObj = await pool.query("SELECT * FROM favorite", function (err, result, fields) {
             if (err) throw err;
@@ -266,7 +235,7 @@ app.post('/saved',async function (req, res) {
         console.log(favoriteObj[i])
     }
 
-
+    //Lähetetään tietokannan tiedot frond-endiin
     res.send(favoriteObj);
 
 });
@@ -276,6 +245,7 @@ app.get('/saved',async function (req, res) {
 
 });
 
+//Frond-end lähettää tänne tiedot kun jotain halutaan poistaa favorite taulusta
 app.post('/delete', async function (req, res) {
 
     let date = req.body.date;
@@ -288,6 +258,7 @@ app.post('/delete', async function (req, res) {
 
 });
 
+//Frond-end lähettää tänne tiedot kun jotain halutaan poistaa history taulusta
 app.post('/delete/history', async function (req, res) {
 
     let date = req.body.date;
@@ -301,10 +272,6 @@ app.post('/delete/history', async function (req, res) {
 });
 
 app.post('/', function (req, res) {
-
-    //  console.log(`Full name is:${req.body} ${req.body}.`);
-    // let pas = JSON.stringify({req: req.body});
-    // console.log("PASKAAAAA" + pas);
 
 });
 
