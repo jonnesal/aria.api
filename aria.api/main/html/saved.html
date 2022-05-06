@@ -44,7 +44,9 @@
 
     $(function() {
 
-        $.post("http://localhost:8081/saved").then((data) => {
+        $.post("http://localhost:8081/saved").then((jsonData) => {
+            const data = JSON.parse(jsonData);
+
             let favoriteObject = data;
 
             for (let i = 0; i < favoriteObject.length; i++) {
@@ -63,7 +65,8 @@
                     '            </tr>');
             }
 
-            $.post("http://localhost:8081/history").then((data) => {
+            $.post("http://localhost:8081/history").then((jsonData) => {
+                const data = JSON.parse(jsonData);
                 let historyObject = data;
 
                 for (let i = 0; i < historyObject.length; i++) {
@@ -106,7 +109,9 @@
                             'artist': artist,
                             'title': title
                         },
-                        function (data) {
+                        function (jsonData) {
+                            const data = JSON.parse(jsonData);
+
                             $(".lyrics").scrambler({
                                 effect: "charbychar",
                                 final_text: data.songLyrics,

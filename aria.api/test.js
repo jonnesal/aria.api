@@ -30,7 +30,9 @@ let songInfo = new Object();
 let saveArtist;
 let saveTitle;
 let historyObjekti;
-
+let jsonTrace;
+let jsonHis;
+let jsonFavorite;
 //Trace sivu
 app.post('/trace',async (req, res) => {
 
@@ -140,15 +142,17 @@ app.post('/trace',async (req, res) => {
     ///////////////////////////////////////////////////////
 
 
-    //Lähetään tiedot frond-endiin
-    res.send(songInfo);
+    //Lähetään tiedot frond-endiin jsonina
+    jsonTrace = JSON.stringify(songInfo);
+
+    res.send(jsonTrace);
 
 });
 
 
 
 app.get('/trace',async function (req, res) {
-    res.send(songInfo);
+    res.send(jsonTrace);
 });
 
 //Front-end lähettää tietoa tähän osoitteeseen
@@ -196,7 +200,10 @@ app.post('/history',async function (req, res) {
         }
     }
     //lähetetään objekti front-endiin
-    res.send(historyObjekti);
+
+    jsonHis = JSON.stringify(historyObjekti);
+
+    res.send(jsonHis);
 
 });
 
@@ -236,12 +243,14 @@ app.post('/saved',async function (req, res) {
     }
 
     //Lähetetään tietokannan tiedot frond-endiin
-    res.send(favoriteObj);
+    jsonFavorite = JSON.stringify(favoriteObj);
+
+    res.send(jsonFavorite);
 
 });
 
 app.get('/saved',async function (req, res) {
-    res.send(favoriteObj);
+    res.send(jsonFavorite);
 
 });
 
