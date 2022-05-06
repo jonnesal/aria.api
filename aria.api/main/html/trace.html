@@ -103,7 +103,9 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula 
                 'title': title,
                 'time': time
             },
-            function (data) {
+            function (JsonData) {
+
+                const data = JSON.parse(JsonData);
                 $(".lyrics").scrambler({
                     effect: "charbychar",
                     final_text: data.songLyrics,
