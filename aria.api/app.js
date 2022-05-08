@@ -7,15 +7,13 @@ const path = require('path');
 const app = express();
 
 
-
 app.set('view engine', 'html');
 
 
 app.use(express.static('./main'));
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: false })) //express.json(); olisi myös voinut käyttää
+app.use(bodyParser.urlencoded({ extended: false })) //olisi myös voinut käyttää express.json();
 app.use(bodyParser.json())
-
 
 app.get('/',function (req, res) {
     res.sendFile(path.join(__dirname+'/main/html/index.html'));

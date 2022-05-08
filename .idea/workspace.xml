@@ -1,11 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="363b56de-e820-4eae-9dda-9c9c6e0e2e08" name="Changes" comment="uusin versio 31">
+    <list default="true" id="363b56de-e820-4eae-9dda-9c9c6e0e2e08" name="Changes" comment="json">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aria.api/main/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aria.api/main/html/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/aria.api/main/html/saved.html" beforeDir="false" afterPath="$PROJECT_DIR$/aria.api/main/html/saved.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aria.api/main/styles/main_styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/aria.api/main/styles/main_styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aria.api/main/html/trace.html" beforeDir="false" afterPath="$PROJECT_DIR$/aria.api/main/html/trace.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aria.api/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/aria.api/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/.babelrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/.babelrc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/.eslintignore" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/.eslintignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/.eslintrc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/.github/ISSUE_TEMPLATE/bug_report.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/.github/ISSUE_TEMPLATE/bug_report.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/.github/ISSUE_TEMPLATE/documentation.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/.github/ISSUE_TEMPLATE/documentation.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/.github/ISSUE_TEMPLATE/proposal.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/.github/ISSUE_TEMPLATE/proposal.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/.github/PULL_REQUEST_TEMPLATE.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/.github/PULL_REQUEST_TEMPLATE.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/.github/stale.yml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/.github/stale.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/.github/workflows/publish.yml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/.github/workflows/publish.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/.github/workflows/test.js.yml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/.github/workflows/test.js.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/.husky/pre-commit" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/.husky/pre-commit" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/.nvmrc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/.nvmrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/.prettierignore" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/.prettierignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/.prettierrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/.prettierrc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/bower.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/contributing.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/contributing.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/demo/constructor-node.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/demo/constructor-node.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/demo/constructor-nodelist.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/demo/constructor-nodelist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/demo/constructor-selector.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/demo/constructor-selector.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/demo/function-target.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/demo/function-target.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/demo/function-text.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/demo/function-text.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/demo/target-div.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/demo/target-div.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/demo/target-input.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/demo/target-input.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/demo/target-programmatic-copy.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/demo/target-programmatic-copy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/demo/target-programmatic-cut.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/demo/target-programmatic-cut.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/demo/target-textarea.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/demo/target-textarea.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/demo/text-programmatic-copy.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/demo/text-programmatic-copy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/dist/clipboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/dist/clipboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/dist/clipboard.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/dist/clipboard.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/karma.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/karma.conf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/package.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/package.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/src/actions/copy.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/src/actions/copy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/src/actions/cut.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/src/actions/cut.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/src/actions/default.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/src/actions/default.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/src/clipboard.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/src/clipboard.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/src/clipboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/src/clipboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/src/clipboard.test-d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/src/clipboard.test-d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/src/common/command.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/src/common/command.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/src/common/create-fake-element.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/src/common/create-fake-element.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/test/actions/copy.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/test/actions/copy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/test/actions/cut.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/test/actions/cut.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/test/actions/default.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/test/actions/default.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/test/clipboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/test/clipboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/test/common/command.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/test/common/command.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/test/common/create-fake-element.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/test/common/create-fake-element.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/clipboard/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/clipboard/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/delegate/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/delegate/.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/delegate/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/delegate/.travis.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/delegate/demo/delegate.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/delegate/demo/delegate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/delegate/demo/multiple.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/delegate/demo/multiple.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/delegate/demo/undelegate.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/delegate/demo/undelegate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/delegate/dist/delegate.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/delegate/dist/delegate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/delegate/karma.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/delegate/karma.conf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/delegate/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/delegate/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/delegate/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/delegate/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/delegate/src/closest.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/delegate/src/closest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/delegate/src/delegate.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/delegate/src/delegate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/delegate/test/closest.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/delegate/test/closest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/delegate/test/delegate.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/delegate/test/delegate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/good-listener/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/good-listener/.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/good-listener/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/good-listener/.travis.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/good-listener/bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/good-listener/bower.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/good-listener/demo/destroy.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/good-listener/demo/destroy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/good-listener/demo/multiple.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/good-listener/demo/multiple.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/good-listener/demo/node.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/good-listener/demo/node.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/good-listener/demo/nodelist.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/good-listener/demo/nodelist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/good-listener/demo/selector.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/good-listener/demo/selector.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/good-listener/dist/good-listener.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/good-listener/dist/good-listener.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/good-listener/karma.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/good-listener/karma.conf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/good-listener/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/good-listener/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/good-listener/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/good-listener/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/good-listener/src/is.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/good-listener/src/is.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/good-listener/src/listen.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/good-listener/src/listen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/good-listener/test/is.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/good-listener/test/is.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/good-listener/test/listen.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/good-listener/test/listen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/select/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/select/.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/select/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/select/.travis.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/select/bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/select/bower.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/select/demo/contenteditable.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/select/demo/contenteditable.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/select/demo/dropdown.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/select/demo/dropdown.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/select/demo/editable.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/select/demo/editable.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/select/demo/multiple.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/select/demo/multiple.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/select/demo/nested.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/select/demo/nested.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/select/demo/non-editable.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/select/demo/non-editable.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/select/dist/select.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/select/dist/select.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/select/karma.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/select/karma.conf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/select/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/select/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/select/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/select/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/select/src/select.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/select/src/select.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/select/test/select.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/select/test/select.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/tiny-emitter/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tiny-emitter/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/tiny-emitter/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tiny-emitter/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/tiny-emitter/dist/tinyemitter.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tiny-emitter/dist/tinyemitter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/tiny-emitter/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tiny-emitter/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/tiny-emitter/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tiny-emitter/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/tiny-emitter/instance.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tiny-emitter/instance.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/tiny-emitter/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tiny-emitter/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/tiny-emitter/test/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tiny-emitter/test/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/tiny-emitter/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tiny-emitter/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,25 +137,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Svyat's\Desktop\metropolia\web-projekti\aria.api\aria.api\main\views\partials" />
       <recent name="C:\Users\Svyat's\Desktop\metropolia\web-projekti\aria.api\aria.api\main\scripts" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.test.js">
+  <component name="RunManager" selected="Node.js.app.js">
+    <configuration name="app.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/aria.api/app.js" working-dir="$PROJECT_DIR$/aria.api">
+      <method v="2" />
+    </configuration>
     <configuration name="database.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/aria.api/main/MariaConnect/database.js" working-dir="$PROJECT_DIR$/aria.api/main/MariaConnect">
       <method v="2" />
     </configuration>
     <configuration name="geniusApi.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/aria.api/main/api_directory/geniusApi.js" working-dir="$PROJECT_DIR$/aria.api/main/api_directory">
-      <method v="2" />
-    </configuration>
-    <configuration name="test.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/aria.api/test.js" working-dir="$PROJECT_DIR$/aria.api">
       <method v="2" />
     </configuration>
     <configuration name="testi.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/aria.api/main/api_directory/testi.js" working-dir="$PROJECT_DIR$/aria.api/main/api_directory">
@@ -59,7 +170,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.test.js" />
+        <item itemvalue="Node.js.app.js" />
         <item itemvalue="Node.js.tilt.js" />
         <item itemvalue="Node.js.database.js" />
         <item itemvalue="Node.js.testi.js" />
@@ -84,6 +195,7 @@
       <workItem from="1651740857723" duration="15228000" />
       <workItem from="1651774177548" duration="574000" />
       <workItem from="1651779008365" duration="24161000" />
+      <workItem from="1652020389364" duration="997000" />
     </task>
     <task id="LOCAL-00001" summary="uusin versio">
       <created>1651348387414</created>

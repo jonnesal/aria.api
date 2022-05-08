@@ -9,5 +9,8 @@
     "scrambling-text": "^1.2.0",
     "tilt.js": "^1.2.1",
     "xmlhttprequest": "^1.8.0"
+  },
+  "scripts": {
+    "start": "node app.js"
   }
 }

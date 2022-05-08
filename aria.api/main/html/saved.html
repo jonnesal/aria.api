@@ -34,7 +34,7 @@
 </div>
 
 <script>
-
+    //Ottaa vastaan back-end tulevat tiedot ja asettaa ne sivulle
     $(function() {
 
         $.post("http://localhost:8081/saved").then((jsonData) => {
@@ -77,7 +77,8 @@
                         '                </td>\n' +
                         '            </tr>');
                 }
-
+                ////////////////////////////
+                //Lähettää käyttäjän laittamat tiedot back-endiin /history
                 $("button[buttonId^='remove2']").on("click", function (e) {
                     e.preventDefault();
 
@@ -91,7 +92,7 @@
                         })
 
                 });
-
+                //Lähettää käyttäjän laittamat tiedot back-endiin /trace
                 $("button[buttonId^='expand']").on("click", function () {
 
                     let artist = $(this).closest('.table_row').find('td[tableId="artist"]').html();
@@ -140,7 +141,7 @@
                     });
                 });
             });
-
+            //Lähettää käyttäjän laittamat tiedot back-endiin /delete
             $("button[buttonId^='remove1']").on("click", function (e) {
                 e.preventDefault();
 
